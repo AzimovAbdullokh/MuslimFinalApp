@@ -1,0 +1,40 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MuslimFinalApp" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <!-- Primary brand color. -->
+
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/control_tertiary_active</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/transparent</item>
+        <item name="colorPrimary">@color/black_smoke</item>
+        <item name="colorPrimaryVariant">@color/cardBackground</item>
+        <item name="colorOnPrimary">@color/control_tertiary_active</item>
+        <item name="progressColor">@color/red_mts</item>
+        <item name="progressTextColor">@color/progressTextColor</item>
+        <item name="tabIndicatorColor">@color/violet</item>
+        <item name="cardBackgroundColor">@color/white_smoke</item>
+        <item name="totalColor">@color/progressLeftcolor</item>
+        <item name="android:itemTextAppearance">@style/itemTextStyle.PopupMenuDefaultTextStyle
+        </item>
+
+        <item name="background">@color/cardBackground</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/blue</item>
+        <item name="colorSecondaryVariant">@color/blue</item>
+
+        <!-- Customize your theme here. -->
+
+    </style>
+
+    <style name="BottomCornerRadius" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomRight">40dp</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="android:topRightRadius">0dp</item>
+        <item name="cornerSizeBottomLeft">40dp</item>
+    </style>
+
+</resources>

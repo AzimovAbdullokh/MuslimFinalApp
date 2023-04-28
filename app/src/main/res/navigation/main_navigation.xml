@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/home_screen_main">
+
+
+    <fragment
+        android:id="@+id/home_screen_main"
+        android:name="com.example.main_screen.presentation.MainScreenFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_main_screen">
+
+        <action
+            android:id="@+id/action_home_screen_main_to_bookDetailsFragment"
+            app:destination="@id/bookInfoFragment"
+            app:enterAnim="@anim/animate_fade_enter"
+            app:exitAnim="@anim/animate_fade_exit"
+            app:popEnterAnim="@anim/animate_fade_enter"
+            app:popExitAnim="@anim/animate_fade_exit" />
+
+        <action
+            android:id="@+id/action_home_screen_main_to_testsCategoryFragment"
+            app:enterAnim="@anim/to_left_in"
+            app:exitAnim="@anim/to_right_out"
+            app:popEnterAnim="@anim/to_left_in"
+            app:popExitAnim="@anim/to_right_out" />
+        <action
+            android:id="@+id/action_home_screen_main_to_surahInfoFragment"
+            app:destination="@id/surahInfoFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down"
+            app:popEnterAnim="@anim/slide_up"
+            app:popExitAnim="@anim/slide_down" />
+        <action
+            android:id="@+id/action_home_screen_main_to_mainQuranScreenFragment"
+            app:destination="@id/mainQuranScreenFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/screen_nasheeds"
+        android:name="com.example.alarms.presentation.ui.NasheedsFragment"
+        android:label="fragment_prayer"
+        tools:layout="@layout/fragment_nasheeds"/>
+
+
+    <fragment
+        android:id="@+id/bookInfoFragment"
+        android:name="com.example.book_info.presentation.ui.BookInfoFragment"
+        android:label="BookInfoFragment" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/surahInfoFragment"
+        android:name="com.example.surah_info.presentation.ui.SurahInfoFragment"
+        android:label="SurahInfoFragment" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainQuranScreenFragment"
+        android:name="com.example.main_quran.presentation.MainQuranScreenFragment"
+        android:label="MainQuranScreenFragment" />
+
+
+    <!--    <fragment-->
+<!--        android:id="@+id/testsCategoryFragment"-->
+<!--        android:name="com.example.muslimfinalapp.app.ui.screen_test_category.TestsCategoryFragment"-->
+<!--        android:label="fragment_tests_category"-->
+<!--        tools:layout="@layout/fragment_tests_category" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/bookInfoFragment"-->
+<!--        android:name="com.example.book_info.presentation.ui.BookInfoFragment"-->
+<!--        android:label="BookInfoFragment" >-->
+<!--        <argument-->
+<!--            android:name="id"-->
+<!--            app:argType="string" />-->
+<!--    </fragment>-->
+
+
+</navigation>

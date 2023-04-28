@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="16dp">
+
+<!--        <Toolbar-->
+<!--            style="@style/ToolbarStylesLogin"-->
+<!--            android:title="@string/teacher_sighUp" />-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/EditTextStyleInputLayoutLoginStyle"
+            android:hint="@string/last_name">
+
+            <com.google.android.material.textfield.TextInputEditText style="@style/EditTextStyleInputLoginStyle" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/EditTextStyleInputLayoutLoginStyle"
+            android:hint="@string/last_name">
+
+            <com.google.android.material.textfield.TextInputEditText style="@style/EditTextStyleInputLoginStyle" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/EditTextStyleInputLayoutLoginStyle"
+            android:hint="@string/your_email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/EditTextStyleInputLoginStyle"
+                android:inputType="textEmailSubject" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/EditTextStyleInputLayoutLoginStyle"
+            android:hint="@string/your_password"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/EditTextStyleInputLoginStyle"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signUpBtn"
+            style="@style/ButtonStyle.Blue.AppStyle"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/appGreen"
+            android:text="@string/signUp" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

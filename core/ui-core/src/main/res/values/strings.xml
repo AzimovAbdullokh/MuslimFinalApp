@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Muslim App</string>
+    <string name="khadisses">Khadisses</string>
+    <string name="islamicBooks">Islamic Books</string>
+    <string name="your_location">Your Location</string>
+    <string name="readers">Quran readers</string>
+    <string name="surah">Surah</string>
+
+    <string name="main">Main</string>
+    <string name="mosques">Mosques</string>
+    <string name="alarm">Alarms</string>
+    <string name="qurans">Qurans</string>
+    <string name="kajian">Kajian</string>
+    <string name="nasheeds">Nasheeds</string>
+    <string name="calendar">Calendar</string>
+    <string name="settings">Settings</string>
+    <string name="profile">Profile</string>
+    <string name="enter">Enter</string>
+    <string name="moreSurah">More Surah</string>
+    <string name="signUp">Registration</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="fix">Fix</string>
+    <string name="online_tests">Interesting online islamic test!</string>
+    <string name="tests">Select tests by category</string>
+    <string name="summary">Summary</string>
+    <string name="best_nasheeds">Best Nasheeds For You</string>
+    <string name="name_input_format_error">Invalid name input format!</string>
+    <string name="last_name_input_format_error">Incorrect format for entering the last name!</string>
+    <string name="email_input_format_error">Invalid email input format!</string>
+    <string name="password_input_format_error">Incorrect password input format!</string>
+    <string name="generic_error">Something went wrong.</string>
+    <string name="service_unavailable">Server Error.</string>
+    <string name="time_namaz">Time of next namaz</string>
+
+
+    <string name="your_email">Your email</string>
+    <string name="your_password">Your password</string>
+    <string name="teacher_sighUp">User Registration</string>
+
+    // Errors
+
+    //Loading Dialog
+    <string name="loading_book">Preparing for reading…</string>
+
+    // ExoPlayer
+    <string name="playback_speed">%sx</string>
+
+</resources>

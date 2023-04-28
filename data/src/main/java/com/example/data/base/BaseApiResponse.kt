@@ -1,0 +1,103 @@
+package com.example.data.base
+
+import com.example.data.R
+import com.example.data.cloud.CloudDataRequestState
+import com.example.data.data.ResourceProvider
+import com.example.domain.domain.Resource
+import com.example.domain.domain.domain.Mapper
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import retrofit2.Response
+
+abstract class BaseApiResponse(private val resourceProvider: ResourceProvider) {
+
+    suspend fun <T, K> safeApiMapperCall(
+        mapper: Mapper<T, K>,
+        apiCall: suspend () -> Response<T>,
+    ): Resource<K> {
+        try {
+            val response = withContext(Dispatchers.IO) { apiCall() }
+            if (response.isSuccessful) {
+                val body = withContext(Dispatchers.Default) { response.body() }
+                body?.let { return Resource.success(data = mapper.map(body)) }
+            }
+            return when {
+                response.code() == 400 -> Resource.error(message = resourceProvider.getString(R.string.account_already_exist))
+                response.code() == 404 -> Resource.error(message = resourceProvider.getString(R.string.invalid_password_username))
+                response.code() == 209 -> Resource.empty()
+                else -> Resource.error(message = response.message())
+            }
+        } catch (exception: Exception) {
+            return Resource.error(message = resourceProvider.fetchErrorMessage(exception = exception))
+        }
+    }
+
+    suspend fun <T, K> safeApiMapperListCall(
+        mapper: Mapper<T, K>,
+        apiCall: suspend () -> Response<List<T>>,
+    ): Resource<List<K>> {
+        try {
+            val response = withContext(Dispatchers.IO) { apiCall() }
+            if (response.isSuccessful) {
+                val body = withContext(Dispatchers.Default) { response.body() }
+                body?.let { return Resource.success(data = body.map { mapper.map(it) }) }
+            }
+            return when {
+                response.code() == 400 -> Resource.error(message = resourceProvider.getString(R.string.account_already_exist))
+                response.code() == 404 -> Resource.error(message = resourceProvider.getString(R.string.invalid_password_username))
+                else -> Resource.error(message = response.message())
+            }
+        } catch (exception: Exception) {
+            return Resource.error(message = resourceProvider.fetchErrorMessage(exception = exception))
+        }
+    }
+
+    suspend fun <T> safeApiCall(
+        apiCall: suspend () -> Response<T>,
+    ): Resource<T> {
+        try {
+            val response = withContext(Dispatchers.IO) { apiCall() }
+            if (response.isSuccessful) {
+                val body = withContext(Dispatchers.Default) { response.body() }
+                body?.let { return Resource.success(data = body) }
+            }
+            return Resource.error(message = response.message())
+
+        } catch (exception: Exception) {
+            return Resource.error(message = resourceProvider.fetchErrorMessage(exception = exception))
+        }
+    }
+
+    suspend fun <T> safeApiCalll(
+        apiCall: suspend () -> Response<T>,
+    ): CloudDataRequestState<T> {
+        try {
+            val response = withContext(Dispatchers.IO) { apiCall() }
+            if (response.isSuccessful) {
+                val body = withContext(Dispatchers.Default) { response.body() }
+                body?.let { return CloudDataRequestState.Success(data = body) }
+            }
+            return CloudDataRequestState.Error(error = java.lang.IllegalStateException())
+
+        } catch (exception: Throwable) {
+            return CloudDataRequestState.Error(exception)
+        }
+    }
+
+    suspend fun <T, K> safeApiMapperCalll(
+        mapper: Mapper<T, K>,
+        apiCall: suspend () -> Response<T>,
+    ): CloudDataRequestState<K> {
+        try {
+            val response = withContext(Dispatchers.IO) { apiCall() }
+            if (response.isSuccessful) {
+                val body = withContext(Dispatchers.Default) { response.body() }
+                body?.let { return CloudDataRequestState.Success(data = mapper.map(body)) }
+            }
+            return CloudDataRequestState.Error(error = java.lang.IllegalStateException())
+        } catch (exception: Throwable) {
+            return CloudDataRequestState.Error(exception)
+        }
+    }
+
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/home_screen_main"
+        android:checked="true"
+        android:icon="@drawable/main_component_svgrepo_com"
+        android:title="@string/main" />
+
+    <item
+        android:id="@+id/screen_nasheeds"
+        android:checked="true"
+        android:icon="@drawable/music_1005_svgrepo_com"
+        android:title="@string/nasheeds" />
+
+
+    <item
+        android:id="@+id/screen_settings"
+        android:checked="true"
+        android:icon="@drawable/settings_svgrepo_com__1_"
+        android:title="@string/settings" />
+
+
+</menu>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/common" />
+            <option value="$PROJECT_DIR$/core/common/common-api" />
+            <option value="$PROJECT_DIR$/core/common/common-impl" />
+            <option value="$PROJECT_DIR$/core/theme" />
+            <option value="$PROJECT_DIR$/core/ui-core" />
+            <option value="$PROJECT_DIR$/core/utils-core" />
+            <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/domain" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/alarms" />
+            <option value="$PROJECT_DIR$/features/book-info" />
+            <option value="$PROJECT_DIR$/features/compass" />
+            <option value="$PROJECT_DIR$/features/main-books" />
+            <option value="$PROJECT_DIR$/features/main-khadis" />
+            <option value="$PROJECT_DIR$/features/main-quran" />
+            <option value="$PROJECT_DIR$/features/main-screen" />
+            <option value="$PROJECT_DIR$/features/main-test" />
+            <option value="$PROJECT_DIR$/features/profile" />
+            <option value="$PROJECT_DIR$/features/sign-in" />
+            <option value="$PROJECT_DIR$/features/sign-up" />
+            <option value="$PROJECT_DIR$/features/splash" />
+            <option value="$PROJECT_DIR$/features/surah-info" />
+            <option value="$PROJECT_DIR$/features/test-category" />
+            <option value="$PROJECT_DIR$/navigation" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
