@@ -12,7 +12,7 @@
         android:id="@+id/screen_nasheeds"
         android:checked="true"
         android:icon="@drawable/music_1005_svgrepo_com"
-        android:title="@string/nasheeds" />
+        android:title="Audios" />
 
 
     <item

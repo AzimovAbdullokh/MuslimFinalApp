@@ -42,13 +42,13 @@ android {
 }
 
 dependencies {
-    implementation project(":features:alarms")
-    implementation project(":features:compass")
-    implementation project(":features:main-screen")
-    implementation project(":features:book-info")
-    implementation project(":features:surah-info")
-    implementation project(":features:profile")
-    implementation project(":features:main-quran")
+    implementation project(':features:audio_screen')
+    implementation project(':features:compass-screen')
+    implementation project(':features:main_screen')
+    implementation project(':features:book-info-screen')
+    implementation project(':features:surah-info-screen')
+    implementation project(':features:profile-screen')
+    implementation project(':features:quran-screen')
     implementation project(":features:saved-screen")
 
 
@@ -57,7 +57,7 @@ dependencies {
     implementation project(":data")
     implementation project(":core:ui-core")
     implementation project(":domain")
-    implementation project(":audioservice")
+    implementation project(':audio-player')
 
 
     //Room

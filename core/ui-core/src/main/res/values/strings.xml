@@ -14,6 +14,8 @@
     <string name="qurans">Qurans</string>
     <string name="masalah">Masalah</string>
     <string name="nasheeds">Nasheeds</string>
+    <string name="create_a_playlist_to_nasheeds">Create a playlist</string>
+    <string name="audios">Audios</string>
     <string name="saved">Saved</string>
     <string name="calendar">Calendar</string>
     <string name="settings">Settings</string>
@@ -36,6 +38,7 @@
     <string name="generic_error">Something went wrong.</string>
     <string name="service_unavailable">Server Error.</string>
     <string name="time_namaz">Time of next namaz</string>
+    <string name="what_are_we_looking_for">What are we looking for?</string>
 
 
     <string name="your_email">Your email</string>

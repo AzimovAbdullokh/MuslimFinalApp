@@ -41,9 +41,17 @@
 
     <fragment
         android:id="@+id/screen_nasheeds"
-        android:name="com.example.alarms.presentation.ui.NasheedsFragment"
+        android:name="com.example.alarms.presentation.audio_screen.NasheedsFragment"
         android:label="fragment_prayer"
-        tools:layout="@layout/fragment_nasheeds"/>
+        tools:layout="@layout/fragment_nasheeds">
+        <action
+            android:id="@+id/action_screen_nasheeds_to_searchAudioFragment"
+            app:destination="@id/searchAudioFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down"
+            app:popEnterAnim="@anim/slide_up"
+            app:popExitAnim="@anim/slide_down" />
+    </fragment>
 
 
     <fragment
@@ -66,6 +74,10 @@
         android:id="@+id/mainQuranScreenFragment"
         android:name="com.example.main_quran.presentation.MainQuranScreenFragment"
         android:label="MainQuranScreenFragment" />
+    <fragment
+        android:id="@+id/searchAudioFragment"
+        android:name="com.example.alarms.presentation.search_audio_screen.SearchAudioFragment"
+        android:label="SearchAudioFragment" />
 
 
     <!--    <fragment-->
