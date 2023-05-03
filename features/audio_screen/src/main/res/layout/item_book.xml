@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="120dp"
+    android:layout_height="230dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginBottom="8dp"
+    android:backgroundTint="@color/control_tertiary_active"
+    android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:backgroundTint="@color/control_tertiary_active"
+        android:gravity="start"
+        android:orientation="vertical"
+        android:visibility="visible"
+        tools:visibility="visible">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/control_tertiary_active">
+
+
+            <ImageView
+                android:id="@+id/bookPoster"
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/book_example" />
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fadingEdgeLength="30dp"
+            android:requiresFadingEdge="horizontal"
+            android:singleLine="true"
+            tools:text="@tools:sample/lorem/random" />
+
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fadingEdgeLength="30dp"
+            android:requiresFadingEdge="horizontal"
+            android:singleLine="true"
+            android:textColor="@color/gray"
+            tools:text="@tools:sample/lorem/random" />
+    </LinearLayout>
+
+</LinearLayout>

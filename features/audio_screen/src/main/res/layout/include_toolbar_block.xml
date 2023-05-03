@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -32,15 +31,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/saved_btn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginEnd="22dp"
-                android:src="@drawable/pin_light"
-                app:layout_constraintBottom_toBottomOf="@+id/search_btn"
-                app:layout_constraintEnd_toStartOf="@+id/search_btn"
-                app:layout_constraintTop_toTopOf="@+id/search_btn" />
 
             <ImageView
                 android:id="@+id/add_shelf_btn"
@@ -48,10 +38,10 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="22dp"
-                android:src="@drawable/add_ring_light"
-                app:layout_constraintBottom_toBottomOf="@+id/saved_btn"
-                app:layout_constraintEnd_toStartOf="@+id/saved_btn"
-                app:layout_constraintTop_toTopOf="@+id/saved_btn" />
+                android:src="@drawable/add_playlist_2_svgrepo_com"
+                app:layout_constraintBottom_toBottomOf="@+id/search_btn"
+                app:layout_constraintEnd_toStartOf="@+id/search_btn"
+                app:layout_constraintTop_toTopOf="@+id/search_btn" />
 
             <ImageView
                 android:id="@+id/search_btn"

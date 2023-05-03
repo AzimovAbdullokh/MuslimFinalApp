@@ -20,9 +20,11 @@
         android:background="@color/transparent"
         android:paddingVertical="10dp"
         android:src="@drawable/ic_white_back"
+        android:tint="@color/apple_darkest"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/black" />
+        app:tint="@color/apple_darkest"
+        tools:ignore="UseAppTint" />
 
     <TextView
         android:id="@+id/textView4"
@@ -34,7 +36,7 @@
         android:fontFamily="@font/poppins_extra_bold"
         android:text="@string/what_are_we_looking_for"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/apple_darkest"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/up_button"
         app:layout_constraintStart_toEndOf="@+id/up_button"

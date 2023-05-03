@@ -24,6 +24,7 @@
         android:fontFamily="@font/poppins_semi_bold"
         android:textColor="@color/apple_darkest"
         android:text="see more"
+        android:visibility="gone"
         android:textSize="16sp" />
 
 </LinearLayout>

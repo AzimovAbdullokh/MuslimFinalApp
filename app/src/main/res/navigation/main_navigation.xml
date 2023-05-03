@@ -56,7 +56,7 @@
 
     <fragment
         android:id="@+id/bookInfoFragment"
-        android:name="com.example.book_info.presentation.ui.BookInfoFragment"
+        android:name="com.example.book_info.presentation.BookInfoFragment"
         android:label="BookInfoFragment" >
         <argument
             android:name="id"
@@ -87,7 +87,7 @@
 <!--        tools:layout="@layout/fragment_tests_category" />-->
 <!--    <fragment-->
 <!--        android:id="@+id/bookInfoFragment"-->
-<!--        android:name="com.example.book_info.presentation.ui.BookInfoFragment"-->
+<!--        android:name="com.example.book_info.presentation.BookInfoFragment"-->
 <!--        android:label="BookInfoFragment" >-->
 <!--        <argument-->
 <!--            android:name="id"-->

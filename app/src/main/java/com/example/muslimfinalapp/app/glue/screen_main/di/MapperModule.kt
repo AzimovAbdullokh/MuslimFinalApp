@@ -5,9 +5,9 @@ import com.example.domain.domain.domain.models.books.BookDomain
 import com.example.domain.domain.domain.models.khadisses.KhadisDomain
 import com.example.domain.domain.domain.models.readers.ReaderDomain
 import com.example.domain.domain.domain.models.surah.SurahDomain
-import com.example.main_screen.domain.models.books.BookFeatureModel
+import com.example.alarms.domain.models.books.BookFeatureModel
 import com.example.main_screen.domain.models.khadisses.KhadisFeatureModel
-import com.example.main_screen.domain.models.readers.ReadersFeatureModel
+import com.example.alarms.domain.models.readers.ReadersFeatureModel
 import com.example.main_screen.domain.models.surah.SurahFeatureModuleDomainModel
 import com.example.main_screen.presentation.mappers.*
 import com.example.main_screen.presentation.models.*
@@ -26,35 +26,18 @@ abstract class MapperModule {
         impl: MainItemsToSearchFilteredFeatureModelMapperImpl,
     ): MainItemsToSearchFilteredFeatureModelMapper
 
-    @Binds
-    abstract fun bindBookDomainToBookFeatureModelMapper(
-        impl: BookDomainToBookFeatureModelMapper,
-    ): Mapper<BookDomain, BookFeatureModel>
 
     @Binds
     abstract fun bindKhadisDomainToFeatureModelMapper(
         impl: KhadisDomainToFeatureModelMapper,
     ): Mapper<KhadisDomain, KhadisFeatureModel>
 
-    @Binds
-    abstract fun bindReaderDomainToFeatureModelMapper(
-        impl: ReaderDomainToFeatureModelMapper,
-    ): Mapper<ReaderDomain, ReadersFeatureModel>
-
-    @Binds
-    abstract fun bindBookFeatureModelToFeatureModelUiMapper(
-        impl: BookFeatureModelToFeatureModelUiMapper,
-    ): com.example.common_api.Mapper<BookFeatureModel, BooksFeatureModelUi>
 
     @Binds
     abstract fun bindKhadisFeatureModelToUiMapper(
         impl: KhadisFeatureModelToUiMapper,
     ): com.example.common_api.Mapper<KhadisFeatureModel, KhadissesFeatureUi>
 
-    @Binds
-    abstract fun bindReaderFeatureModelToUiMapper(
-        impl: ReaderFeatureModelToUiMapper,
-    ): com.example.common_api.Mapper<ReadersFeatureModel, ReadersFeatureUiModel>
 
     @Binds
     abstract fun bindSurahDomainToFeatureModelMapper(

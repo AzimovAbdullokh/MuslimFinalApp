@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.alarms.databinding.FragmentNasheedsBinding
 import com.example.alarms.presentation.audio_screen.adapter.block_fingerprints.MainScreenAudioNasheedBlockFingerprint
 import com.example.alarms.presentation.audio_screen.adapter.fingerprints.AudioNasheedHorizontalFingerprint
+import com.example.alarms.presentation.audio_screen.adapter.fingerprints.HeaderFingerprint
 import com.example.alarms.presentation.audio_screen.adapter.view_pager_adapter.ViewPagerAdapter
 import com.example.alarms.presentation.audio_screen.option_dialog.NasheedOptionDialogClickListeners
 import com.example.alarms.presentation.audio_screen.option_dialog.NasheedOptionDialogFragment
@@ -37,8 +38,14 @@ class NasheedsFragment :
     private var playerCallback: PlayerCallback? = null
 
     private val genericAdapter =
-        FingerprintAdapter(listOf(MainScreenAudioNasheedBlockFingerprint(listOf(
-            AudioNasheedHorizontalFingerprint()), RecyclerView.RecycledViewPool())))
+        FingerprintAdapter(
+            listOf(
+
+                MainScreenAudioNasheedBlockFingerprint(
+                    listOf(AudioNasheedHorizontalFingerprint()),
+                    RecyclerView.RecycledViewPool())
+            )
+        )
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

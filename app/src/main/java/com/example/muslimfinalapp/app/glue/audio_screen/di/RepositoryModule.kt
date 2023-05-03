@@ -1,7 +1,11 @@
 package com.example.muslimfinalapp.app.glue.audio_screen.di
 
 import com.example.alarms.domain.repository.AudioNasheedFeatureRepository
+import com.example.alarms.domain.repository.BookFeatureRepository
+import com.example.alarms.domain.repository.QuranReadersFeatureRepository
+import com.example.muslimfinalapp.app.glue.audio_screen.gluing_repository.AdapterBooksAudioFeatureRepository
 import com.example.muslimfinalapp.app.glue.audio_screen.gluing_repository.AdapterNasheedsFeatureRepository
+import com.example.muslimfinalapp.app.glue.audio_screen.gluing_repository.AdapterQuranReadersAudioFeatureRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -16,4 +20,14 @@ abstract class RepositoryModule {
     abstract fun bindAdapterNasheedsFeatureRepository(
         impl: AdapterNasheedsFeatureRepository,
     ): AudioNasheedFeatureRepository
+
+    @Binds
+    abstract fun bindAdapterBooksAudioFeatureRepository(
+        impl: AdapterBooksAudioFeatureRepository,
+    ): BookFeatureRepository
+
+    @Binds
+    abstract fun bindAdapterQuranReadersAudioFeatureRepository(
+        impl: AdapterQuranReadersAudioFeatureRepository,
+    ): QuranReadersFeatureRepository
 }

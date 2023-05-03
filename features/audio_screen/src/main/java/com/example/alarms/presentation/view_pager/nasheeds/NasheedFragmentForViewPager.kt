@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.alarms.databinding.FragmentNasheedFragmentForViewPagerBinding
 import com.example.alarms.presentation.audio_screen.adapter.block_fingerprints.MasalahViewPagerBlockFingerprint
 import com.example.alarms.presentation.audio_screen.adapter.fingerprints.AudioNasheedVerticalFingerprint
+import com.example.alarms.presentation.audio_screen.adapter.fingerprints.HeaderFingerprint
 import com.example.alarms.presentation.audio_screen.option_dialog.NasheedOptionDialogClickListeners
 import com.example.alarms.presentation.audio_screen.option_dialog.NasheedOptionDialogFragment
 import com.example.audioservice.service_player.service_player.PlayerCallback
@@ -33,7 +34,8 @@ class NasheedFragmentForViewPager :
         playerCallback = context as? PlayerCallback
     }
 
-    private val genericAdapter = FingerprintAdapter(listOf(
+    private val genericAdapter = FingerprintAdapter(
+        listOf(
 
         MasalahViewPagerBlockFingerprint(
             listOf(AudioNasheedVerticalFingerprint()),
@@ -61,7 +63,7 @@ class NasheedFragmentForViewPager :
     }
 
     private fun populateModels(items: Triple<List<Item>, List<Item>, List<Item>>) {
-        genericAdapter.submitList(items.first)
+        genericAdapter.submitList(items.second)
     }
 
     private fun observeRv() = with(binding()) {

@@ -50,8 +50,8 @@ class MainActivity : AppCompatActivity() {
                         navController.popBackStack(R.id.home_screen_main, false)
                         currentLocation?.apply(navController::navigate)
                     } else {
-                        findViewById<RecyclerView>(com.example.main_screen.R.id.booksRecyclerView)
-                            ?.smoothScrollToPosition(0)
+//                        findViewById<RecyclerView>(com.example.main_screen.R.id.booksRecyclerView)
+//                            ?.smoothScrollToPosition(0)
                     }
 
                 }

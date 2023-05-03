@@ -2,9 +2,9 @@
 <resources>
     <string name="app_name">Muslim App</string>
     <string name="khadisses">Khadisses</string>
-    <string name="islamicBooks">Islamic Books</string>
+    <string name="islamicBooks">All islamic books</string>
     <string name="your_location">Your Location</string>
-    <string name="readers">Quran readers</string>
+    <string name="readers">All quran readers</string>
     <string name="surah">Surah</string>
 
     <string name="main">Main</string>
@@ -13,7 +13,7 @@
     <string name="premium">Premium</string>
     <string name="qurans">Qurans</string>
     <string name="masalah">Masalah</string>
-    <string name="nasheeds">Nasheeds</string>
+    <string name="nasheeds">All nasheeds</string>
     <string name="create_a_playlist_to_nasheeds">Create a playlist</string>
     <string name="audios">Audios</string>
     <string name="saved">Saved</string>

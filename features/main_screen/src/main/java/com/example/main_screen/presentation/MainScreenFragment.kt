@@ -22,19 +22,16 @@ class MainScreenFragment :
 
     override val viewModel: MainScreenViewModel by viewModels()
 
-    private val genericAdapter = FingerprintAdapter(
-        listOf(
+    private val genericAdapter = FingerprintAdapter(listOf(
 
-            MainCardFingerprint(),
+        MainCardFingerprint(),
 //            HeaderFingerprint(),
 //            MainScreenReadersBlockFingerprint
 //                (listOf(ReadersFingerprint()),
 //                RecyclerView.RecycledViewPool()
 //            ),
 
-            MainScreenCollectionsBlockFingerprint(
-                listOf(CollectionsFingerprint())
-            ),
+//        MainScreenCollectionsBlockFingerprint(listOf(CollectionsFingerprint())),
 //
 //            HeaderFingerprint(),
 //            MainScreenBooksBlockFingerPrint(
@@ -59,12 +56,11 @@ class MainScreenFragment :
 //                listOf(KhadissesFingerprint()),
 //                RecyclerView.RecycledViewPool()
 //            ),
-        ))
+    ))
 
-    var concatAdapter: ConcatAdapter = ConcatAdapter(
-        ConcatAdapter.Config.Builder().setIsolateViewTypes(false).build(),
-        genericAdapter
-    )
+    var concatAdapter: ConcatAdapter =
+        ConcatAdapter(ConcatAdapter.Config.Builder().setIsolateViewTypes(false).build(),
+            genericAdapter)
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -5,9 +5,7 @@ import com.example.common_api.IdResourceString
 import com.example.common_api.Mapper
 import com.example.common_api.base.adapter.Item
 import com.example.main_screen.domain.models.MainScreenFeatureModuleItems
-import com.example.main_screen.domain.models.books.BookFeatureModel
 import com.example.main_screen.domain.models.khadisses.KhadisFeatureModel
-import com.example.main_screen.domain.models.readers.ReadersFeatureModel
 import com.example.main_screen.domain.models.surah.SurahFeatureModuleDomainModel
 import com.example.main_screen.presentation.adapter.items.*
 import com.example.main_screen.presentation.listeners.*
@@ -32,9 +30,7 @@ interface MainItemsToSearchFilteredFeatureModelMapper {
 
 
 class MainItemsToSearchFilteredFeatureModelMapperImpl @Inject constructor(
-    private val bookFeatureModelToUiMapper: Mapper<BookFeatureModel, BooksFeatureModelUi>,
     private val khadisFeatureModelToUiMapper: Mapper<KhadisFeatureModel, KhadissesFeatureUi>,
-    private val readerFeatureModelToUiMapper: Mapper<ReadersFeatureModel, ReadersFeatureUiModel>,
     private val surahFeatureModelToUiMapper: Mapper<SurahFeatureModuleDomainModel, SurahFeatureUiModel>,
 ) : MainItemsToSearchFilteredFeatureModelMapper {
     private companion object {
@@ -127,8 +123,8 @@ class MainItemsToSearchFilteredFeatureModelMapperImpl @Inject constructor(
 //            createHeaderModelForAllAudioNasheeds { })
 //        allItems.addAll(listOf(audioNasheedItem))
 
-        val communityItem = MainScreenCommunityBlockItem(allCommunity)
-        allItems.addAll(listOf(communityItem))
+//        val communityItem = MainScreenCommunityBlockItem(allCommunity)
+//        allItems.addAll(listOf(communityItem))
 //
 //        val surahItem = MainScreenSurahBlockItem(filteredSurahList)
 //        if (surahItem.items.isNotEmpty()) allItems.add(createHeaderModelForAllSurah {})

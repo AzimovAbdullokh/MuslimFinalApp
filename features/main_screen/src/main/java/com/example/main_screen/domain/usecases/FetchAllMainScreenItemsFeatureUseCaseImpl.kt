@@ -11,30 +11,21 @@ import javax.inject.Inject
 class FetchAllMainScreenItemsFeatureUseCaseImpl @Inject constructor(
     private val dispatchersProvider: DispatchersProvider,
 //    audioNasheedRepository: AudioNasheedFeatureRepository,
-    bookRepository: BookFeatureRepository,
     khadisRepository: KhadisFeatureRepository,
-    readersRepository: QuranReadersFeatureRepository,
     surahFeatureRepository: SurahFeatureRepository,
 ) : FetchAllMainScreenItemsFeatureUseCase {
 
     override fun invoke(): Flow<MainScreenFeatureModuleItems> = combine(
-        booksFlow,
         khadissesFlow,
-        readersFlow,
         surahFlow
-    ) { allBooks, khadisses, readers, surah ->
+    ) { khadisses, surah ->
         MainScreenFeatureModuleItems(
-            books = allBooks,
 //            audioNasheeds = savedBooks,
             khadisses = khadisses,
-            readers = readers,
             surah = surah
         )
     }.flowOn(dispatchersProvider.default())
 
-
-    private val booksFlow =
-        bookRepository.fetchAllBooks("1").flowOn(dispatchersProvider.io())
 
 //    private val nasheedsFlow =
 //        audioNasheedRepository.fetchAllAudioNasheeds("38").flowOn(dispatchersProvider.io())
@@ -42,8 +33,6 @@ class FetchAllMainScreenItemsFeatureUseCaseImpl @Inject constructor(
     private val khadissesFlow =
         khadisRepository.fetchAllKhadisses("1").flowOn(dispatchersProvider.io())
 
-    private val readersFlow =
-        readersRepository.fetchAllReaders("1").flowOn(dispatchersProvider.io())
 
     private val surahFlow =
         surahFeatureRepository.fetchAllSurah("1").flowOn(dispatchersProvider.io())

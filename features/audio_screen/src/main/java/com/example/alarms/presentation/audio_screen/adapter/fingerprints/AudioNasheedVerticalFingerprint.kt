@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import com.example.alarms.R
 import com.example.alarms.databinding.ItemPagerNasheedsBinding
-import com.example.alarms.presentation.audio_screen.models.AudioNasheedAdapterModel
+import com.example.alarms.presentation.audio_screen.models.adapter_models.AudioNasheedAdapterModel
 import com.example.common_api.base.adapter.BaseViewHolder
 import com.example.common_api.base.adapter.Item
 import com.example.common_api.base.adapter.ItemFingerprint

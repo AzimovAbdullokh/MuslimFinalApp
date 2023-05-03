@@ -11,20 +11,11 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {
 
-    @Binds
-    abstract fun bindAdapterMainScreenBooksModuleRepository(
-        impl: AdapterBooksFeatureRepository,
-    ): BookFeatureRepository
 
     @Binds
     abstract fun bindAdapterKhadisFeatureRepository(
         impl: AdapterKhadisFeatureRepository
     ):KhadisFeatureRepository
-
-    @Binds
-    abstract fun bindAdapterQuranReadersFeatureRepository(
-        impl: AdapterQuranReadersFeatureRepository
-    ):QuranReadersFeatureRepository
 
     @Binds
     abstract fun bindSurahFeatureRepository(

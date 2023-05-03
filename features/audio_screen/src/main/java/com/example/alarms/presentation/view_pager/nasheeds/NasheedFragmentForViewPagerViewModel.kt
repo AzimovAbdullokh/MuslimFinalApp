@@ -3,7 +3,9 @@ package com.example.alarms.presentation.view_pager.nasheeds
 import androidx.lifecycle.viewModelScope
 import com.example.alarms.domain.models.MainNasheedItems
 import com.example.alarms.domain.usecases.FetchAllNasheedsUseCase
+import com.example.alarms.presentation.audio_screen.listeners.BookItemOnClickListener
 import com.example.alarms.presentation.audio_screen.listeners.NasheedItemOnClickListener
+import com.example.alarms.presentation.audio_screen.listeners.ReaderItemOnClickListener
 import com.example.alarms.presentation.audio_screen.mappers.MainNasheedFilteredItemsMapper
 import com.example.common_api.DispatchersProvider
 import com.example.common_api.ResourceProvider
@@ -18,7 +20,8 @@ class NasheedFragmentForViewPagerViewModel @Inject constructor(
     private val mainNasheedFilteredItemsMapper: MainNasheedFilteredItemsMapper,
     private val dispatchersProvider: DispatchersProvider,
     private val resourceProvider: ResourceProvider,
-) : BaseViewModel(), NasheedItemOnClickListener {
+) : BaseViewModel(), NasheedItemOnClickListener, BookItemOnClickListener,
+    ReaderItemOnClickListener {
 
     private val _playAudioBookFlow = createMutableSharedFlowAsSingleLiveEvent<String>()
     val playAudioBookFlow get() = _playAudioBookFlow.asSharedFlow()
@@ -29,13 +32,16 @@ class NasheedFragmentForViewPagerViewModel @Inject constructor(
     val allFilteredItemsFlow =
         fetchAllNasheedsUseCase()
             .map { items -> mapToAdapterModel(items) }
-            .onStart {}
             .flowOn(dispatchersProvider.default())
             .catch { exception: Throwable -> handleError(exception) }
             .stateIn(viewModelScope, SharingStarted.Lazily, null)
 
-    private fun mapToAdapterModel(items: MainNasheedItems) =
-        mainNasheedFilteredItemsMapper.map(items = items, nasheedsItemOnClickListener = this)
+    private fun mapToAdapterModel(items: MainNasheedItems) = mainNasheedFilteredItemsMapper.map(
+        items = items,
+        nasheedsItemOnClickListener = this,
+        bookItemOnClickListener = this,
+        readerItemOnClickListener = this,
+    )
 
     private fun handleError(exception: Throwable) {
         emitToErrorMessageFlow(resourceProvider.fetchIdErrorMessage(exception))
@@ -47,5 +53,11 @@ class NasheedFragmentForViewPagerViewModel @Inject constructor(
 
     override fun nasheedMoreBtnOnClick(id: String) {
         _showConfirmDialogFlow.tryEmit(id)
+    }
+
+    override fun bookItemOnClick(bookId: String) {
+    }
+
+    override fun readerItemOnClick(readerId: String) {
     }
 }

@@ -3,7 +3,9 @@ package com.example.alarms.presentation.audio_screen
 import androidx.lifecycle.viewModelScope
 import com.example.alarms.domain.models.MainNasheedItems
 import com.example.alarms.domain.usecases.FetchAllNasheedsUseCase
+import com.example.alarms.presentation.audio_screen.listeners.BookItemOnClickListener
 import com.example.alarms.presentation.audio_screen.listeners.NasheedItemOnClickListener
+import com.example.alarms.presentation.audio_screen.listeners.ReaderItemOnClickListener
 import com.example.alarms.presentation.audio_screen.mappers.MainNasheedFilteredItemsMapper
 import com.example.alarms.presentation.audio_screen.router.AudioScreenRouter
 import com.example.common_api.DispatchersProvider
@@ -20,7 +22,8 @@ class NasheedsFragmentViewModel @Inject constructor(
     private val dispatchersProvider: DispatchersProvider,
     private val resourceProvider: ResourceProvider,
     private val router: AudioScreenRouter,
-) : BaseViewModel(), NasheedItemOnClickListener {
+) : BaseViewModel(), NasheedItemOnClickListener, ReaderItemOnClickListener,
+    BookItemOnClickListener {
 
     private val _playAudioBookFlow = createMutableSharedFlowAsSingleLiveEvent<String>()
     val playAudioBookFlow get() = _playAudioBookFlow.asSharedFlow()
@@ -34,7 +37,11 @@ class NasheedsFragmentViewModel @Inject constructor(
             .stateIn(viewModelScope, SharingStarted.Lazily, null)
 
     private fun mapToAdapterModel(items: MainNasheedItems) =
-        mainNasheedFilteredItemsMapper.map(items = items, nasheedsItemOnClickListener = this)
+        mainNasheedFilteredItemsMapper.map(items = items,
+            nasheedsItemOnClickListener = this,
+            bookItemOnClickListener = this,
+            readerItemOnClickListener = this
+        )
 
     private fun handleError(exception: Throwable) {
         emitToErrorMessageFlow(resourceProvider.fetchIdErrorMessage(exception))
@@ -50,4 +57,6 @@ class NasheedsFragmentViewModel @Inject constructor(
     }
 
     override fun nasheedMoreBtnOnClick(id: String) {}
+    override fun bookItemOnClick(bookId: String) {}
+    override fun readerItemOnClick(readerId: String) {}
 }
