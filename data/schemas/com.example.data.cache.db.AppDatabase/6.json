@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 6,
-    "identityHash": "65cbf6925305be3f5bb928b094d47f23",
+    "identityHash": "b58f29982d95030b1cd0c3371046e045",
     "entities": [
       {
         "tableName": "audio_nasheeds_table",
@@ -235,12 +235,62 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "surah_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `surah` TEXT NOT NULL, `surahId` TEXT NOT NULL, `surahName` TEXT NOT NULL, `surahArabName` TEXT NOT NULL, `surahCountInQuran` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surah",
+            "columnName": "surah",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surahId",
+            "columnName": "surahId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surahName",
+            "columnName": "surahName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surahArabName",
+            "columnName": "surahArabName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surahCountInQuran",
+            "columnName": "surahCountInQuran",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '65cbf6925305be3f5bb928b094d47f23')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b58f29982d95030b1cd0c3371046e045')"
     ]
   }
 }

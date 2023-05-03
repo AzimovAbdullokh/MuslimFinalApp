@@ -17,5 +17,5 @@ class ViewaModelFactory<VM : ViewModel>(
 }
 
 inline fun <reified VM : ViewModel> Fragment.viewModelCreator(noinline creator: ViewModelCreator<VM>): Lazy<VM> {
-    return viewModels { ViewModelFactory(creator) }
+    return viewModels { ViewaModelFactory(creator) }
 }

@@ -13,7 +13,7 @@ import java.util.*
 
 @Database(entities = [AudioNasheedsCashe::class, KhadissesCache::class, BookCache::class, CategoryCache::class, ReadersCache::class, SurahCache::class],
 
-    version = 5, exportSchema = true)
+    version = 6, exportSchema = true)
 
 @TypeConverters(AppDatabase.DatabaseConverter::class)
 abstract class AppDatabase : RoomDatabase() {

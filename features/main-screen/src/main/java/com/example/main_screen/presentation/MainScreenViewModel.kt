@@ -23,7 +23,7 @@ class MainScreenViewModel @Inject constructor(
     private val itemsToSearchFilteredModelMapper: MainItemsToSearchFilteredFeatureModelMapper,
     private val resourcesProvider: ResourceProvider,
     private val dispatchersProvider: DispatchersProvider,
-) : BaseViewModel(), CommunityItemClickListener, MainCardItemClickListener, MainScreenOpenMoreClickListeners, NasheedItemOnClickListener {
+) : BaseViewModel(), CommunityItemClickListener, MainCardItemClickListener, MainScreenOpenMoreClickListeners {
 
     private val _playAudioNasheedFlow = createMutableSharedFlowAsSingleLiveEvent<String>()
     val playAudioNasheedFlow get() = _playAudioNasheedFlow.asSharedFlow()
@@ -53,7 +53,7 @@ class MainScreenViewModel @Inject constructor(
 //            surahItemOnClickListener = this,
             communityItemClickListener = this,
             cardItemClickListener = this,
-            audioNasheedItemOnClickListener = this
+//            audioNasheedItemOnClickListener = this
         )
 
     fun saveRecyclerViewCurrentState(state: Parcelable?) = recyclerViewStateFlow.tryEmit(state)
@@ -88,10 +88,4 @@ class MainScreenViewModel @Inject constructor(
     override fun onClick() {
 
     }
-
-    override fun nasheedItemOnClick(nasheedId: String) {
-
-    }
-
-
 }

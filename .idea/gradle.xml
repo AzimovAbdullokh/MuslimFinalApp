@@ -11,6 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/audioservice" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core/common" />
             <option value="$PROJECT_DIR$/core/common/common-api" />
@@ -29,7 +30,9 @@
             <option value="$PROJECT_DIR$/features/main-quran" />
             <option value="$PROJECT_DIR$/features/main-screen" />
             <option value="$PROJECT_DIR$/features/main-test" />
+            <option value="$PROJECT_DIR$/features/playlist-screen" />
             <option value="$PROJECT_DIR$/features/profile" />
+            <option value="$PROJECT_DIR$/features/saved-screen" />
             <option value="$PROJECT_DIR$/features/sign-in" />
             <option value="$PROJECT_DIR$/features/sign-up" />
             <option value="$PROJECT_DIR$/features/splash" />

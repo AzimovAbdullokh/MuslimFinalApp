@@ -7,7 +7,6 @@ import com.example.common_api.base.adapter.Item
 import com.example.main_screen.domain.models.MainScreenFeatureModuleItems
 import com.example.main_screen.domain.models.books.BookFeatureModel
 import com.example.main_screen.domain.models.khadisses.KhadisFeatureModel
-import com.example.main_screen.domain.models.nasheeds.NasheedsFeatureModel
 import com.example.main_screen.domain.models.readers.ReadersFeatureModel
 import com.example.main_screen.domain.models.surah.SurahFeatureModuleDomainModel
 import com.example.main_screen.presentation.adapter.items.*
@@ -22,7 +21,7 @@ interface MainItemsToSearchFilteredFeatureModelMapper {
     fun map(
         items: MainScreenFeatureModuleItems,
 //        bookItemOnClickListener: BookItemOnClickListener,
-        audioNasheedItemOnClickListener: NasheedItemOnClickListener,
+//        audioNasheedItemOnClickListener: NasheedItemOnClickListener,
 //        khadisItemOnClickListener: KhadisItemOnClickListener,
 //        readerItemOnClickListener: ReaderItemOnClickListener,
 //        surahItemOnClickListener: SurahItemOnClickListener,
@@ -34,7 +33,6 @@ interface MainItemsToSearchFilteredFeatureModelMapper {
 
 class MainItemsToSearchFilteredFeatureModelMapperImpl @Inject constructor(
     private val bookFeatureModelToUiMapper: Mapper<BookFeatureModel, BooksFeatureModelUi>,
-    private val nasheedFeatureModelToUiMapper: Mapper<NasheedsFeatureModel, AudioNasheedsUi>,
     private val khadisFeatureModelToUiMapper: Mapper<KhadisFeatureModel, KhadissesFeatureUi>,
     private val readerFeatureModelToUiMapper: Mapper<ReadersFeatureModel, ReadersFeatureUiModel>,
     private val surahFeatureModelToUiMapper: Mapper<SurahFeatureModuleDomainModel, SurahFeatureUiModel>,
@@ -48,7 +46,7 @@ class MainItemsToSearchFilteredFeatureModelMapperImpl @Inject constructor(
     override fun map(
         items: MainScreenFeatureModuleItems,
 //        bookItemOnClickListener: BookItemOnClickListener,
-        audioNasheedItemOnClickListener: NasheedItemOnClickListener,
+//        audioNasheedItemOnClickListener: NasheedItemOnClickListener,
 //        khadisItemOnClickListener: KhadisItemOnClickListener,
 //        readerItemOnClickListener: ReaderItemOnClickListener,
 //        surahItemOnClickListener: SurahItemOnClickListener,
@@ -67,16 +65,16 @@ class MainItemsToSearchFilteredFeatureModelMapperImpl @Inject constructor(
 //        }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
 
 
-        val filteredAudioNasheedList =
-            items.audioNasheeds.map(nasheedFeatureModelToUiMapper::map).map {
-                AudioNasheedAdapterModel(audioNasheeds = AudioNasheedsUi(id = it.id,
-                    title = it.title,
-                    createdAt = it.createdAt,
-                    nasheedFile = it.nasheedFile,
-                    nasheedPoster = it.nasheedPoster,
-                    currentStartPosition = it.currentStartPosition,
-                    audioId = it.audioId), listener = audioNasheedItemOnClickListener)
-            }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
+//        val filteredAudioNasheedList =
+//            items.audioNasheeds.map(nasheedFeatureModelToUiMapper::map).map {
+//                AudioNasheedAdapterModel(audioNasheeds = AudioNasheedsUi(id = it.id,
+//                    title = it.title,
+//                    createdAt = it.createdAt,
+//                    nasheedFile = it.nasheedFile,
+//                    nasheedPoster = it.nasheedPoster,
+//                    currentStartPosition = it.currentStartPosition,
+//                    audioId = it.audioId), listener = audioNasheedItemOnClickListener)
+//            }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
 
 
 //        val filteredKhadissesList = items.khadisses.map(khadisFeatureModelToUiMapper::map).map {
@@ -123,11 +121,11 @@ class MainItemsToSearchFilteredFeatureModelMapperImpl @Inject constructor(
 //        val readerItem = MainScreenReadersBlockItem(filteredReadersList)
 //        if (readerItem.items.isNotEmpty()) allItems.add(createHeaderModelForAllReaders {})
 //        allItems.addAll(listOf(readerItem))
-
-        val audioNasheedItem = MainScreenAudioNasheedsBlockItem(filteredAudioNasheedList)
-        if (audioNasheedItem.items.isNotEmpty()) allItems.add(
-            createHeaderModelForAllAudioNasheeds { })
-        allItems.addAll(listOf(audioNasheedItem))
+//
+//        val audioNasheedItem = MainScreenAudioNasheedsBlockItem(filteredAudioNasheedList)
+//        if (audioNasheedItem.items.isNotEmpty()) allItems.add(
+//            createHeaderModelForAllAudioNasheeds { })
+//        allItems.addAll(listOf(audioNasheedItem))
 
         val communityItem = MainScreenCommunityBlockItem(allCommunity)
         allItems.addAll(listOf(communityItem))

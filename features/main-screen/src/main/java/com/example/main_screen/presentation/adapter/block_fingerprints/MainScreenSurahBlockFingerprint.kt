@@ -10,9 +10,7 @@ import com.example.common_api.base.adapter.FingerprintAdapter
 import com.example.common_api.base.adapter.Item
 import com.example.common_api.base.adapter.ItemFingerprint
 import com.example.main_screen.R
-import com.example.main_screen.databinding.MainScreenAudioNasheedBlockItemBinding
 import com.example.main_screen.databinding.MainScreenSurahBlockItemBinding
-import com.example.main_screen.presentation.adapter.items.MainScreenAudioNasheedsBlockItem
 import com.example.main_screen.presentation.adapter.items.MainScreenSurahBlockItem
 
 class MainScreenSurahBlockFingerprint(

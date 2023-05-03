@@ -7,6 +7,8 @@ interface AudioNasheedsCacheDataSource {
 
     fun fetchAllAudioNasheedsFromCacheObservable() : Flow<List<NasheedsData>>
 
+    fun fetchAudioNasheedFromIdObservable(audioNasheedId: String): Flow<NasheedsData>
+
     suspend fun fetchAllAudioNasheedsFromCacheSingle(): List<NasheedsData>
 
     suspend fun saveNewAudioNasheedsToCache(audioNasheeds: NasheedsData)

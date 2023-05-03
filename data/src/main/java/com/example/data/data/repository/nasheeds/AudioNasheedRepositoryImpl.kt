@@ -29,6 +29,10 @@ class AudioNasheedRepositoryImpl @Inject constructor(
             .map { audioNasheeds -> audioNasheeds.map(audioNasheedDataToDomainMapper::map) }
             .flowOn(dispatchersProvider.default())
 
+    override fun fetchAudioNasheedFromCacheObservable(audioNasheedId: String): Flow<NasheedsDomain> =
+        cacheDataSource
+            .fetchAudioNasheedFromIdObservable(audioNasheedId = audioNasheedId)
+            .map(audioNasheedDataToDomainMapper::map)
 
     private fun handleFetchNasheedInCache(
         cachedNasheeds: List<NasheedsData>,

@@ -18,13 +18,13 @@ object UseCaseModule {
     fun provideFetchAllMainItemsFeatureUseCase(
         booksRepository: BookFeatureRepository,
         dispatchersProvider: DispatchersProvider,
-        audioBooksRepository: AudioNasheedFeatureRepository,
+//        audioBooksRepository: AudioNasheedFeatureRepository,
         khadisRepository: KhadisFeatureRepository,
         readersRepository: QuranReadersFeatureRepository,
         surahRepository: SurahFeatureRepository
     ): FetchAllMainScreenItemsFeatureUseCase = FetchAllMainScreenItemsFeatureUseCaseImpl(
         dispatchersProvider = dispatchersProvider,
-        audioNasheedRepository = audioBooksRepository,
+//        audioNasheedRepository = audioBooksRepository,
         bookRepository = booksRepository,
         khadisRepository = khadisRepository,
         readersRepository = readersRepository,

@@ -17,7 +17,6 @@ import javax.inject.Inject
 class MainQuranScreenViewModel @Inject constructor(
     fetchAllQuransUseCase: FetchAllQuransUseCase,
     private val mainQuranFilteredItemsMapper: MainQuranFilteredItemsMapper,
-    private val quranFeatureRepository: QuranFeatureRepository,
     private val dispatchersProvider: DispatchersProvider,
     private val resourcesProvider: ResourceProvider,
     ) : BaseViewModel(), QuranItemOnClickListener {

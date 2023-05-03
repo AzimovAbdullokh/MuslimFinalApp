@@ -3,10 +3,7 @@ package com.example.muslimfinalapp.app.di
 import com.example.data.cloud.service.utils.Utils.APPLICATION_ID
 import com.example.data.cloud.service.utils.Utils.BASE_URL
 import com.example.data.cloud.service.utils.Utils.CONTENT_TYPE
-import com.example.data.cloud.service.utils.Utils.MUSLIM_SALAT_BASE_URL
 import com.example.data.cloud.service.utils.Utils.REST_API_KEY
-import com.example.data.cloud.service.utils.Utils.TIME_NAMAZ_API_KEY
-import com.example.muslimfinalapp.app.utils.CONNECT_TIMEOUT_SECONDS
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,6 +16,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
+
+const val CONNECT_TIMEOUT_SECONDS = 30L
 
 @Module
 @InstallIn(SingletonComponent::class)

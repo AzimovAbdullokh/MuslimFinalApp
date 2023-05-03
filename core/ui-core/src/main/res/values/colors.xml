@@ -293,6 +293,7 @@
     <color name="color_played">#FF5F46F4</color>
     <color name="color_buffered">#805F46F4</color>
     <color name="color_unplayed">#FFBEBEBE</color>
+    <color name="color_blued">#7A51E2</color>
 
     <color name="cardBackground">#FAF9F9</color>
     <color name="violet">#9C10FE</color>

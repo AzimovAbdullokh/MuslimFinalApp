@@ -1,5 +1,8 @@
 package com.example.common_api
 
+import android.view.View
+import androidx.core.view.ViewCompat
+import androidx.core.view.updatePadding
 import androidx.navigation.NavController
 import com.example.common_api.navigation.NavCommand
 
@@ -57,4 +60,11 @@ class EmptyListException : AppException(message = "List is empty")
  */
 fun NavController.navigateTo(navCommand: NavCommand) {
     navigate(navCommand.resId, navCommand.args)
+}
+
+fun View.setPaddingTopHeightStatusBar(){
+    ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
+        v.updatePadding(top = insets.systemWindowInsetTop)
+        insets.consumeSystemWindowInsets()
+    }
 }

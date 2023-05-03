@@ -49,6 +49,7 @@ dependencies {
     implementation project(":features:surah-info")
     implementation project(":features:profile")
     implementation project(":features:main-quran")
+    implementation project(":features:saved-screen")
 
 
     implementation project(":navigation")
@@ -56,6 +57,7 @@ dependencies {
     implementation project(":data")
     implementation project(":core:ui-core")
     implementation project(":domain")
+    implementation project(":audioservice")
 
 
     //Room

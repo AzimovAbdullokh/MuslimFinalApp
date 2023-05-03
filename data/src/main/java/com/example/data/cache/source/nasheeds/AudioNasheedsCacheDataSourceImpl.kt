@@ -24,6 +24,11 @@ class AudioNasheedsCacheDataSourceImpl @Inject constructor(
             .map { nasheeds -> nasheeds.map(audioNasheedsCacheToDataMapper::map) }
             .flowOn(dispatchersProvider.default())
 
+    override fun fetchAudioNasheedFromIdObservable(audioNasheedId: String): Flow<NasheedsData> =
+        dao.fetchAudioNasheedFromIdObservable(audioNasheedId)
+            .map { it?:AudioNasheedsCashe.unknown }
+            .map(audioNasheedsCacheToDataMapper::map)
+
 
     override suspend fun fetchAllAudioNasheedsFromCacheSingle(): List<NasheedsData> =
         dao.fetchAllAudioNasheedsSingle().map(audioNasheedsCacheToDataMapper::map)

@@ -3,8 +3,8 @@
     android:shape="rectangle">
     <corners android:radius="6dp" />
     <gradient
-        android:centerColor="@color/appGreenSecond"
-        android:endColor="@color/appGreen"
-        android:startColor="@color/apple_darkest"
+        android:centerColor="@color/red_liked_playlist_bg"
+        android:endColor="@color/red_pressed"
+        android:startColor="@color/bright_red"
         android:type="linear" />
 </shape>

@@ -9,6 +9,8 @@ interface AudioNasheedRepository {
 
     fun fetchAllAudioNasheedsFromCache(): Flow<List<NasheedsDomain>>
 
+    fun fetchAudioNasheedFromCacheObservable(audioBookId: String): Flow<NasheedsDomain>
+
     suspend fun fetchAudioNasheedsFromCache(audioNasheedsId: String): NasheedsDomain
 
     suspend fun clearTable()

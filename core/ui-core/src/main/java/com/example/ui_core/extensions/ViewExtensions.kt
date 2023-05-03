@@ -18,12 +18,7 @@ fun View.measureAndGetWidth(): Int {
     return measuredWidth
 }
 
-fun View.setPaddingTopHeightStatusBar() {
-    ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
-        v.updatePadding(top = insets.systemWindowInsetTop)
-        insets.consumeSystemWindowInsets()
-    }
-}
+
 
 fun View.setPaddingsZero() {
     this.setPadding(0, 0, 0, 0)

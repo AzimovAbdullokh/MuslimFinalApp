@@ -8,12 +8,13 @@ import com.example.domain.domain.domain.models.readers.ReaderDomain
 import com.example.domain.domain.domain.models.surah.SurahDomain
 import com.example.main_screen.domain.models.books.BookFeatureModel
 import com.example.main_screen.domain.models.khadisses.KhadisFeatureModel
-import com.example.main_screen.domain.models.nasheeds.NasheedsFeatureModel
+import com.example.alarms.domain.models.nasheeds.NasheedsFeatureModel
 import com.example.main_screen.domain.models.readers.ReadersFeatureModel
 import com.example.main_screen.domain.models.surah.SurahFeatureModuleDomainModel
 import com.example.main_screen.presentation.mappers.*
 import com.example.main_screen.presentation.models.*
 import com.example.muslimfinalapp.app.glue.screen_main.mapper.on_feature_mapper.*
+import com.example.muslimfinalapp.app.glue.screen_nasheeds.mapper.NasheedDomainToFeatureModelMapper
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -34,11 +35,6 @@ abstract class MapperModule {
     ): Mapper<BookDomain, BookFeatureModel>
 
     @Binds
-    abstract fun bindNasheedDomainToFeatureModelMapper(
-        impl: NasheedDomainToFeatureModelMapper,
-    ): Mapper<NasheedsDomain, NasheedsFeatureModel>
-
-    @Binds
     abstract fun bindKhadisDomainToFeatureModelMapper(
         impl: KhadisDomainToFeatureModelMapper,
     ): Mapper<KhadisDomain, KhadisFeatureModel>
@@ -52,11 +48,6 @@ abstract class MapperModule {
     abstract fun bindBookFeatureModelToFeatureModelUiMapper(
         impl: BookFeatureModelToFeatureModelUiMapper,
     ): com.example.common_api.Mapper<BookFeatureModel, BooksFeatureModelUi>
-
-    @Binds
-    abstract fun bindNasheedFeatureModelToUiMapper(
-        impl: NasheedFeatureModelToUiMapper,
-    ): com.example.common_api.Mapper<NasheedsFeatureModel, AudioNasheedsUi>
 
     @Binds
     abstract fun bindKhadisFeatureModelToUiMapper(

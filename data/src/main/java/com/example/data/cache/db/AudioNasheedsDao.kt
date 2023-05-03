@@ -14,6 +14,9 @@ interface AudioNasheedsDao {
     @Query("select * from AUDIO_NASHEEDS_TABLE")
     fun fetchAllAudioNasheedsObservable():Flow<MutableList<AudioNasheedsCashe>>
 
+    @Query("select * from AUDIO_NASHEEDS_TABLE where id == :audioNasheedId")
+    fun fetchAudioNasheedFromIdObservable(audioNasheedId: String): Flow<AudioNasheedsCashe?>
+
     @Query("select * from AUDIO_NASHEEDS_TABLE")
     suspend fun fetchAllAudioNasheedsSingle():MutableList<AudioNasheedsCashe>
 

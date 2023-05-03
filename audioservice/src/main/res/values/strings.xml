@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="audio_player_service">ExoPlayerAudioService</string>
+    <string name="channel_name">Wicked audio channel</string>
+    <string name="loading_book">Preparing for reading…</string>
+    <string name="change_the_playback_speed">Change the playback speed</string>
+    <string name="playback_speed">%sx</string>
+
+
+    <style name="BottomCornerRadius" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomRight">45dp</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="android:topRightRadius">0dp</item>
+        <item name="cornerSizeBottomLeft">45dp</item>
+    </style>
+
+    <style name="TopCornerRadius" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">37dp</item>
+        <item name="cornerSizeTopLeft">37dp</item>
+    </style>
+
+
+</resources>

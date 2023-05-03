@@ -17,11 +17,6 @@ abstract class RepositoryModule {
     ): BookFeatureRepository
 
     @Binds
-    abstract fun bindAdapterNasheedsFeatureRepository(
-        impl: AdapterNasheedsFeatureRepository,
-    ): AudioNasheedFeatureRepository
-
-    @Binds
     abstract fun bindAdapterKhadisFeatureRepository(
         impl: AdapterKhadisFeatureRepository
     ):KhadisFeatureRepository

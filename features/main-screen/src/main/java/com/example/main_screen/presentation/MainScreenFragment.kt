@@ -48,11 +48,11 @@ class MainScreenFragment :
 //                RecyclerView.RecycledViewPool()
 //            ),
 //
-            HeaderFingerprint(),
-            MainScreenAudioNasheedBlockFingerprint(
-                listOf(AudioNasheedHorizontalFingerprint()),
-                RecyclerView.RecycledViewPool()
-            ),
+//            HeaderFingerprint(),
+//            MainScreenAudioNasheedBlockFingerprint(
+//                listOf(AudioNasheedHorizontalFingerprint()),
+//                RecyclerView.RecycledViewPool()
+//            ),
 
 //            HeaderFingerprint(),
 //            MainScreenKhadissesBlockFingerPrint(
