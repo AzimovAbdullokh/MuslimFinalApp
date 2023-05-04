@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.temporary_screens.sign_up.SignUpFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="16dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/first_name_field_box"
+            style="@style/EditTextStyleInputLayoutLoginStyle"
+            android:hint="Name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/first_name_field"
+                style="@style/EditTextStyleInputLoginStyle" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/last_name_field_box"
+            style="@style/EditTextStyleInputLayoutLoginStyle"
+            android:hint="Surname">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/last_name_field"
+                style="@style/EditTextStyleInputLoginStyle" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/age_field_box"
+            style="@style/EditTextStyleInputLayoutLoginStyle"
+            android:hint="Age">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/age_field"
+                style="@style/EditTextStyleInputLoginStyle"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/login_field_box"
+            style="@style/EditTextStyleInputLayoutLoginStyle"
+            android:hint="Your login">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_field"
+                style="@style/EditTextStyleInputLoginStyle"
+                android:inputType="textEmailSubject" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_field_box"
+            style="@style/EditTextStyleInputLayoutLoginStyle"
+            android:hint="Your email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_field"
+                style="@style/EditTextStyleInputLoginStyle"
+                android:inputType="textEmailSubject" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_field_box"
+            style="@style/EditTextStyleInputLayoutLoginStyle"
+            android:hint="Your password"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password_field"
+                style="@style/EditTextStyleInputLoginStyle"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signUpBtn"
+            style="@style/ButtonStyle.Blue.AppStyle"
+            android:layout_marginTop="24dp"
+            android:text="@string/signUp" />
+
+<!--        <include-->
+<!--            android:id="@+id/already_registered_block"-->
+<!--            layout="@layout/block_already_registered" />-->
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

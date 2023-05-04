@@ -8,11 +8,11 @@ import com.example.data.cloud.service.LoginService
 import com.example.data.data.ResourceProvider
 import com.example.data.data.repository.BaseRepository
 import com.example.domain.domain.domain.Mapper
-import com.example.domain.domain.domain.models.users.UserSignUpAnswerDomain
+import com.example.domain.domain.domain.RequestState
 import com.example.domain.domain.domain.models.users.UserDomain
+import com.example.domain.domain.domain.models.users.UserSignUpAnswerDomain
 import com.example.domain.domain.domain.models.users.UserSignUpDomain
 import com.example.domain.domain.domain.repositories.LoginRepository
-import com.example.domain.domain.domain.RequestState
 import javax.inject.Inject
 
 class LoginRepositoryImpl @Inject constructor(

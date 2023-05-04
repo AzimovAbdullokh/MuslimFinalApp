@@ -1,7 +1,6 @@
 package com.example.data.cloud.models.users
 
 import com.google.gson.annotations.SerializedName
-import java.util.*
 
 
 data class UserResponse(
@@ -9,14 +8,13 @@ data class UserResponse(
 )
 
 data class UserCloud(
-    @SerializedName("username") var email: String,
-    @SerializedName("lastName") var lastName: String,
-    @SerializedName("firstName") var firstName: String,
-    @SerializedName("age") var age: String,
-    @SerializedName("password") var password: String,
-    @SerializedName("createdAt") var createAt: Date,
     @SerializedName("objectId") var objectId: String,
+    @SerializedName("username") var userLogin: String,
+    @SerializedName("password") var userPassword: String? = null,
+    @SerializedName("first_name") var firstName: String,
+    @SerializedName("last_name") var lastName: String,
     @SerializedName("image") var image: UserImageCloud,
-    @SerializedName("sessionToken") var sessionToken: String?,
-    @SerializedName("userSessionToken") var userSessionToken: String,
+    @SerializedName("email") var userEmail: String,
+    @SerializedName("age") var age: String,
+    @SerializedName("sessionToken") var sessionToken: String
 )

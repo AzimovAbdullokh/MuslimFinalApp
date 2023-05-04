@@ -7,6 +7,7 @@ import com.example.data.data.repository.nasheeds.AudioNasheedRepositoryImpl
 import com.example.data.data.repository.readers.QuranReadersRepositoryImpl
 import com.example.data.data.repository.surah.SurahRepositoryImpl
 import com.example.data.data.repository.user.LoginRepositoryImpl
+import com.example.data.data.repository.user.UserCacheRepositoryImpl
 import com.example.domain.domain.domain.repositories.*
 import dagger.Binds
 import dagger.Module
@@ -19,6 +20,9 @@ abstract class RepositoryBindsModule {
 
     @Binds
     abstract fun bindLoginRepository(impl: LoginRepositoryImpl): LoginRepository
+
+    @Binds
+    abstract fun bindUserCacheRepository(impl: UserCacheRepositoryImpl): UserCacheRepository
 
     @Binds
     abstract fun bindaudioNasheedRepository(impl: AudioNasheedRepositoryImpl): AudioNasheedRepository

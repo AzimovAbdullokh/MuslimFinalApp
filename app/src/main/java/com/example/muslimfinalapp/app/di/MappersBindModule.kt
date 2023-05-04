@@ -21,6 +21,7 @@ import com.example.data.data.models.khadisses.KhadisData
 import com.example.data.data.models.nasheeds.NasheedsData
 import com.example.data.data.models.readers.ReadersData
 import com.example.data.data.models.surah.SurahData
+import com.example.data.data.models.users.UserSaveModel
 import com.example.domain.domain.domain.Mapper
 import com.example.domain.domain.domain.models.books.BookDomain
 import com.example.domain.domain.domain.models.categories.CategoryDomain
@@ -31,6 +32,11 @@ import com.example.domain.domain.domain.models.surah.SurahDomain
 import com.example.domain.domain.domain.models.users.UserDomain
 import com.example.domain.domain.domain.models.users.UserSignUpAnswerDomain
 import com.example.domain.domain.domain.models.users.UserSignUpDomain
+import com.example.muslimfinalapp.app.temporary_screens.mappers.MapUserSignUpToDomain
+import com.example.muslimfinalapp.app.temporary_screens.mappers.MapUserToDomain
+import com.example.muslimfinalapp.app.temporary_screens.models.UserFeatures
+import com.example.muslimfinalapp.app.temporary_screens.models.UserSignUp
+import com.example.muslimfinalapp.app.temporary_screens.mappers.MapUserDomainToUser
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -39,6 +45,31 @@ import dagger.hilt.components.SingletonComponent
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class MappersBindModule {
+
+    @Binds
+    abstract fun bindMapUserSignUpToDomain(
+        impl: MapUserSignUpToDomain
+    ): Mapper<UserSignUp, UserSignUpDomain>
+
+    @Binds
+    abstract fun bindMapUserToDomain(
+        impl: MapUserToDomain
+    ): Mapper<UserFeatures, UserDomain>
+
+    @Binds
+    abstract fun bindMapUserDomainToSaveModel(
+        impl: MapUserDomainToSaveModel
+    ): Mapper<UserDomain, UserSaveModel>
+
+    @Binds
+    abstract fun bindMapUserSaveToDomain(
+        impl: MapUserSaveToDomain
+    ): Mapper<UserSaveModel, UserDomain>
+
+    @Binds
+    abstract fun bindMapUserDomainToUserFeatures(
+        impl: MapUserDomainToUser
+    ): Mapper<UserDomain, UserFeatures>
 
     @Binds
     abstract fun bindMapperUserCloudToDomain(

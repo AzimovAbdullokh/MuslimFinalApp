@@ -9,13 +9,14 @@ import javax.inject.Inject
 class MapFromUserCloudToDomain @Inject constructor() : Mapper<UserCloud, UserDomain> {
     override fun map(from: UserCloud) = from.run {
         UserDomain(
-            email = email,
+            userEmail = userEmail,
             lastName = lastName,
             objectId = objectId,
             firstName = firstName,
-            sessionToken = sessionToken ?: String(),
+            userLogin = userLogin,
+            sessionToken = sessionToken,
             image = UserImageDomain(name = image.name, type = image.type, url = image.url),
             age = age,
-            createAt = createAt)
+        )
     }
 }

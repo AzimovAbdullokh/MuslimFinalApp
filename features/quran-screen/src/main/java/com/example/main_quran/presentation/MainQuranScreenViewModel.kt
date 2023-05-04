@@ -19,7 +19,7 @@ class MainQuranScreenViewModel @Inject constructor(
     private val mainQuranFilteredItemsMapper: MainQuranFilteredItemsMapper,
     private val dispatchersProvider: DispatchersProvider,
     private val resourcesProvider: ResourceProvider,
-    ) : BaseViewModel(), QuranItemOnClickListener {
+) : BaseViewModel(), QuranItemOnClickListener {
 
     val allFilteredItemsFlow =
         fetchAllQuransUseCase()

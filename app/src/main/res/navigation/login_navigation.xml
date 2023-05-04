@@ -2,12 +2,21 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/login"
-    app:startDestination="@id/fragmentSignUp">
+    android:id="@+id/login_navigation"
+    app:startDestination="@id/loginFragment">
+
 
     <fragment
-        android:id="@+id/fragmentSignUp"
-        android:name="com.example.muslimfinalapp.app.ui.screen_sign_up.FragmentSignUp"
-        android:label="fragment_fragment_sign_up"
-        tools:layout="@layout/fragment_fragment_sign_up" />
+        android:id="@+id/loginFragment"
+        android:name="com.example.muslimfinalapp.app.temporary_screens.sign_in.ui.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.muslimfinalapp.app.temporary_screens.sign_up.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" />
 </navigation>

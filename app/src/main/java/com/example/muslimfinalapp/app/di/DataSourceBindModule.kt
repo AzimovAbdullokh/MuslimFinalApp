@@ -12,7 +12,6 @@ import com.example.data.cache.source.readers.QuranReadersCacheDataSource
 import com.example.data.cache.source.readers.QuranReadersCacheDataSourceImpl
 import com.example.data.cache.source.surah.SurahCacheDataSource
 import com.example.data.cache.source.surah.SurahCacheDataSourceImpl
-import com.example.data.cloud.source.*
 import com.example.data.cloud.source.books.BooksCloudDataSource
 import com.example.data.cloud.source.books.BooksCloudDataSourceImpl
 import com.example.data.cloud.source.category.CategoryCloudDataSource
@@ -25,6 +24,10 @@ import com.example.data.cloud.source.readers.QuranReadersCloudDataSource
 import com.example.data.cloud.source.readers.QuranReadersCloudDataSourceImpl
 import com.example.data.cloud.source.surah.SurahCloudDataSource
 import com.example.data.cloud.source.surah.SurahCloudDataSourceImpl
+import com.example.data.cloud.source.user.UsersCloudDataSource
+import com.example.data.cloud.source.user.UsersCloudDataSourceImpl
+import com.example.data.data.repository.user.UserRepositoryImpl
+import com.example.domain.domain.domain.repositories.UserRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -96,5 +99,15 @@ abstract class DataSourceBindModule {
     abstract fun bindSurahCacheDataSource(
         impl: SurahCacheDataSourceImpl,
     ): SurahCacheDataSource
+
+    @Binds
+    abstract fun bindUsersCloudDataSource(
+        impl: UsersCloudDataSourceImpl,
+    ): UsersCloudDataSource
+
+    @Binds
+    abstract fun bindUserRepository(
+        impl: UserRepositoryImpl,
+    ): UserRepository
 
 }

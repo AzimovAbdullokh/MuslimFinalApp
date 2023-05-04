@@ -1,4 +1,4 @@
-package com.example.sign_in
+package com.example.sign_in.exception
 
 abstract class AuthExcecption(
     val errorMessage: String = String(),

@@ -56,6 +56,7 @@ dependencies {
     implementation project(":core:common:common-api")
     implementation project(":data")
     implementation project(":core:ui-core")
+    implementation project(":core:utils-core")
     implementation project(":domain")
     implementation project(':audio-player')
 

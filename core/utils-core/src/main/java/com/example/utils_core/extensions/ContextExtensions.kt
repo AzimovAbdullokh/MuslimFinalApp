@@ -1,14 +1,18 @@
 package com.example.utils_core.extensions
 
+import android.app.Activity
 import android.app.ActivityManager
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.util.TypedValue
+import android.widget.EditText
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -39,6 +43,13 @@ private fun shimmerDrawable(): ShimmerDrawable {
     return ShimmerDrawable().apply {
         setShimmer(shimmer)
     }
+}
+
+
+fun Fragment.intentClearTask(activity: Activity) {
+    val intent = Intent(requireActivity(), activity::class.java)
+    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+    startActivity(intent)
 }
 
 fun Context.convertDrawableToByteArray(drawable: Drawable): ByteArray {
@@ -195,16 +206,49 @@ fun Context.showImage(uri: String?, imageView: ImageView) {
         .placeholder(shimmerDrawable())
         .into(imageView)
 }
+
 fun Context.showImage(file: File?, imageView: ImageView) {
     Glide.with(this).setDefaultRequestOptions(RequestOptions())
         .load(file)
         .placeholder(shimmerDrawable())
         .into(imageView)
 }
+
 fun Context.showImage(byteArray: ByteArray?, imageView: ImageView) {
     Glide.with(this).setDefaultRequestOptions(RequestOptions())
         .load(byteArray)
         .placeholder(shimmerDrawable())
         .into(imageView)
+
+}
+
+fun EditText.validateAge(): Boolean {
+    val lastName = this.text.toString()
+    return lastName.length in 1..2
+}
+
+fun EditText.validateEmail(): Boolean {
+    val email = this.text.toString()
+    return email.contains("@") && email.contains(".") && email.length > 7
+}
+
+fun EditText.validateLogin(): Boolean {
+    val login = this.text.toString()
+    return login.length >= 6
+}
+
+fun EditText.validatePassword(): Boolean {
+    val password = this.text.toString()
+    return password.length >= 6
+}
+
+fun EditText.validateName(): Boolean {
+    val name = this.text.toString()
+    return name.length >= 2
+}
+
+fun EditText.validateLastName(): Boolean {
+    val lastName = this.text.toString()
+    return lastName.length >= 2
 }
 

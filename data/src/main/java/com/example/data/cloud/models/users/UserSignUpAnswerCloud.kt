@@ -8,4 +8,4 @@ data class UserSignUpAnswerCloud(
     @SerializedName("image") val image: UserImageCloud,
     @SerializedName("sessionToken") val sessionToken: String,
     @SerializedName("createdAt") val createdAt: Date,
-    )
+)

@@ -33,6 +33,7 @@
     <string name="best_nasheeds">Best Nasheeds For You</string>
     <string name="name_input_format_error">Invalid name input format!</string>
     <string name="last_name_input_format_error">Incorrect format for entering the last name!</string>
+    <string name="login_input_format_error">Invalid login input format!</string>
     <string name="email_input_format_error">Invalid email input format!</string>
     <string name="password_input_format_error">Incorrect password input format!</string>
     <string name="generic_error">Something went wrong.</string>
@@ -53,4 +54,7 @@
     // ExoPlayer
     <string name="playback_speed">%sx</string>
 
+    <string name="age_input_format_error">Incorrect age input format!</string>
+    <string name="phone_input_format_error">Invalid format for entering a phone number!</string>
+    <string name="invalid_password_error">Invalid password!</string>
 </resources>

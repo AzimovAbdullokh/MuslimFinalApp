@@ -51,7 +51,12 @@ dependencies {
     implementation Libs.Google.Hilt
     kapt Libs.Google.HiltCompiler
 
+    implementation Libs.Android.Preferences
+
+//    implementation project(":domain")
     implementation project(":core:utils-core")
+    implementation project(":core:ui-core")
+    implementation project(":core:common:common-api")
 
 
 }

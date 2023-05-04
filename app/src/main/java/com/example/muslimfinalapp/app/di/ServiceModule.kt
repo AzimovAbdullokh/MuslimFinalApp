@@ -15,6 +15,11 @@ object ServiceModule {
 
     @Provides
     @Singleton
+    fun provideUserService(retrofit: Retrofit): UserService =
+        retrofit.create(UserService::class.java)
+
+    @Provides
+    @Singleton
     fun provideNasheedsService(retrofit: Retrofit): NasheedsService =
         retrofit.create(NasheedsService::class.java)
 

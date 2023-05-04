@@ -34,4 +34,5 @@ interface BaseRepository {
             RequestState.Error(result.error)
         }
     }
+
 }

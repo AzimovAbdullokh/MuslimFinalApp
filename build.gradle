@@ -90,7 +90,7 @@ buildscript {
         mockk_version = "1.11.0"
 
         // Android
-        core_ktx_verion = "1.9.0"
+        core_ktx_verion = "1.7.0"
         app_compat_verion = "1.4.1"
         activity_ktx_version = "1.6.1"
         fragment_ktx_version = "1.5.5"
@@ -100,6 +100,7 @@ buildscript {
         legacy_support_version = "1.0.0"
         swiperefresh_layout_version = "1.2.0-alpha01"
         room_version = "2.5.1"
+        preference_version = "1.2.0"
         work_version = "2.7.0"
         hilt_work_version = "1.0.0"
         datastore_preferences_version = "1.0.0"
@@ -139,23 +140,24 @@ buildscript {
         material_edit_text_version = "2.1.4"
 
         Libs = [
-                Android: [
-                        CoreKtx: "androidx.core:core-ktx:1.9.0",
-                        FragmentKtx: "androidx.fragment:fragment-ktx:1.5.5",
-                        ActivityKtx: "androidx.activity:activity-ktx:1.6.1",
-                        AppCompat: "androidx.appcompat:appcompat:1.6.0",
-                        LifecycleRuntimeKtx: "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1",
+                Android  : [
+                        CoreKtx              : "androidx.core:core-ktx:$core_ktx_verion",
+                        FragmentKtx          : "androidx.fragment:fragment-ktx:1.5.5",
+                        ActivityKtx          : "androidx.activity:activity-ktx:1.6.1",
+                        AppCompat            : "androidx.appcompat:appcompat:1.6.0",
+                        LifecycleRuntimeKtx  : "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1",
                         LifecycleViewModelKtx: "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1",
-                        LifecycleServiceKtx    : "androidx.lifecycle:lifecycle-service:$lifecycle_ktx_version",
-                        Palette                : "androidx.palette:palette:$palette_version",
-                        LifecycleLiveDataKtx   : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_ktx_version",
-                        LifecycleProcessKtx    : "androidx.lifecycle:lifecycle-process:$lifecycle_ktx_version",
-                        ConstraintLayout: "androidx.constraintlayout:constraintlayout:2.1.4",
-                        RecyclerView: "androidx.recyclerview:recyclerview:1.2.1",
-                        NavigationFragments: "androidx.navigation:navigation-fragment-ktx:$navigation_version",
-                        NavigationUI: "androidx.navigation:navigation-ui-ktx:$navigation_version",
+                        LifecycleServiceKtx  : "androidx.lifecycle:lifecycle-service:$lifecycle_ktx_version",
+                        Palette              : "androidx.palette:palette:$palette_version",
+                        LifecycleLiveDataKtx : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_ktx_version",
+                        LifecycleProcessKtx  : "androidx.lifecycle:lifecycle-process:$lifecycle_ktx_version",
+                        ConstraintLayout     : "androidx.constraintlayout:constraintlayout:2.1.4",
+                        RecyclerView         : "androidx.recyclerview:recyclerview:1.2.1",
+                        NavigationFragments  : "androidx.navigation:navigation-fragment-ktx:$navigation_version",
+                        NavigationUI         : "androidx.navigation:navigation-ui-ktx:$navigation_version",
+                        Preferences          : "androidx.preference:preference:$preference_version",
                 ],
-                Google    : [
+                Google   : [
                         Material             : "com.google.android.material:material:$material_version",
                         Hilt                 : "com.google.dagger:hilt-android:$hilt_version",
                         HiltCompiler         : "com.google.dagger:hilt-compiler:$hilt_version",
@@ -167,16 +169,16 @@ buildscript {
                 JetBrains: [
                         CoroutinesCore: "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4",
                 ],
-                Testing: [
+                Testing  : [
                         JUnit: "junit:junit:4.13.2",
                 ],
-                Stuff: [
+                Stuff    : [
                         ElementAdapter: "com.elveum:element-adapter:0.6",
-                        Coil: "io.coil-kt:coil:2.2.0",
-                        Faker: "com.github.javafaker:javafaker:1.0.2",
+                        Coil          : "io.coil-kt:coil:2.2.0",
+                        Faker         : "com.github.javafaker:javafaker:1.0.2",
                 ],
 
-                GitHub    : [
+                GitHub   : [
                         Glide               : "com.github.bumptech.glide:glide:$glide_version",
                         Lingver             : "com.github.YarikSOffice:lingver:$lingver_version",
                         CircularProgressView: "com.github.VaibhavLakhera:Circular-Progress-View:$circular_progress_view_version",
@@ -185,7 +187,7 @@ buildscript {
                         PushDownAnim        : "com.github.thekhaeng:pushdown-anim-click:$pushdown_anim_click_version",
                         MaskEditText        : "com.github.santalu:mask-edittext:$mask_edit_text_version",
                 ],
-                Other     : [
+                Other    : [
                         CircleImageView : "de.hdodenhof:circleimageview:$circle_image_view_version",
                         PrettyTime      : "org.ocpsoft.prettytime:prettytime:$pretty_time_version",
                         ShimmerEffect   : "com.facebook.shimmer:shimmer:$shimmer_effect_version",

@@ -1,10 +1,11 @@
 package com.example.domain.domain.domain.models.users
 
 data class UserSignUpDomain(
-    var username:String,
-    var email: String,
-    var password: String,
+    var userLogin: String,
+    var userPassword: String,
     var lastName: String,
+    var firstName: String,
+    var userEmail: String,
     var age: String,
-    var userSessionToken: String,
+    var sessionToken: String?
 )

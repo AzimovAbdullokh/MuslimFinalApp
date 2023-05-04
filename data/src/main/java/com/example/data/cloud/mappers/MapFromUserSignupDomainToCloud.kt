@@ -8,12 +8,14 @@ import javax.inject.Inject
 class MapFromUserSignupDomainToCloud @Inject constructor() :
     Mapper<UserSignUpDomain, UserSignUpCloud> {
     override fun map(from: UserSignUpDomain) = from.run {
-        UserSignUpCloud(username = username,
-            email = email,
-            password = password,
+        UserSignUpCloud(
+            userLogin = userLogin,
+            userPassword = userPassword,
+            firstName = firstName,
             lastName = lastName,
             age = age,
-            userSessionToken = userSessionToken
+            userEmail = userEmail,
+            sessionToken = sessionToken
         )
     }
 }
