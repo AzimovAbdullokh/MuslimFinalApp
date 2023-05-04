@@ -14,7 +14,8 @@ class MapUserSignUpToDomain @Inject constructor() : Mapper<UserSignUp, UserSignU
             firstName = firstName,
             userEmail = userEmail,
             sessionToken = sessionToken,
-            age = age
+            age = age,
+            userType = userType
         )
     }
 }

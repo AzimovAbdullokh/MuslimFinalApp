@@ -14,6 +14,8 @@ data class UserSignUp(
     var firstName: String = String(),
     var userEmail: String = String(),
     var age: String = String(),
+    var userType: String = String(),
+
     var sessionToken: String = String(),
 ) : Parcelable {
 
@@ -24,6 +26,7 @@ data class UserSignUp(
         firstName = firstName,
         userEmail = userEmail,
         age = age,
+        userType = userType,
         sessionToken = sessionToken,
     )
 
@@ -41,6 +44,7 @@ data class UserSignUp(
         objectId = id,
         image = image.toDto(),
         sessionToken = sessionToken,
+        userType = UserType.valueOf(userType)
     )
 
     fun UserImageDomain.toDto(): UserFeaturesImage = UserFeaturesImage(

@@ -15,6 +15,7 @@ data class UserCloud(
     @SerializedName("last_name") var lastName: String,
     @SerializedName("image") var image: UserImageCloud,
     @SerializedName("email") var userEmail: String,
+    @SerializedName("userType") var userType: String,
     @SerializedName("age") var age: String,
     @SerializedName("sessionToken") var sessionToken: String
 )

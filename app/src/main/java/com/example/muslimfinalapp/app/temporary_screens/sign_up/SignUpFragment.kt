@@ -81,6 +81,7 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding, SignUpViewModel>(
             userEmail = emailField.text.toString().trim(),
             userPassword = passwordField.text.toString().trim(),
             age = ageField.text.toString().trim(),
+            userType = "user"
         )
         viewModel.startSignUp(newUser)
     }

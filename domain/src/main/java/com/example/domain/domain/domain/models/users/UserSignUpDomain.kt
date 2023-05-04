@@ -6,6 +6,7 @@ data class UserSignUpDomain(
     var lastName: String,
     var firstName: String,
     var userEmail: String,
+    var userType: String,
     var age: String,
     var sessionToken: String?
 )

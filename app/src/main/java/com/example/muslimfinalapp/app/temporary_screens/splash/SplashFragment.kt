@@ -35,6 +35,7 @@ class SplashFragment :
         when (destination) {
             StartNavigationDestination.NavigateToLoginScreen -> navigateToLoginScreens()
             StartNavigationDestination.NavigateToMainScreen -> navigateToMainScreens()
+            StartNavigationDestination.NavigateToAdminScreen -> Unit
             StartNavigationDestination.NavigateToAccountHasDeletedScreen -> Unit
         }
     }

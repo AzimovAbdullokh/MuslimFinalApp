@@ -6,6 +6,7 @@ import com.example.domain.domain.domain.Mapper
 import com.example.domain.domain.domain.models.users.UserDomain
 import com.example.domain.domain.domain.repositories.UserCacheRepository
 import com.example.muslimfinalapp.app.temporary_screens.models.UserFeatures
+import com.example.muslimfinalapp.app.temporary_screens.models.UserType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -15,15 +16,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
-//    fetchInternetConnectedStatus: FetchInternetConnectedStatus,
     private val mapper: Mapper<UserDomain, UserFeatures>,
     userCacheRepository: UserCacheRepository,
 ) : BaseViewModel() {
 
-
     private val _isProgressBarVisibleFlow = createMutableSharedFlowAsSingleLiveEvent<Boolean>()
     val isProgressBarVisibleFlow get() = _isProgressBarVisibleFlow.asSharedFlow()
-
 
     private val currentUserFromCacheFlow = userCacheRepository.fetchCurrentUserFromCache()
         .flowOn(Dispatchers.IO)
@@ -33,7 +31,6 @@ class SplashViewModel @Inject constructor(
         .onEach(::handleCurrentUserFromCache)
         .stateIn(viewModelScope, SharingStarted.Lazily, null)
 
-
     init {
         currentUserFromCacheFlow.launchIn(viewModelScope)
     }
@@ -41,47 +38,30 @@ class SplashViewModel @Inject constructor(
     private val _navigateToFlow =
         createMutableSharedFlowAsSingleLiveEvent<StartNavigationDestination>()
     val navigateToFlow get() = _navigateToFlow.asSharedFlow()
-//
-//    private val isNetworkConnectedFlow = fetchInternetConnectedStatus()
-//        .flowOn(Dispatchers.IO)
-//        .shareIn(viewModelScope, SharingStarted.Lazily, 1)
-
-    private fun handleError(error: Throwable) {
-//        currentUserFromCacheFlow.value?.apply {
-//            _navigateToFlow.tryEmit(searchNavigateInUserType(userType))
-//        }
-    }
 
 
-    private fun searchNavigateInUserType() = StartNavigationDestination.NavigateToLoginScreen
+    private fun searchNavigateInUserType(userType: UserType) =
+        navigateActions[userType] ?: StartNavigationDestination.NavigateToMainScreen
 
-    private fun handleCurrentUserFromCache(user: UserFeatures) = launchInBackground {
+    private fun handleCurrentUserFromCache(
+        user: UserFeatures,
+    ) = launchInBackground {
         withTimeout(SPLASH_SCREEN_DEFAULT_DELAY_TIME) {
             delay(1000)
-            _navigateToFlow.tryEmit(searchNavigateInUserType())
-//            when (user.userType) {
-//                UserType.unknown -> {
-//                    delay(SPLASH_SCREEN_DEFAULT_DELAY_TIME)
-//                    emitNavigateToFlow(StartNavigationDestination.NavigateToLoginScreen)
-//                }
-//                UserType.admin -> {
-//                    delay(SPLASH_SCREEN_DEFAULT_DELAY_TIME)
-//                    emitNavigateToFlow(StartNavigationDestination.NavigateToAdminScreen)
-//                }
-//                else -> {
-//                    fetchCurrentUserFromCloud(user.sessionToken)
-//                }
-//            }
+            _navigateToFlow.tryEmit(searchNavigateInUserType(user.userType))
         }
     }
 
-    private fun emitNavigateToFlow(destination: StartNavigationDestination) {
-        _navigateToFlow.tryEmit(destination)
+    private val navigateActions: Map<UserType, StartNavigationDestination> by lazy {
+        mapOf(
+            UserType.unknown to StartNavigationDestination.NavigateToLoginScreen,
+            UserType.admin to StartNavigationDestination.NavigateToAdminScreen,
+            UserType.user to StartNavigationDestination.NavigateToMainScreen,
+        )
     }
 
-    private fun showProgressBar() {
-        _isProgressBarVisibleFlow.tryEmit(true)
-    }
+    private fun emitNavigateToFlow(destination: StartNavigationDestination) =
+        _navigateToFlow.tryEmit(destination)
 
     private companion object {
         const val SPLASH_SCREEN_DEFAULT_DELAY_TIME = 3000L

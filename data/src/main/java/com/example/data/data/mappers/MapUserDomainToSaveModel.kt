@@ -17,7 +17,8 @@ class MapUserDomainToSaveModel @Inject constructor() : Mapper<UserDomain, UserSa
             firstName = firstName,
             userEmail = userEmail,
             sessionToken = sessionToken,
-            age = age
+            age = age,
+            userType = userType
         )
     }
 }

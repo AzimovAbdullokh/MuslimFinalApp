@@ -20,6 +20,7 @@ class MapUserToDomain @Inject constructor() : Mapper<UserFeatures, UserDomain> {
             userEmail = userEmail,
             sessionToken = sessionToken,
             age = age,
+            userType = userType.name
         )
     }
 }

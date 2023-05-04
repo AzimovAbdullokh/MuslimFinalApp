@@ -2,7 +2,7 @@ package com.example.muslimfinalapp.app.temporary_screens.models
 
 import java.util.*
 
-data class UserFeatures (
+data class UserFeatures(
     var objectId: String,
     var userLogin: String,
     var userPassword: String? = null,
@@ -11,6 +11,7 @@ data class UserFeatures (
     var userEmail: String,
     var image: UserFeaturesImage? = null,
     var sessionToken: String,
+    var userType: UserType,
     var age: String,
 ) {
 
@@ -26,6 +27,7 @@ data class UserFeatures (
             userEmail = String(),
             sessionToken = String(),
             age = String(),
+            userType = UserType.unknown
         )
     }
 }
@@ -35,3 +37,9 @@ data class UserFeaturesImage(
     var type: String,
     var url: String,
 )
+
+enum class UserType {
+    unknown,
+    user,
+    admin,
+}

@@ -17,6 +17,7 @@ class MapFromUserCloudToDomain @Inject constructor() : Mapper<UserCloud, UserDom
             sessionToken = sessionToken,
             image = UserImageDomain(name = image.name, type = image.type, url = image.url),
             age = age,
+            userType = userType
         )
     }
 }

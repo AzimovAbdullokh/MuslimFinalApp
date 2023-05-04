@@ -10,6 +10,7 @@ data class UserSaveModel(
     var firstName: String,
     var userEmail: String,
     var age: String,
+    var userType: String,
     var image: UserSaveModelImage,
     var sessionToken: String
 ) {
@@ -24,6 +25,7 @@ data class UserSaveModel(
             userEmail = String(),
             sessionToken = String(),
             age = String(),
+            userType = String(),
         )
     }
 }

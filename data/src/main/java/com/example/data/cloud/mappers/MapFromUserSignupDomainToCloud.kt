@@ -15,7 +15,8 @@ class MapFromUserSignupDomainToCloud @Inject constructor() :
             lastName = lastName,
             age = age,
             userEmail = userEmail,
-            sessionToken = sessionToken
+            sessionToken = sessionToken,
+            userType = userType
         )
     }
 }

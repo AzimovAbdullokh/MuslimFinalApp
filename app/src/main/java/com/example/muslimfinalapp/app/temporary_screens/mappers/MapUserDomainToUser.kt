@@ -4,6 +4,7 @@ import com.example.domain.domain.domain.Mapper
 import com.example.domain.domain.domain.models.users.UserDomain
 import com.example.muslimfinalapp.app.temporary_screens.models.UserFeatures
 import com.example.muslimfinalapp.app.temporary_screens.models.UserFeaturesImage
+import com.example.muslimfinalapp.app.temporary_screens.models.UserType
 import javax.inject.Inject
 
 class MapUserDomainToUser @Inject constructor() : Mapper<UserDomain, UserFeatures> {
@@ -23,6 +24,14 @@ class MapUserDomainToUser @Inject constructor() : Mapper<UserDomain, UserFeature
             userEmail = userEmail,
             sessionToken = sessionToken,
             age = age,
+            userType = userType(userType),
         )
     }
+
+    private fun userType(userType: String): UserType =
+        when (userType) {
+            "admin" -> UserType.admin
+            "user" -> UserType.user
+            else -> UserType.unknown
+        }
 }

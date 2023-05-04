@@ -9,5 +9,6 @@ data class UserSignUpCloud(
     @SerializedName("last_name") var lastName: String,
     @SerializedName("email") var userEmail: String,
     @SerializedName("age") var age: String,
+    @SerializedName("userType") var userType: String,
     @SerializedName("sessionToken") var sessionToken: String?
 )

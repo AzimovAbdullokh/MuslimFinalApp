@@ -6,5 +6,7 @@ sealed class StartNavigationDestination {
 
     object NavigateToMainScreen : StartNavigationDestination()
 
+    object NavigateToAdminScreen : StartNavigationDestination()
+
     object NavigateToAccountHasDeletedScreen : StartNavigationDestination()
 }

@@ -1,6 +1,7 @@
 package com.example.domain.domain.domain.models.users
 
 import java.util.*
+
 //
 //class UserDomain(
 //    val objectId: String,
@@ -22,6 +23,7 @@ data class UserDomain(
     var firstName: String,
     var userEmail: String,
     var age: String,
+    var userType: String,
     var image: UserImageDomain = UserImageDomain.unknown(),
     var sessionToken: String
 ) {
@@ -36,6 +38,7 @@ data class UserDomain(
             userEmail = String(),
             sessionToken = String(),
             age = String(),
+            userType = String(),
         )
     }
 }
