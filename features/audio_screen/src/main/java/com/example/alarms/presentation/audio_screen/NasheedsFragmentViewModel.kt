@@ -40,7 +40,8 @@ class NasheedsFragmentViewModel @Inject constructor(
         mainNasheedFilteredItemsMapper.map(items = items,
             nasheedsItemOnClickListener = this,
             bookItemOnClickListener = this,
-            readerItemOnClickListener = this
+            readerItemOnClickListener = this,
+            searchQuery = String()
         )
 
     private fun handleError(exception: Throwable) {

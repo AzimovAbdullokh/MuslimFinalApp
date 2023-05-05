@@ -12,7 +12,11 @@
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
+            app:destination="@id/signUpFragment"
+            app:enterAnim="@anim/animate_split_enter"
+            app:exitAnim="@anim/animate_split_exit"
+            app:popEnterAnim="@anim/animate_split_enter"
+            app:popExitAnim="@anim/animate_split_exit" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"

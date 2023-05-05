@@ -41,6 +41,7 @@ class NasheedFragmentForViewPagerViewModel @Inject constructor(
         nasheedsItemOnClickListener = this,
         bookItemOnClickListener = this,
         readerItemOnClickListener = this,
+        searchQuery = String()
     )
 
     private fun handleError(exception: Throwable) {

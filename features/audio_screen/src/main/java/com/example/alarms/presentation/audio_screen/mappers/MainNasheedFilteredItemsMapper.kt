@@ -28,6 +28,7 @@ interface MainNasheedFilteredItemsMapper {
 
     fun map(
         items: MainNasheedItems,
+        searchQuery: String,
         nasheedsItemOnClickListener: NasheedItemOnClickListener,
         bookItemOnClickListener: BookItemOnClickListener,
         readerItemOnClickListener: ReaderItemOnClickListener,
@@ -39,45 +40,60 @@ class MainNasheedFilteredItemsMapperImpl @Inject constructor(
     private val bookFeatureModelToUiMapper: Mapper<BookFeatureModel, BooksFeatureModelUi>,
     private val readerFeatureModelToUiMapper: Mapper<ReadersFeatureModel, ReadersFeatureUiModel>,
 ) : MainNasheedFilteredItemsMapper {
-    private companion object {
-        const val MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN = 10
-    }
 
     @SuppressLint("SuspiciousIndentation")
     override fun map(
         items: MainNasheedItems,
+        searchQuery: String,
         nasheedsItemOnClickListener: NasheedItemOnClickListener,
         bookItemOnClickListener: BookItemOnClickListener,
         readerItemOnClickListener: ReaderItemOnClickListener,
     ): Triple<List<Item>, List<Item>, List<Item>> {
 
-        val filteredAudioNasheedList = items.nasheeds.map(nasheedFeatureModelToUiMapper::map).map {
-            AudioNasheedAdapterModel(audioNasheeds = AudioNasheedsUi(id = it.id,
-                title = it.title,
-                createdAt = it.createdAt,
-                nasheedFile = it.nasheedFile,
-                nasheedPoster = it.nasheedPoster,
-                currentStartPosition = it.currentStartPosition,
-                audioId = it.audioId), listener = nasheedsItemOnClickListener)
-        }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
 
-        val filteredBooksList = items.books.map(bookFeatureModelToUiMapper::map).map {
-            BookAdapterModel(bookTitle = it.bookTitle,
-                bookAuthor = it.bookAuthor,
-                id = it.id,
-                createdAt = it.createdAt,
-                bookDescription = it.bookDescription,
-                posterUrl = it.poster.url,
-                listener = bookItemOnClickListener)
-        }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
+        val filteredAudioNasheedList = items.nasheeds.map(nasheedFeatureModelToUiMapper::map)
+            .filter { applyFilterForAllNasheeds(it, searchQuery) }
+            .map {
+                AudioNasheedAdapterModel(
+                    audioNasheeds = AudioNasheedsUi(
+                        id = it.id,
+                        title = it.title,
+                        createdAt = it.createdAt,
+                        nasheedFile = it.nasheedFile,
+                        nasheedPoster = it.nasheedPoster,
+                        currentStartPosition = it.currentStartPosition,
+                        audioId = it.audioId
+                    ),
+                    listener = nasheedsItemOnClickListener)
+            }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
 
-        val filteredReadersList = items.readers.map(readerFeatureModelToUiMapper::map).map {
-            ReadersAdapterModel(id = it.id,
-                readerId = it.readerId,
-                readerName = it.readerName,
-                posterUrl = it.readerPoster.url,
-                listener = readerItemOnClickListener)
-        }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
+
+        val filteredBooksList = items.books.map(bookFeatureModelToUiMapper::map)
+            .filter { applyFilterForAllBooks(it, searchQuery) }
+            .map {
+                BookAdapterModel(
+                    bookTitle = it.bookTitle,
+                    bookAuthor = it.bookAuthor,
+                    id = it.id,
+                    createdAt = it.createdAt,
+                    bookDescription = it.bookDescription,
+                    posterUrl = it.poster.url,
+                    listener = bookItemOnClickListener
+                )
+            }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
+
+
+        val filteredReadersList = items.readers.map(readerFeatureModelToUiMapper::map)
+            .filter { applyFilterForAllReaders(it, searchQuery) }
+            .map {
+                ReadersAdapterModel(
+                    id = it.id,
+                    readerId = it.readerId,
+                    readerName = it.readerName,
+                    posterUrl = it.readerPoster.url,
+                    listener = readerItemOnClickListener
+                )
+            }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
 
         val allItems = mutableListOf<Item>()
 
@@ -93,6 +109,7 @@ class MainNasheedFilteredItemsMapperImpl @Inject constructor(
         if (bookItem.items.isNotEmpty()) allItems.add(createHeaderModelForAllBooks { })
         allItems.addAll(listOf(bookItem))
 
+
         val nasheedsForPager = mutableListOf<Item>()
 
         val audioNasheedItemForPager = MainScreenAudioNasheedsBlockItem(filteredAudioNasheedList)
@@ -103,14 +120,41 @@ class MainNasheedFilteredItemsMapperImpl @Inject constructor(
 
     }
 
-    private fun createHeaderModelForAllAudioNasheeds() =
-        HeaderItem(titleId = IdResourceString(R.string.nasheeds), onClickListener = { })
+    private fun applyFilterForAllNasheeds(audio: AudioNasheedsUi, searchQuery: String) =
+        if (searchQuery.isEmpty()) audio.title != String()
+        else audio.title.contains(searchQuery, ignoreCase = true)
 
-    private fun createHeaderModelForAllBooks(navigateToAllBooksFragment: () -> Unit) = HeaderItem(
-        titleId = IdResourceString(com.example.ui_core.R.string.islamicBooks),
-        onClickListener = { navigateToAllBooksFragment() })
+    private fun applyFilterForAllReaders(reader: ReadersFeatureUiModel, searchQuery: String) =
+        if (searchQuery.isEmpty()) reader.readerName != String()
+        else reader.readerName.contains(searchQuery, ignoreCase = true)
+
+    private fun applyFilterForAllBooks(books: BooksFeatureModelUi, searchQuery: String) =
+        if (searchQuery.isEmpty()) books.bookTitle != String()
+        else books.bookTitle.contains(searchQuery, ignoreCase = true)
+
+
+    private fun createHeaderModelForAllAudioNasheeds() =
+        HeaderItem(
+            titleId = IdResourceString(R.string.nasheeds),
+            onClickListener = { },
+            showMoreIsVisible = false
+        )
+
+    private fun createHeaderModelForAllBooks(navigateToAllBooksFragment: () -> Unit) =
+        HeaderItem(
+            titleId = IdResourceString(R.string.islamicBooks),
+            onClickListener = { navigateToAllBooksFragment() },
+            showMoreIsVisible = false
+        )
 
     private fun createHeaderModelForAllReaders(navigateToAllBooksFragment: () -> Unit) =
-        HeaderItem(titleId = IdResourceString(R.string.readers),
-            onClickListener = { navigateToAllBooksFragment() })
+        HeaderItem(
+            titleId = IdResourceString(R.string.readers),
+            onClickListener = { navigateToAllBooksFragment() },
+            showMoreIsVisible = false
+        )
+
+    private companion object {
+        const val MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN = 10
+    }
 }

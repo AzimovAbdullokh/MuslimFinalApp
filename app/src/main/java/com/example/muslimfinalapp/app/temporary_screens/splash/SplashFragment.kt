@@ -12,16 +12,18 @@ import com.example.muslimfinalapp.R
 import com.example.muslimfinalapp.databinding.FragmentSplashBinding
 import com.example.ui_core.extensions.launchOnLifecycle
 import com.example.ui_core.extensions.launchWhenViewStarted
+import com.example.utils_core.extensions.hide
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SplashFragment :
     BaseFragment<FragmentSplashBinding, SplashViewModel>(FragmentSplashBinding::inflate) {
+
     override val viewModel: SplashViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        hideBottomNavigationView( )
         observeData()
     }
 
@@ -40,25 +42,18 @@ class SplashFragment :
         }
     }
 
-    private fun navigateToLoginScreens() = findNavController().navigate(
-        R.id.login_navigation,
+    private fun navigateToLoginScreens() = findNavController().navigate(R.id.login_navigation,
         bundleOf(),
-        createNavOptionsWithAnimations()
-    )
+        createNavOptionsWithAnimations())
 
-    private fun navigateToMainScreens() = findNavController().navigate(
-        R.id.main_bottom,
-        bundleOf(),
-        createNavOptionsWithAnimations()
-    )
+    private fun navigateToMainScreens() =
+        findNavController().navigate(R.id.main_bottom, bundleOf(), createNavOptionsWithAnimations())
 
-    private fun createNavOptionsWithAnimations() = NavOptions
-        .Builder()
-        .setEnterAnim(com.example.ui_core.R.anim.slide_up)
-        .setExitAnim(com.example.ui_core.R.anim.slide_down)
-        .setPopEnterAnim(com.example.ui_core.R.anim.slide_up)
-        .setPopExitAnim(com.example.ui_core.R.anim.slide_down)
-        .build()
+    private fun createNavOptionsWithAnimations() =
+        NavOptions.Builder().setEnterAnim(com.example.ui_core.R.anim.slide_up)
+            .setExitAnim(com.example.ui_core.R.anim.slide_down)
+            .setPopEnterAnim(com.example.ui_core.R.anim.slide_up)
+            .setPopExitAnim(com.example.ui_core.R.anim.slide_down).build()
 
     private fun setProgressBarVisible(isVisible: Boolean) {
         binding().progressBar.isVisible = isVisible

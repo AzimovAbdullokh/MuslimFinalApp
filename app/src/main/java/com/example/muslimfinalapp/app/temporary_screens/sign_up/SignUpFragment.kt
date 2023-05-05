@@ -15,12 +15,12 @@ import com.example.ui_core.custom.snackbar.GenericSnackbar
 import com.example.ui_core.extensions.launchOnLifecycle
 import com.example.ui_core.extensions.launchWhenViewStarted
 import com.example.utils_core.extensions.*
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SignUpFragment : BaseFragment<FragmentSignUpBinding, SignUpViewModel>(
-    FragmentSignUpBinding::inflate
-) {
+class SignUpFragment :
+    BaseFragment<FragmentSignUpBinding, SignUpViewModel>(FragmentSignUpBinding::inflate) {
     override val viewModel: SignUpViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -31,40 +31,34 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding, SignUpViewModel>(
 
     private fun setOnClickListeners() = with(binding()) {
         signUpBtn.setOnDownEffectClickListener { validateUserValuesAndStartSignUp() }
-//        alreadyRegisteredBlock.signInLink.setOnDownEffectClickListener { viewModel.goSignUpToLoginFragment() }
-//        toolbar.setNavigationOnClickListener { viewModel.goBack() }
+        upButton.setOnDownEffectClickListener { viewModel.navigateBack() }
     }
 
     private fun validateUserValuesAndStartSignUp() = with(binding()) {
         when {
             !firstNameField.validateName() -> showErrorSnackbar(
                 message = getString(com.example.ui_core.R.string.name_input_format_error),
-                input = firstNameField
+                input = firstNameField,
             )
-            !lastNameField.validateLastName() ->
-                showErrorSnackbar(
-                    message = getString(com.example.ui_core.R.string.last_name_input_format_error),
-                    input = lastNameField
-                )
+            !lastNameField.validateLastName() -> showErrorSnackbar(
+                message = getString(com.example.ui_core.R.string.last_name_input_format_error),
+                input = lastNameField,
+            )
             !loginField.validateLogin() -> showErrorSnackbar(
-                message
-                = getString(com.example.ui_core.R.string.login_input_format_error),
-                input = loginField
+                message = getString(com.example.ui_core.R.string.login_input_format_error),
+                input = loginField,
             )
             !emailField.validateEmail() -> showErrorSnackbar(
-                message
-                = getString(com.example.ui_core.R.string.email_input_format_error),
-                input = emailField
+                message = getString(com.example.ui_core.R.string.email_input_format_error),
+                input = emailField,
             )
             !passwordField.validatePassword() -> showErrorSnackbar(
-                message
-                = getString(com.example.ui_core.R.string.password_input_format_error),
-                input = passwordField
+                message = getString(com.example.ui_core.R.string.password_input_format_error),
+                input = passwordField,
             )
             !ageField.validateAge() -> showErrorSnackbar(
-                message
-                = getString(com.example.ui_core.R.string.age_input_format_error),
-                input = passwordField
+                message = getString(com.example.ui_core.R.string.age_input_format_error),
+                input = passwordField,
             )
             else -> {
                 startSignUp()
@@ -74,15 +68,13 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding, SignUpViewModel>(
     }
 
     private fun startSignUp() = with(binding()) {
-        val newUser = UserSignUp(
-            firstName = firstNameField.text.toString().trim(),
+        val newUser = UserSignUp(firstName = firstNameField.text.toString().trim(),
             lastName = lastNameField.text.toString().trim(),
             userLogin = loginField.text.toString().trim(),
             userEmail = emailField.text.toString().trim(),
             userPassword = passwordField.text.toString().trim(),
             age = ageField.text.toString().trim(),
-            userType = "user"
-        )
+            userType = "user")
         viewModel.startSignUp(newUser)
     }
 
@@ -95,22 +87,18 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding, SignUpViewModel>(
             isErrorMessageVisibleFlow.observe(::setErrorMessageVisibility)
             isProgressDialogVisibleFlow.observe(::handleProgressDialogStatus)
             handleSignUpFlow.observe {
-                findNavController().navigate(
-                    R.id.main_bottom,
+                findNavController().navigate(R.id.main_bottom,
                     bundleOf(),
-                    createNavOptionsWithAnimations()
-                )
+                    createNavOptionsWithAnimations())
             }
         }
     }
 
-    private fun createNavOptionsWithAnimations() = NavOptions
-        .Builder()
-        .setEnterAnim(com.example.ui_core.R.anim.slide_up)
-        .setExitAnim(com.example.ui_core.R.anim.slide_down)
-        .setPopEnterAnim(com.example.ui_core.R.anim.slide_up)
-        .setPopExitAnim(com.example.ui_core.R.anim.slide_down)
-        .build()
+    private fun createNavOptionsWithAnimations() =
+        NavOptions.Builder().setEnterAnim(com.example.ui_core.R.anim.slide_up)
+            .setExitAnim(com.example.ui_core.R.anim.slide_down)
+            .setPopEnterAnim(com.example.ui_core.R.anim.slide_up)
+            .setPopExitAnim(com.example.ui_core.R.anim.slide_down).build()
 
     private fun navControllerPopBackStackInclusive() =
         findNavController().popBackStack(R.id.login_navigation, false)
@@ -131,13 +119,7 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding, SignUpViewModel>(
     }
 
     private fun showErrorSnackbar(message: String, input: EditText) =
-        GenericSnackbar
-            .Builder(binding().root)
-            .error()
-            .message(message)
-            .buttonText("Fix")
-            .buttonClickListener { input.requestFocus() }
-            .build()
-            .show()
+        GenericSnackbar.Builder(binding().root).error().message(message).buttonText("Fix")
+            .buttonClickListener { input.requestFocus() }.build().show()
 
 }

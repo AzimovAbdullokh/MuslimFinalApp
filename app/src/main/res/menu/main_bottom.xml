@@ -16,10 +16,10 @@
 
 
     <item
-        android:id="@+id/screen_settings"
+        android:id="@+id/screen_profile"
         android:checked="true"
-        android:icon="@drawable/settings_svgrepo_com__1_"
-        android:title="@string/settings" />
+        android:icon="@drawable/person_one"
+        android:title="@string/profile" />
 
 
 </menu>

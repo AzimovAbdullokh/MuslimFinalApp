@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import androidx.navigation.fragment.findNavController
 import com.example.common_api.navigateTo
+import com.example.common_api.navigation.NavigationCommand
 import com.example.ui_core.custom.snackbar.GenericSnackbar
 import com.example.ui_core.extensions.launchWhenViewStarted
 
@@ -43,6 +44,18 @@ abstract class BaseFragment<V : ViewBinding, VM : BaseViewModel>(
     private fun observeRecourse() = with(viewModel) {
         launchWhenViewStarted {
             navCommand.observe(findNavController()::navigateTo)
+        }
+        collectNavigation(viewLifecycleOwner) {
+            it.getValue()?.let { navigationCommand ->
+                handleNavigation(navigationCommand)
+            }
+        }
+    }
+
+    private fun handleNavigation(navCommand: NavigationCommand) {
+        when (navCommand) {
+            is NavigationCommand.ToDirection -> findNavController().navigate(navCommand.directions.actionId)
+            is NavigationCommand.Back -> findNavController().navigateUp()
         }
     }
 

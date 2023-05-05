@@ -78,6 +78,10 @@
         android:id="@+id/searchAudioFragment"
         android:name="com.example.alarms.presentation.search_audio_screen.SearchAudioFragment"
         android:label="SearchAudioFragment" />
+    <fragment
+        android:id="@+id/screen_profile"
+        android:name="com.example.profile.presentation.ProfileFragment"
+        android:label="ProfileFragment" />
 
 
     <!--    <fragment-->

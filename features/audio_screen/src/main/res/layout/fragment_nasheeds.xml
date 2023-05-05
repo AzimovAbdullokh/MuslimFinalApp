@@ -17,9 +17,9 @@
             android:id="@+id/toolbar_block"
             layout="@layout/include_toolbar_block" />
 
-<!--        <include-->
-<!--            android:id="@+id/category_block"-->
-<!--            layout="@layout/include_categories_block" />-->
+        <!--        <include-->
+        <!--            android:id="@+id/category_block"-->
+        <!--            layout="@layout/include_categories_block" />-->
     </LinearLayout>
 
     <LinearLayout

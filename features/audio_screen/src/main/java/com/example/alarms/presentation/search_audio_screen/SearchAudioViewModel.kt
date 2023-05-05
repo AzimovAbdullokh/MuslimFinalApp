@@ -25,17 +25,26 @@ class SearchAudioViewModel @Inject constructor(
 ) : BaseViewModel(), NasheedItemOnClickListener, BookItemOnClickListener,
     ReaderItemOnClickListener {
 
-    val allFilteredItemsFlow =
-        fetchAllNasheedsUseCase().map { items -> mapToAdapterModel(items) }.onStart {}
-            .flowOn(dispatchers.default()).catch { exception: Throwable -> handleError(exception) }
+    private val searchStringFlow = MutableStateFlow(String())
+
+    val allFilteredItemsFlow = fetchAllNasheedsUseCase()
+        .combine(searchStringFlow.debounce(SEARCH_DEBOUNCE))
+        { items, searchString -> mapToAdapterModel(items, searchString) }
+            .onStart {}
+            .flowOn(dispatchers.default())
+            .catch { exception: Throwable -> handleError(exception) }
             .stateIn(viewModelScope, SharingStarted.Lazily, null)
 
-    private fun mapToAdapterModel(items: MainNasheedItems) = itemsMapper.map(
+    private fun mapToAdapterModel(items: MainNasheedItems, searchString: String) = itemsMapper.map(
         items = items,
+        searchQuery = searchString,
         nasheedsItemOnClickListener = this,
         bookItemOnClickListener = this,
         readerItemOnClickListener = this,
     )
+
+    fun updateSearchQuery(searchString: String) = searchStringFlow.tryEmit(searchString)
+
 
     private fun handleError(exception: Throwable) {
         emitToErrorMessageFlow(resourceProvider.fetchIdErrorMessage(exception))

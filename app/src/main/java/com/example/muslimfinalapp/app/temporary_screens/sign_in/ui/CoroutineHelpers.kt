@@ -21,3 +21,4 @@ inline fun <T> CoroutineScope.launchSafe(
         }
     }
 }
+

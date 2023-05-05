@@ -1,5 +1,7 @@
 package com.example.common_api.base
 
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.common_api.IdResourceString
@@ -27,6 +29,8 @@ abstract class BaseViewModel : ViewModel() {
     fun <T : Any> createMutableSharedFlowAsSingleLiveEvent(): MutableSharedFlow<T> =
         MutableSharedFlow(0, 1, BufferOverflow.DROP_OLDEST)
 
+    fun collectNavigation(owner: LifecycleOwner, observer: Observer<Event<NavigationCommand>>) =
+        navigationCommunication.observe(owner = owner, observer = observer)
 
     fun navigate(navCommand: NavCommand) = _navCommand.tryEmit(navCommand)
 
@@ -41,5 +45,8 @@ abstract class BaseViewModel : ViewModel() {
     fun <T> launchInBackground(backgroundCall: suspend () -> T) =
         dispatchers.launchInBackground(viewModelScope) { backgroundCall() }
 
+    companion object {
+        const val SEARCH_DEBOUNCE = 300L
+    }
 
 }

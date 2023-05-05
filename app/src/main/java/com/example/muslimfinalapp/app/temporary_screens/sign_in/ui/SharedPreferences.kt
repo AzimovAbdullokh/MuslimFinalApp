@@ -19,6 +19,5 @@ class SharedPreferences {
     fun clearCurrentUser(activity: Activity) =
         activity.getSharedPreferences(CURRENT_USER_EDITOR_SAVE_KEY, Context.MODE_PRIVATE).edit()
             .clear().commit()
-
-
 }
+
