@@ -67,7 +67,7 @@ class AudioBookVerticalViewHolder(
     private fun setOnClickListeners() = with(binding) {
         root.setOnClickListener {
             item.listener.nasheedItemOnClick(item.audioNasheeds.id)
-            showSuccessSnackBar("Played")
+            showSuccessSnackBar("Played Audio is successfully")
         }
         moreBtn.setOnDownEffectClickListener { item.listener.nasheedMoreBtnOnClick(item.audioNasheeds.id) }
     }

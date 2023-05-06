@@ -71,7 +71,7 @@ class AudioBookHorizontalViewHolder(
     private fun setOnClickListeners() = with(binding) {
         root.setOnDownEffectClickListener {
             item.listener.nasheedItemOnClick(item.audioNasheeds.id)
-            showSuccessSnackBar("Playyed")
+            showSuccessSnackBar("Playyed askdbahjs")
         }
 
     }

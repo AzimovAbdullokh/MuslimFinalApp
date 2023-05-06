@@ -18,15 +18,15 @@ interface GenericSnackbarIconsProvider {
     class Base(private val context: Context) : GenericSnackbarIconsProvider {
 
         override fun infoSnackbarIcon(): Drawable? =
-            ContextCompat.getDrawable(context, R.drawable.ic_generic_snackbar_info)
+            ContextCompat.getDrawable(context, R.drawable.info_circle_svgrepo_com)
 
         override fun successSnackbarIcon(): Drawable? =
-            ContextCompat.getDrawable(context, R.drawable.ic_generic_snackbar_success)
+            ContextCompat.getDrawable(context, R.drawable.tick_circle_svgrepo_com)
 
         override fun warningSnackbarIcon(): Drawable? =
-            ContextCompat.getDrawable(context, R.drawable.ic_generic_snackbar_warning)
+            ContextCompat.getDrawable(context, R.drawable.warning_circle_svgrepo_com)
 
         override fun errorSnackbarIcon(): Drawable? =
-            ContextCompat.getDrawable(context, R.drawable.ic_generic_snackbar_error)
+            ContextCompat.getDrawable(context, R.drawable.cross_circle_svgrepo_com)
     }
 }

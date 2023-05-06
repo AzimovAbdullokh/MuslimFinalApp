@@ -8,11 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.FrameLayout
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.snackbar.Snackbar
-import com.example.ui_core.extensions.toDp
 import com.example.ui_core.extensions.setBackgroundColorToTransperent
 import com.example.ui_core.extensions.setPaddingsZero
+import com.example.ui_core.extensions.toDp
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
 
 interface GenericSnackbarInflter {
 
@@ -53,7 +53,7 @@ interface GenericSnackbarInflter {
                 }
 
                 val snackbarLayoutParams =
-                    FrameLayout.LayoutParams(width - 24.toDp, ViewGroup.LayoutParams.WRAP_CONTENT)
+                    FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, height + 50.toDp)
                 customLayout.layoutParams = snackbarLayoutParams
                 (customLayout.layoutParams as ViewGroup.MarginLayoutParams).setMargins(
                     DEFAULT_MARGIN_SIZE,

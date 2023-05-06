@@ -11,10 +11,7 @@ import com.example.muslimfinalapp.app.MainActivity
 import com.example.muslimfinalapp.databinding.FragmentLoginBinding
 import com.example.ui_core.custom.snackbar.GenericSnackbar
 import com.example.ui_core.extensions.launchWhenStarted
-import com.example.utils_core.extensions.hide
-import com.example.utils_core.extensions.intentClearTask
-import com.example.utils_core.extensions.setOnDownEffectClickListener
-import com.example.utils_core.extensions.show
+import com.example.utils_core.extensions.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,7 +29,7 @@ class LoginFragment :
 
 
     private fun setOnClickListeners() = with(binding()) {
-        signInBtn.setOnDownEffectClickListener { startSignIn() }
+        signInBtn.setOnDownEffectClickListener { signInWithEmail() }
         blockNoAccount.signUpLink.setOnDownEffectClickListener { navigateSignUpFragment() }
 
     }
@@ -45,6 +42,18 @@ class LoginFragment :
                 intentClearTask(activity = MainActivity())
             }
         }
+    }
+
+    private fun signInWithEmail() = with(binding()) {
+        if (!email.validateEmail()) showFixingSnackBar(
+            message = getString(com.example.ui_core.R.string.email_input_format_error),
+            input = email
+        )
+        else if (!password.validatePassword()) showFixingSnackBar(
+            message = getString(com.example.ui_core.R.string.password_input_format_error),
+            input = password
+        )
+        else startSignIn()
     }
 
     private fun startSignIn() {

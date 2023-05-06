@@ -119,7 +119,13 @@ class SignUpFragment :
     }
 
     private fun showErrorSnackbar(message: String, input: EditText) =
-        GenericSnackbar.Builder(binding().root).error().message(message).buttonText("Fix")
-            .buttonClickListener { input.requestFocus() }.build().show()
+        GenericSnackbar
+            .Builder(binding().root)
+            .error()
+            .message(message)
+            .buttonText("Fix")
+            .buttonClickListener { input.requestFocus() }
+            .build()
+            .show()
 
 }

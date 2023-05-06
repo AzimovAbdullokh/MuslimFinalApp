@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import androidx.navigation.fragment.findNavController
+import com.example.common_api.R
 import com.example.common_api.navigateTo
 import com.example.common_api.navigation.NavigationCommand
 import com.example.ui_core.custom.snackbar.GenericSnackbar
@@ -63,6 +65,16 @@ abstract class BaseFragment<V : ViewBinding, VM : BaseViewModel>(
 //    fun showBottomNavigationView() = bottomNavigationView?.apply { show() }
 //
 //    fun hideBottomNavigationView() = bottomNavigationView?.apply { hide() }
+
+    fun showFixingSnackBar(message: String, input:EditText) =
+        GenericSnackbar
+            .Builder(binding().root)
+            .error()
+            .message(message)
+            .buttonText(getString(com.example.ui_core.R.string.fix))
+            .buttonClickListener { input.requestFocus() }
+            .build()
+            .show()
 
     fun showErrorSnackbar(message: String) =
         GenericSnackbar

@@ -61,7 +61,7 @@ class FragmentSignUp : BaseFragment<FragmentSignUpBinding, FragmentSignUpViewMod
     private fun showErrorSnackbar(message: String, input: EditText) =
         GenericSnackbar
             .Builder(binding().root)
-            .error()
+//            .error()
             .message(message)
             .buttonText(getString(com.example.ui_core.R.string.fix))
             .buttonClickListener { input.requestFocus() }
