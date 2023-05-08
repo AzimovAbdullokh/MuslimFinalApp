@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.alarms.R
 import com.example.alarms.databinding.MainScreenAudioNasheedBlockItemBinding
@@ -13,6 +14,8 @@ import com.example.common_api.base.adapter.BaseViewHolder
 import com.example.common_api.base.adapter.FingerprintAdapter
 import com.example.common_api.base.adapter.Item
 import com.example.common_api.base.adapter.ItemFingerprint
+import com.example.ui_core.adapter.managers.PeekingLinearLayoutManager
+import com.example.utils_core.extensions.attachSnapHelperWithListener
 import com.example.utils_core.snap.OnSnapPositionChangeListener
 
 class MainScreenAudioNasheedBlockFingerprint(
@@ -75,14 +78,14 @@ class MainScreenAudioBookBlockViewHolder(
     private fun setupViews() = with(binding) {
         fingerprintAdapter.submitList(item.items)
         horizontalRecyclerView.restoreState(item.state)
-//        horizontalRecyclerView.apply {
-//            restoreState(item.state)
-//            if (horizontalRecyclerView.onFlingListener != null) return@with
-//            attachSnapHelperWithListener(
-//                snapHelper = PagerSnapHelper(),
-//                onSnapPositionChangeListener = this@MainScreenAudioBookBlockViewHolder
-//            )
-//        }
+        horizontalRecyclerView.apply {
+            restoreState(item.state)
+            if (horizontalRecyclerView.onFlingListener != null) return@with
+            attachSnapHelperWithListener(
+                snapHelper = PagerSnapHelper(),
+                onSnapPositionChangeListener = this@MainScreenAudioBookBlockViewHolder
+            )
+        }
     }
 
     override fun onViewDetached() {

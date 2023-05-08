@@ -14,9 +14,9 @@
 
         <View
             android:id="@+id/line"
-            android:layout_width="@dimen/line_width"
+            android:layout_width="3dp"
             android:layout_height="match_parent"
-            android:background="@color/appGreenSecond"
+            android:background="@color/apple_darkest"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,12 +49,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:background="@color/white"
             android:paddingHorizontal="8dp">
 
-            <org.apmem.tools.layouts.FlowLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp" />
+<!--            <org.apmem.tools.layouts.FlowLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="8dp" />-->
 
             <TextView
                 android:id="@+id/title"
@@ -66,6 +67,7 @@
                 android:fontFamily="@font/poppins_extra_bold"
                 android:requiresFadingEdge="horizontal"
                 android:singleLine="true"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 tools:text="@tools:sample/lorem" />

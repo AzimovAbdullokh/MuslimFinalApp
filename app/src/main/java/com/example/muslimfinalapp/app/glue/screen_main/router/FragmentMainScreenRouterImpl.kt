@@ -23,12 +23,21 @@ class FragmentMainScreenRouterImpl @Inject constructor() : FragmentMainScreenRou
         TODO("Not yet implemented")
     }
 
-    override fun navigateToMainTestsFragment(): NavCommand {
-        TODO("Not yet implemented")
-    }
+    override fun navigateToMainTestsFragment(): NavCommand =
+        MainScreenFragmentDirections
+            .actionHomeScreenMainToTestFragment()
+            .toNavCommand()
 
     override fun navigateToMainQuranFragment(): NavCommand =
-        MainScreenFragmentDirections.actionHomeScreenMainToMainQuranScreenFragment().toNavCommand()
+        MainScreenFragmentDirections
+            .actionHomeScreenMainToMainQuranScreenFragment()
+            .toNavCommand()
+
+    override fun navigateToNamazTimesScreen(): NavCommand =
+        MainScreenFragmentDirections
+            .actionHomeScreenMainToNamazTimesFragment()
+            .toNavCommand()
+
 
 
 }

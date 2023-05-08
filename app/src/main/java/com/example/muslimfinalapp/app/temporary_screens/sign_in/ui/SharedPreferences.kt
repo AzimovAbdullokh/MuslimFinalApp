@@ -2,7 +2,7 @@ package com.example.muslimfinalapp.app.temporary_screens.sign_in.ui
 
 import android.app.Activity
 import android.content.Context
-import com.example.muslimfinalapp.app.temporary_screens.models.UserFeatures
+import com.example.muslimfinalapp.app.temporary_screens.sign_up.models.UserFeatures
 import com.google.gson.Gson
 
 const val CURRENT_USER_EDITOR_SAVE_KEY = "CURRENT_EDITOR_USER_SAVE_KEY"

@@ -10,10 +10,7 @@ import com.example.alarms.databinding.FragmentSearchAudioBinding
 import com.example.alarms.presentation.audio_screen.adapter.block_fingerprints.MainScreenAudioNasheedBlockFingerprint
 import com.example.alarms.presentation.audio_screen.adapter.block_fingerprints.MainScreenBooksBlockFingerPrint
 import com.example.alarms.presentation.audio_screen.adapter.block_fingerprints.MainScreenReadersBlockFingerprint
-import com.example.alarms.presentation.audio_screen.adapter.fingerprints.AudioNasheedHorizontalFingerprint
-import com.example.alarms.presentation.audio_screen.adapter.fingerprints.BooksFingerprint
-import com.example.alarms.presentation.audio_screen.adapter.fingerprints.HeaderFingerprint
-import com.example.alarms.presentation.audio_screen.adapter.fingerprints.ReadersFingerprint
+import com.example.alarms.presentation.audio_screen.adapter.fingerprints.*
 import com.example.common_api.base.BaseFragment
 import com.example.common_api.base.adapter.FingerprintAdapter
 import com.example.common_api.base.adapter.Item
@@ -42,7 +39,7 @@ class SearchAudioFragment :
 
                 HeaderFingerprint(),
                 MainScreenAudioNasheedBlockFingerprint(
-                    listOf(AudioNasheedHorizontalFingerprint()),
+                    listOf(AudioNasheedHorizontalFingerprintSecond()),
                     RecyclerView.RecycledViewPool()
                 ),
 

@@ -9,6 +9,7 @@ import com.example.common_api.base.adapter.Item
 import com.example.common_api.base.adapter.ItemFingerprint
 import com.example.main_screen.presentation.adapter.items.HeaderItem
 import com.example.ui_core.databinding.ItemHeaderBinding
+import com.example.ui_core.extensions.setPointBackground
 import com.example.utils_core.extensions.setOnDownEffectClickListener
 
 class HeaderFingerprint : ItemFingerprint<ItemHeaderBinding, HeaderItem> {
@@ -47,6 +48,7 @@ class HeaderViewHolder(
             seeMore.isVisible = item.showMoreIsVisible
             title.text = item.titleId.format(title.context)
             if (item.showMoreIsVisible) root.setOnDownEffectClickListener { item.onClickListener() }
+            circle.setPointBackground(true)
         }
     }
 }

@@ -23,7 +23,8 @@ class MainScreenViewModel @Inject constructor(
     private val itemsToSearchFilteredModelMapper: MainItemsToSearchFilteredFeatureModelMapper,
     private val resourcesProvider: ResourceProvider,
     private val dispatchersProvider: DispatchersProvider,
-) : BaseViewModel(), CommunityItemClickListener, MainCardItemClickListener, MainScreenOpenMoreClickListeners {
+) : BaseViewModel(), CommunityItemClickListener, MainCardItemClickListener,
+    MainScreenOpenMoreClickListeners, KhadisItemOnClickListener {
 
     private val _playAudioNasheedFlow = createMutableSharedFlowAsSingleLiveEvent<String>()
     val playAudioNasheedFlow get() = _playAudioNasheedFlow.asSharedFlow()
@@ -46,14 +47,9 @@ class MainScreenViewModel @Inject constructor(
     private fun mapToAdapterModel(items: MainScreenFeatureModuleItems) =
         itemsToSearchFilteredModelMapper.map(
             items = items,
-//            bookItemOnClickListener = this,
-//            audioNasheedItemOnClickListener = this,
-//            khadisItemOnClickListener = this,
-//            readerItemOnClickListener = this,
-//            surahItemOnClickListener = this,
             communityItemClickListener = this,
             cardItemClickListener = this,
-//            audioNasheedItemOnClickListener = this
+            khadisItemOnClickListener = this
         )
 
     fun saveRecyclerViewCurrentState(state: Parcelable?) = recyclerViewStateFlow.tryEmit(state)
@@ -76,16 +72,26 @@ class MainScreenViewModel @Inject constructor(
         navigate(router.navigateToMainBooksFragment())
     }
 
+    override fun navigateToNamazTimesFragment() {
+        navigate(router.navigateToNamazTimesScreen())
+    }
+
     override fun collectionItemOnClick(community: Community) {
         when (community) {
             Community.BOOKS -> navigateToBooksFragment()
-            Community.KHADISSES -> navigateToKhadissesFragment()
+            Community.NAMAZ_TIMES -> navigateToNamazTimesFragment()
             Community.QURAN -> navigateToSurahFragment()
             Community.TESTS -> navigateToIslamicTestsFragment()
+            Community.KHADISSES -> navigateToKhadissesFragment()
+            else -> {}
         }
     }
 
     override fun onClick() {
+
+    }
+
+    override fun khadisItemOnClick(khadisId: String) {
 
     }
 }

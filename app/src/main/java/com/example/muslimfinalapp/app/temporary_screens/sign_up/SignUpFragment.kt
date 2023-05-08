@@ -9,7 +9,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.common_api.base.BaseFragment
 import com.example.muslimfinalapp.R
-import com.example.muslimfinalapp.app.temporary_screens.models.UserSignUp
+import com.example.muslimfinalapp.app.temporary_screens.sign_up.models.UserSignUp
 import com.example.muslimfinalapp.databinding.FragmentSignUpBinding
 import com.example.ui_core.custom.snackbar.GenericSnackbar
 import com.example.ui_core.extensions.launchOnLifecycle

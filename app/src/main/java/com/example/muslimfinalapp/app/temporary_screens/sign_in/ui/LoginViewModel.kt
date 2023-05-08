@@ -6,7 +6,7 @@ import com.example.common_api.base.BaseViewModel
 import com.example.domain.domain.domain.Mapper
 import com.example.domain.domain.domain.models.users.UserDomain
 import com.example.domain.domain.domain.repositories.LoginRepository
-import com.example.muslimfinalapp.app.temporary_screens.models.UserFeatures
+import com.example.muslimfinalapp.app.temporary_screens.sign_up.models.UserFeatures
 import com.example.muslimfinalapp.app.temporary_screens.sign_in.ui.launchSafe
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.asSharedFlow

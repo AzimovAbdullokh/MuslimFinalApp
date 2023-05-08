@@ -11,8 +11,8 @@ import com.example.domain.domain.domain.models.users.UserSignUpDomain
 import com.example.domain.domain.domain.repositories.LoginRepository
 import com.example.domain.domain.domain.repositories.UserCacheRepository
 import com.example.domain.domain.domain.repositories.UserRepository
-import com.example.muslimfinalapp.app.temporary_screens.models.UserFeatures
-import com.example.muslimfinalapp.app.temporary_screens.models.UserSignUp
+import com.example.muslimfinalapp.app.temporary_screens.sign_up.models.UserFeatures
+import com.example.muslimfinalapp.app.temporary_screens.sign_up.models.UserSignUp
 import com.example.muslimfinalapp.app.temporary_screens.sign_in.ui.launchSafe
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

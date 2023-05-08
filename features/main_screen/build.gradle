@@ -46,7 +46,7 @@ dependencies {
     implementation Libs.Stuff.ElementAdapter
 
     implementation Libs.Google.Material
-
+    implementation Libs.GitHub.Glide
     implementation Libs.Google.Hilt
     kapt Libs.Google.HiltCompiler
 

@@ -116,7 +116,14 @@ class MainNasheedFilteredItemsMapperImpl @Inject constructor(
         if (audioNasheedItemForPager.items.isNotEmpty()) nasheedsForPager.addAll(listOf(
             audioNasheedItemForPager))
 
-        return Triple(allItems, nasheedsForPager, emptyList())
+
+        val bigItemNasheeds = mutableListOf<Item>()
+
+        val bigNasheedItem = MainScreenAudioNasheedsBlockItem(filteredAudioNasheedList)
+        if (bigNasheedItem.items.isNotEmpty()) bigItemNasheeds.add(emptyHeader())
+        bigItemNasheeds.addAll(listOf(bigNasheedItem))
+
+        return Triple(allItems, nasheedsForPager, bigItemNasheeds)
 
     }
 
@@ -136,6 +143,13 @@ class MainNasheedFilteredItemsMapperImpl @Inject constructor(
     private fun createHeaderModelForAllAudioNasheeds() =
         HeaderItem(
             titleId = IdResourceString(R.string.nasheeds),
+            onClickListener = { },
+            showMoreIsVisible = false
+        )
+
+    private fun emptyHeader() =
+        HeaderItem(
+            titleId = IdResourceString(R.string.empty),
             onClickListener = { },
             showMoreIsVisible = false
         )

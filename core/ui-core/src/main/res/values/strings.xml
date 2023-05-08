@@ -2,21 +2,27 @@
 <resources>
     <string name="app_name">Muslim App</string>
     <string name="khadisses">Khadisses</string>
-    <string name="islamicBooks">All islamic books</string>
+    <string name="tasbih">Tasbih</string>
+    <string name="prayer_time">Namaz times</string>
+    <string name="islamicBooks">Books</string>
     <string name="your_location">Your Location</string>
     <string name="readers">All quran readers</string>
-    <string name="surah">Surah</string>
+    <string name="surah">Al Quran</string>
+    <string name="qibla">Qibla</string>
 
     <string name="main">Main</string>
     <string name="mosques">Mosques</string>
+    <string name="duas">Dua</string>
     <string name="alarm">Alarms</string>
     <string name="premium">Premium</string>
     <string name="qurans">Qurans</string>
     <string name="masalah">Masalah</string>
     <string name="nasheeds">All nasheeds</string>
+    <string name="empty"></string>
     <string name="title_of_the_book_name_of_the_author_or_user">The title of the book, the name of the author or user</string>
     <string name="create_a_playlist_to_nasheeds">Create a playlist</string>
     <string name="audios">Audios</string>
+    <string name="The_title_of_the_category">The title of the category</string>
     <string name="saved">Saved</string>
     <string name="saved_audios">Saved Audios</string>
     <string name="sign_up">Sign up</string>
@@ -31,13 +37,14 @@
     <string name="last_name">Last Name</string>
     <string name="fix">Fix</string>
     <string name="playlist">PlayList</string>
-    <string name="online_tests">Interesting online islamic test!</string>
+    <string name="online_tests">Tests</string>
     <string name="tests">Select tests by category</string>
     <string name="summary">Summary</string>
     <string name="best_nasheeds">Best Nasheeds For You</string>
     <string name="login_input_format_error">Invalid login input format!</string>
     <string name="time_namaz">Time of next namaz</string>
     <string name="what_are_we_looking_for">What are we looking for?</string>
+    <string name="what_are_we_looking_for_category">Делайте поиск категориев</string>
     <string name="your_email">Your email</string>
     <string name="your_password">Your password</string>
     <string name="teacher_sighUp">User Registration</string>

@@ -41,6 +41,7 @@ class NasheedsFragment :
         FingerprintAdapter(
             listOf(
 
+                HeaderFingerprint(),
                 MainScreenAudioNasheedBlockFingerprint(
                     listOf(AudioNasheedHorizontalFingerprint()),
                     RecyclerView.RecycledViewPool())
@@ -83,7 +84,7 @@ class NasheedsFragment :
     }
 
     private fun populateModels(items: Triple<List<Item>, List<Item>, List<Item>>) {
-        genericAdapter.submitList(items.first)
+        genericAdapter.submitList(items.third)
     }
 
     private fun setClickers() = with(binding()) {
@@ -107,18 +108,6 @@ class NasheedsFragment :
             getString(com.example.ui_core.R.string.create_a_playlist_to_nasheeds)).apply {
             setIcon(com.example.ui_core.R.drawable.ic_audio_player)
         }
-
-//        popupMenu.menu.add(0, ID_ADD_SHELF_MASALAH, Menu.NONE,
-//            getString(com.example.ui_core.R.string.masalah))
-//            .apply {
-//                setIcon(com.example.ui_core.R.drawable.headphones_icon  )
-//            }
-//
-//        popupMenu.menu.add(0, ID_ADD_SHELF_QURAN, Menu.NONE,
-//            getString(com.example.ui_core.R.string.qurans))
-//            .apply {
-//                setIcon(com.example.ui_core.R.drawable.book_square_svgrepo_com)
-//            }
 
         popupMenu.setOnMenuItemClickListener {
             when (it.itemId) {

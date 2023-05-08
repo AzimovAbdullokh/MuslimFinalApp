@@ -32,11 +32,11 @@ import com.example.domain.domain.domain.models.surah.SurahDomain
 import com.example.domain.domain.domain.models.users.UserDomain
 import com.example.domain.domain.domain.models.users.UserSignUpAnswerDomain
 import com.example.domain.domain.domain.models.users.UserSignUpDomain
-import com.example.muslimfinalapp.app.temporary_screens.mappers.MapUserSignUpToDomain
-import com.example.muslimfinalapp.app.temporary_screens.mappers.MapUserToDomain
-import com.example.muslimfinalapp.app.temporary_screens.models.UserFeatures
-import com.example.muslimfinalapp.app.temporary_screens.models.UserSignUp
-import com.example.muslimfinalapp.app.temporary_screens.mappers.MapUserDomainToUser
+import com.example.muslimfinalapp.app.temporary_screens.sign_up.mappers.MapUserSignUpToDomain
+import com.example.muslimfinalapp.app.temporary_screens.sign_up.mappers.MapUserToDomain
+import com.example.muslimfinalapp.app.temporary_screens.sign_up.models.UserFeatures
+import com.example.muslimfinalapp.app.temporary_screens.sign_up.models.UserSignUp
+import com.example.muslimfinalapp.app.temporary_screens.sign_up.mappers.MapUserDomainToUser
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

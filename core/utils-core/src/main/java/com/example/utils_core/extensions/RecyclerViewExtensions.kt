@@ -1,9 +1,12 @@
 package com.example.utils_core.extensions
 
+import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
+import com.example.utils_core.R
 import com.example.utils_core.snap.OnSnapPositionChangeListener
 import com.example.utils_core.snap.SnapOnScrollListener
 
@@ -39,4 +42,13 @@ fun RecyclerView.setupLayoutManager(
                 else -> (layoutManager as GridLayoutManager).spanCount
             }
     }
+}
+
+fun View.startSlideInLeftAnim() {
+//    this.startAnimation(
+    AnimationUtils.loadAnimation(
+        this.context,
+        R.anim.slide_in_left_anim
+    )
+
 }

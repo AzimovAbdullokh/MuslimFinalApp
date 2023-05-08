@@ -14,5 +14,7 @@ interface FragmentMainScreenRouter {
 
     fun navigateToMainTestsFragment(): NavCommand
 
-    fun navigateToMainQuranFragment():NavCommand
+    fun navigateToMainQuranFragment(): NavCommand
+
+    fun navigateToNamazTimesScreen(): NavCommand
 }

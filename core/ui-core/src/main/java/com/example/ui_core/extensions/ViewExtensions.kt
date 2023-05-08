@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
+import com.example.ui_core.R
 
 
 fun View.measureAndGetWidth(): Int {
@@ -78,5 +79,13 @@ fun View.setMargins(left: Int, top: Int, right: Int, bottom: Int) {
         val p = this.layoutParams as MarginLayoutParams
         p.setMargins(left, top, right, bottom)
         this.requestLayout()
+    }
+}
+
+fun View.setPointBackground(isTop: Boolean) {
+    if (isTop) {
+        this.setBackgroundResource(R.drawable.circle_big_background)
+    } else {
+        this.setBackgroundResource(R.drawable.circle_small_background)
     }
 }

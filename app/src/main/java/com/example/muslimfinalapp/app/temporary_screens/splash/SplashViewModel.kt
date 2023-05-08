@@ -5,8 +5,8 @@ import com.example.common_api.base.BaseViewModel
 import com.example.domain.domain.domain.Mapper
 import com.example.domain.domain.domain.models.users.UserDomain
 import com.example.domain.domain.domain.repositories.UserCacheRepository
-import com.example.muslimfinalapp.app.temporary_screens.models.UserFeatures
-import com.example.muslimfinalapp.app.temporary_screens.models.UserType
+import com.example.muslimfinalapp.app.temporary_screens.sign_up.models.UserFeatures
+import com.example.muslimfinalapp.app.temporary_screens.sign_up.models.UserType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

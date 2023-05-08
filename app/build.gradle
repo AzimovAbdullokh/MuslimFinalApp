@@ -50,6 +50,8 @@ dependencies {
     implementation project(':features:profile-screen')
     implementation project(':features:quran-screen')
     implementation project(":features:saved-screen")
+    implementation project(":features:namaz-times-screen")
+    implementation project(':features:test-screen')
 
 
     implementation project(":navigation")

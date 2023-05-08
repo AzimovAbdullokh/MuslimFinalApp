@@ -3,6 +3,7 @@ package com.example.main_screen.presentation.adapter.fingerpints
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import com.bumptech.glide.Glide
 import com.example.common_api.base.adapter.BaseViewHolder
 import com.example.common_api.base.adapter.Item
 import com.example.common_api.base.adapter.ItemFingerprint
@@ -55,13 +56,16 @@ class CollectionViewHolder(
     }
 
     private fun setupViews() = with(binding) {
-        Picasso.get().load(item.community.imageView).into(cover)
+        Glide
+            .with(itemView.context)
+            .load(item.community.imageView)
+            .into(cover)
         title.text = itemView.context.getText(item.community.title.id)
     }
 
     private fun setOnClickListeners() = with(binding) {
         root.setOnDownEffectClickListener { item.listener.collectionItemOnClick(item.community) }
-        goFragmentBtn.setOnDownEffectClickListener {}
+//        goFragmentBtn.setOnDownEffectClickListener {}
 
     }
 

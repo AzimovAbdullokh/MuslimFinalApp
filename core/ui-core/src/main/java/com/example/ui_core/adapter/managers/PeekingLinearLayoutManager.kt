@@ -12,11 +12,12 @@ import kotlin.math.abs
 private const val ItemPeekingPercent = 0.915f
 
 /** This value determines where items reach the final (minimum) scale */
-private const val ScaleDistanceFactor = 1.5f
+private const val ScaleDistanceFactor = 2f
 
 /** The final (minimum) scale for non-prominent items is 1-[Coefficient] */
 
-private const val Coefficient: Float = 0.10f
+private const val Coefficient: Float = 0.50f
+
 class PeekingLinearLayoutManager @JvmOverloads constructor(
     context: Context?,
     @RecyclerView.Orientation orientation: Int = RecyclerView.HORIZONTAL,

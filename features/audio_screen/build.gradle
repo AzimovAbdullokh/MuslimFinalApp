@@ -46,8 +46,11 @@ dependencies {
     implementation Libs.Android.ConstraintLayout
 
     implementation Libs.Stuff.ElementAdapter
-
+    implementation Libs.Other.CircleImageView
     implementation Libs.Google.Material
+
+    implementation Libs.Android.Palette
+    implementation Libs.GitHub.Glide
 
     implementation Libs.Google.Hilt
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'

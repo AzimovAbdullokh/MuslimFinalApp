@@ -20,7 +20,7 @@ interface MainItemsToSearchFilteredFeatureModelMapper {
         items: MainScreenFeatureModuleItems,
 //        bookItemOnClickListener: BookItemOnClickListener,
 //        audioNasheedItemOnClickListener: NasheedItemOnClickListener,
-//        khadisItemOnClickListener: KhadisItemOnClickListener,
+        khadisItemOnClickListener: KhadisItemOnClickListener,
 //        readerItemOnClickListener: ReaderItemOnClickListener,
 //        surahItemOnClickListener: SurahItemOnClickListener,
         communityItemClickListener: CommunityItemClickListener,
@@ -34,7 +34,7 @@ class MainItemsToSearchFilteredFeatureModelMapperImpl @Inject constructor(
     private val surahFeatureModelToUiMapper: Mapper<SurahFeatureModuleDomainModel, SurahFeatureUiModel>,
 ) : MainItemsToSearchFilteredFeatureModelMapper {
     private companion object {
-        const val MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN = 10
+        const val MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN = 2
         const val MAX_SURAH_SHOW_COUNT_IN_MAIN_SCREEN = 114
     }
 
@@ -43,7 +43,7 @@ class MainItemsToSearchFilteredFeatureModelMapperImpl @Inject constructor(
         items: MainScreenFeatureModuleItems,
 //        bookItemOnClickListener: BookItemOnClickListener,
 //        audioNasheedItemOnClickListener: NasheedItemOnClickListener,
-//        khadisItemOnClickListener: KhadisItemOnClickListener,
+        khadisItemOnClickListener: KhadisItemOnClickListener,
 //        readerItemOnClickListener: ReaderItemOnClickListener,
 //        surahItemOnClickListener: SurahItemOnClickListener,
         communityItemClickListener: CommunityItemClickListener,
@@ -73,15 +73,15 @@ class MainItemsToSearchFilteredFeatureModelMapperImpl @Inject constructor(
 //            }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
 
 
-//        val filteredKhadissesList = items.khadisses.map(khadisFeatureModelToUiMapper::map).map {
-//            KhadisAdapterModel(id = it.id,
-//                title = it.title,
-//                createdAt = it.createdAt,
-//                khadisId = it.khadisId,
-//                khadisDescription = it.khadisDescription,
-//                khadisSubject = it.khadisSubject,
-//                listener = khadisItemOnClickListener)
-//        }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
+        val filteredKhadissesList = items.khadisses.map(khadisFeatureModelToUiMapper::map).map {
+            KhadisAdapterModel(id = it.id,
+                title = it.title,
+                createdAt = it.createdAt,
+                khadisId = it.khadisId,
+                khadisDescription = it.khadisDescription,
+                khadisSubject = it.khadisSubject,
+                listener = khadisItemOnClickListener)
+        }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
 
 
 //        val filteredReadersList = items.readers.map(readerFeatureModelToUiMapper::map).map {
@@ -123,8 +123,8 @@ class MainItemsToSearchFilteredFeatureModelMapperImpl @Inject constructor(
 //            createHeaderModelForAllAudioNasheeds { })
 //        allItems.addAll(listOf(audioNasheedItem))
 
-//        val communityItem = MainScreenCommunityBlockItem(allCommunity)
-//        allItems.addAll(listOf(communityItem))
+        val communityItem = MainScreenCommunityBlockItem(allCommunity)
+        allItems.addAll(listOf(communityItem))
 //
 //        val surahItem = MainScreenSurahBlockItem(filteredSurahList)
 //        if (surahItem.items.isNotEmpty()) allItems.add(createHeaderModelForAllSurah {})
@@ -135,10 +135,10 @@ class MainItemsToSearchFilteredFeatureModelMapperImpl @Inject constructor(
 //        allItems.addAll(listOf(bookItem))
 //
 //
-//        val khadisItem = MainScreenKhadissesBlockItem(filteredKhadissesList)
-//        if (khadisItem.items.isNotEmpty()) allItems.add(
-//            createHeaderModelForAllKhadisses { })
-//        allItems.addAll(listOf(khadisItem))
+        val khadisItem = MainScreenKhadissesBlockItem(filteredKhadissesList)
+        if (khadisItem.items.isNotEmpty()) allItems.add(
+            createHeaderModelForAllKhadisses { })
+        allItems.addAll(listOf(khadisItem))
 
         return Triple(allItems, emptyList(), emptyList())
     }

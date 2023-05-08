@@ -11,6 +11,7 @@ import com.example.common_api.base.adapter.Item
 import com.example.main_screen.databinding.FragmentMainScreenBinding
 import com.example.main_screen.presentation.adapter.block_fingerprints.*
 import com.example.main_screen.presentation.adapter.fingerpints.*
+import com.example.main_screen.presentation.adapter.items.HeaderItem
 import com.example.ui_core.extensions.launchWhenViewStarted
 import com.example.utils_core.extensions.setOnDownEffectClickListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,7 +32,7 @@ class MainScreenFragment :
 //                RecyclerView.RecycledViewPool()
 //            ),
 
-//        MainScreenCollectionsBlockFingerprint(listOf(CollectionsFingerprint())),
+        MainScreenCollectionsBlockFingerprint(listOf(CollectionsFingerprint())),
 //
 //            HeaderFingerprint(),
 //            MainScreenBooksBlockFingerPrint(
@@ -50,12 +51,11 @@ class MainScreenFragment :
 //                listOf(AudioNasheedHorizontalFingerprint()),
 //                RecyclerView.RecycledViewPool()
 //            ),
-
-//            HeaderFingerprint(),
-//            MainScreenKhadissesBlockFingerPrint(
-//                listOf(KhadissesFingerprint()),
-//                RecyclerView.RecycledViewPool()
-//            ),
+        HeaderFingerprint(),
+        MainScreenKhadissesBlockFingerPrint(
+            listOf(KhadissesFingerprint()),
+            RecyclerView.RecycledViewPool()
+        ),
     ))
 
     var concatAdapter: ConcatAdapter =

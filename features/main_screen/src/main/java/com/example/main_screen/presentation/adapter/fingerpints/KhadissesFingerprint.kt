@@ -9,6 +9,7 @@ import com.example.common_api.base.adapter.ItemFingerprint
 import com.example.main_screen.R
 import com.example.main_screen.databinding.ItemKhadisBinding
 import com.example.main_screen.presentation.models.adapter_models.KhadisAdapterModel
+import com.example.ui_core.extensions.setPointBackground
 import com.example.utils_core.extensions.setOnDownEffectClickListener
 
 class KhadissesFingerprint : ItemFingerprint<ItemKhadisBinding, KhadisAdapterModel> {
@@ -55,7 +56,7 @@ class KhadissesViewHolder(
         title.text = item.title
         description.text = item.khadisDescription
         time.text = item.createdAt.toString()
-//        circle.setPointBackground(true)
+        circle.setPointBackground(false)
     }
 
     private fun setOnClickListeners() = with(binding) {

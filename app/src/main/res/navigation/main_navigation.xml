@@ -35,7 +35,21 @@
             app:popExitAnim="@anim/slide_down" />
         <action
             android:id="@+id/action_home_screen_main_to_mainQuranScreenFragment"
-            app:destination="@id/mainQuranScreenFragment" />
+            app:destination="@id/mainQuranScreenFragment"
+            app:enterAnim="@anim/animate_swipe_left_enter"
+            app:exitAnim="@anim/animate_swipe_left_exit"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_home_screen_main_to_namazTimesFragment"
+            app:destination="@id/namazTimesFragment" />
+        <action
+            android:id="@+id/action_home_screen_main_to_testFragment"
+            app:destination="@id/testFragment"
+            app:enterAnim="@anim/animate_swipe_left_enter"
+            app:exitAnim="@anim/animate_swipe_left_exit"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
 
 
@@ -51,6 +65,9 @@
             app:exitAnim="@anim/slide_down"
             app:popEnterAnim="@anim/slide_up"
             app:popExitAnim="@anim/slide_down" />
+        <action
+            android:id="@+id/action_screen_nasheeds_to_audioFragment"
+            app:destination="@id/audioFragment" />
     </fragment>
 
 
@@ -82,6 +99,20 @@
         android:id="@+id/screen_profile"
         android:name="com.example.profile.presentation.ProfileFragment"
         android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/audioFragment"
+        android:name="com.example.muslimfinalapp.app.temporary_screens.example_player_screeen.AudioFragment"
+        android:label="fragment_audio"
+        tools:layout="@layout/fragment_audio" />
+    <fragment
+        android:id="@+id/namazTimesFragment"
+        android:name="com.example.namaz_times_screen.presentation.NamazTimesFragment"
+        android:label="NamazTimesFragment" />
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="test_screen.test_category_screen.presentation.TestFragment"
+        android:label="fragment_test"
+        tools:layout="@layout/fragment_test" />
 
 
     <!--    <fragment-->

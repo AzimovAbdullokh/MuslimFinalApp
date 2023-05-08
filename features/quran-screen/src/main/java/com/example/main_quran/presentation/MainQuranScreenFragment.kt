@@ -12,6 +12,7 @@ import com.example.main_quran.presentation.adapter.base.MainScreenQuranBlockFing
 import com.example.main_quran.presentation.adapter.fingerprints.QuranFingerPrint
 import com.example.main_quran.presentation.adapter.items.MainScreenQuranBlockItem
 import com.example.ui_core.extensions.launchWhenViewStarted
+import com.example.utils_core.extensions.setOnDownEffectClickListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.filterNotNull
 
@@ -34,9 +35,15 @@ class MainQuranScreenFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupClickers()
         observeRv()
         observeData()
     }
+
+    private fun setupClickers() = with(binding()) {
+        backBtn.setOnDownEffectClickListener { viewModel.navigateBack() }
+    }
+
 
     private fun observeData() = with(viewModel) {
         launchWhenViewStarted {
