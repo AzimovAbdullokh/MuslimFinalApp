@@ -36,6 +36,7 @@ android {
     buildFeatures {
         viewBinding true
     }
+
 }
 
 dependencies {
@@ -45,7 +46,7 @@ dependencies {
     implementation Libs.Android.RecyclerView
     implementation Libs.Android.ConstraintLayout
 
-    implementation Libs.Stuff.ElementAdapter
+//    implementation Libs.Stuff.ElementAdapter
     implementation Libs.Other.CircleImageView
     implementation Libs.Google.Material
 
@@ -64,6 +65,19 @@ dependencies {
     implementation project(":core:ui-core")
     implementation project(":core:common:common-api")
     implementation project(':audio-player')
+
+    //Test
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    testImplementation "org.mockito:mockito-core:3.11.1"
+    androidTestImplementation 'org.mockito:mockito-android:3.11.1'
+    testImplementation "io.mockk:mockk:$mockk_version"
+    androidTestImplementation "androidx.arch.core:core-testing:2.2.0"
+    androidTestImplementation "androidx.test.ext:junit:1.1.5"
+    androidTestImplementation "androidx.test:rules:1.5.0"
+    androidTestImplementation "androidx.test:runner:1.5.2"
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
 
 
 }

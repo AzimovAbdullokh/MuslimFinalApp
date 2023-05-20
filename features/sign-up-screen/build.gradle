@@ -45,7 +45,7 @@ dependencies {
     implementation Libs.Android.RecyclerView
     implementation Libs.Android.ConstraintLayout
 
-    implementation Libs.Stuff.ElementAdapter
+//    implementation Libs.Stuff.ElementAdapter
 
     implementation Libs.Google.Material
 

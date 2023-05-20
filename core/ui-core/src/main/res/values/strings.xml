@@ -1,50 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim App</string>
-    <string name="khadisses">Khadisses</string>
-    <string name="tasbih">Tasbih</string>
-    <string name="prayer_time">Namaz times</string>
-    <string name="islamicBooks">Books</string>
+    <string name="khadisses">Хадисы</string>
+    <string name="tasbih">Тасбих</string>
+    <string name="prayer_time">Время намаза</string>
+    <string name="islamicBooks">Религиозные книги</string>
     <string name="your_location">Your Location</string>
-    <string name="readers">All quran readers</string>
-    <string name="surah">Al Quran</string>
-    <string name="qibla">Qibla</string>
+    <string name="readers">Все чтецы</string>
+    <string name="surah">Коран</string>
+    <string name="qibla">Кибла</string>
 
-    <string name="main">Main</string>
-    <string name="mosques">Mosques</string>
-    <string name="duas">Dua</string>
+    <string name="main">Главное</string>
+    <string name="mosques">Мечети</string>
+    <string name="duas">Дуа</string>
+    <string name="names">99 имена</string>
     <string name="alarm">Alarms</string>
     <string name="premium">Premium</string>
-    <string name="qurans">Qurans</string>
-    <string name="masalah">Masalah</string>
-    <string name="nasheeds">All nasheeds</string>
+    <string name="qurans">Коран</string>
+    <string name="masalah">Масалях</string>
+    <string name="nasheeds">Все аудио нашиды</string>
     <string name="empty"></string>
-    <string name="title_of_the_book_name_of_the_author_or_user">The title of the book, the name of the author or user</string>
-    <string name="create_a_playlist_to_nasheeds">Create a playlist</string>
-    <string name="audios">Audios</string>
-    <string name="The_title_of_the_category">The title of the category</string>
-    <string name="saved">Saved</string>
-    <string name="saved_audios">Saved Audios</string>
+    <string name="title_of_the_book_name_of_the_author_or_user">Введите название для поиска</string>
+    <string name="create_a_playlist_to_nasheeds">Создать плейлист</string>
+    <string name="audios">Аудио</string>
+    <string name="The_title_of_the_category">Введите название категории</string>
+    <string name="saved">Сохраненные</string>
+    <string name="saved_audios">Сохраненные аудио</string>
     <string name="sign_up">Sign up</string>
     <string name="sign_in">Sign in</string>
-    <string name="calendar">Calendar</string>
-    <string name="settings">Settings</string>
-    <string name="profile">Profile</string>
+    <string name="calendar">Календарь</string>
+    <string name="settings">Настройки</string>
+    <string name="profile">Профиль</string>
     <string name="enter">Enter</string>
     <string name="moreSurah">More Surah</string>
     <string name="signUp">Registration</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
-    <string name="fix">Fix</string>
-    <string name="playlist">PlayList</string>
-    <string name="online_tests">Tests</string>
-    <string name="tests">Select tests by category</string>
+    <string name="fix">Исправить</string>
+    <string name="playlist">Плейлист</string>
+    <string name="online_tests">Викторина</string>
+    <string name="tests">Выбор теста по категориям</string>
     <string name="summary">Summary</string>
     <string name="best_nasheeds">Best Nasheeds For You</string>
     <string name="login_input_format_error">Invalid login input format!</string>
     <string name="time_namaz">Time of next namaz</string>
     <string name="what_are_we_looking_for">What are we looking for?</string>
     <string name="what_are_we_looking_for_category">Делайте поиск категориев</string>
+    <string name="what_are_we_looking_for_quran">Делайте поиск суры</string>
     <string name="your_email">Your email</string>
     <string name="your_password">Your password</string>
     <string name="teacher_sighUp">User Registration</string>
@@ -66,7 +68,16 @@
     //Loading Dialog
     <string name="loading_book">Preparing for reading…</string>
 
+    //Success
+    <string name="profile_has_been_successfully_updated">Your profile has been successfully updated!</string>
+    <string name="book_success_added">The book has been added successfully!</string>
+    <string name="answer_is_success">You have successfully answered the question!</string>
+    <string name="survey_is_success">You have successfully completed the survey!</string>
+
     // ExoPlayer
     <string name="playback_speed">%sx</string>
     <string name="age_input_format_error">Incorrect age input format!</string>
+
+
+
 </resources>

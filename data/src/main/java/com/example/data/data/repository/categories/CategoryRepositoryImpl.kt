@@ -6,6 +6,7 @@ import com.example.data.data.models.category.CategoryData
 import com.example.domain.domain.domain.DispatchersProvider
 import com.example.domain.domain.domain.Mapper
 import com.example.domain.domain.domain.models.categories.CategoryDomain
+import com.example.domain.domain.domain.models.tests.TestQuestionDomain
 import com.example.domain.domain.domain.repositories.CategoryRepository
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
@@ -26,7 +27,7 @@ class CategoryRepositoryImpl @Inject constructor(
     private fun handleFetchCategoriesInCache(
         cachedCategories: List<CategoryData>,
     ) = if (cachedCategories.isEmpty()) cloudDataSource.fetchAllCategoriesFromCloud()
-        .onEach { books -> books.forEach { cacheDataSource.addNewCategoryToCache(it) } }
+        .onEach { categories -> categories.forEach { cacheDataSource.addNewCategoryToCache(it) } }
     else cacheDataSource.fetchAllCategoriesFromCacheObservable()
 
     override suspend fun fetchCategoriesFromCache(categoryId: String): CategoryDomain {

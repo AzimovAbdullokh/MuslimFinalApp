@@ -16,11 +16,12 @@
         app:cardElevation="4dp"
         app:cardMaxElevation="4dp">
 
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/mosq_back" />
+            android:src="@drawable/muslim_back" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,45 +33,45 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/notification_svgrepo_com"
-                    android:tint="@color/white"
-                    app:tint="@color/white"
-                    tools:ignore="UseAppTint" />
+                <!--                <ImageView-->
+                <!--                    android:layout_width="40dp"-->
+                <!--                    android:layout_height="40dp"-->
+                <!--                    android:src="@drawable/notification_svgrepo_com"-->
+                <!--                    android:tint="@color/white"-->
+                <!--                    app:tint="@color/white"-->
+                <!--                    tools:ignore="UseAppTint" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/poppins_semi_bold"
-                    android:text="Mute"
-                    android:textColor="@color/white" />
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_gravity="center"-->
+                <!--                    android:fontFamily="@font/poppins_semi_bold"-->
+                <!--                    android:text="Mute"-->
+                <!--                    android:textColor="@color/white" />-->
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="50dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:text="Next Prayer"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
+                <!--                            <TextView-->
+                <!--                                android:layout_width="wrap_content"-->
+                <!--                                android:layout_height="wrap_content"-->
+                <!--                                android:fontFamily="@font/poppins"-->
+                <!--                                android:text="Next Prayer"-->
+                <!--                                android:textColor="@color/white"-->
+                <!--                                android:textSize="18sp" />-->
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="13:30"
+                    android:text="19:40"
                     android:textColor="@color/white"
                     android:textSize="33sp" />
 
@@ -78,11 +79,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="3 hours until Ashar"
+                    android:text="20 minet until Sham"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
 
+
     </androidx.cardview.widget.CardView>
+
+<!--    <CalendarView-->
+<!--        android:id="@+id/calendar_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginTop="4dp" />-->
 </LinearLayout>

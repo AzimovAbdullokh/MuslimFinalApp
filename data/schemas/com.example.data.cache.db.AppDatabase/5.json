@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 5,
-    "identityHash": "b58f29982d95030b1cd0c3371046e045",
+    "identityHash": "04cbca4b7d8c3755ac136266e07092c0",
     "entities": [
       {
         "tableName": "audio_nasheeds_table",
@@ -285,12 +285,74 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "questions_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `question` TEXT NOT NULL, `answer` TEXT NOT NULL, `testCategory` TEXT NOT NULL, `a` TEXT NOT NULL, `b` TEXT NOT NULL, `c` TEXT NOT NULL, `d` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "question",
+            "columnName": "question",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "answer",
+            "columnName": "answer",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "testCategory",
+            "columnName": "testCategory",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "a",
+            "columnName": "a",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "b",
+            "columnName": "b",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "c",
+            "columnName": "c",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "d",
+            "columnName": "d",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b58f29982d95030b1cd0c3371046e045')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '04cbca4b7d8c3755ac136266e07092c0')"
     ]
   }
 }

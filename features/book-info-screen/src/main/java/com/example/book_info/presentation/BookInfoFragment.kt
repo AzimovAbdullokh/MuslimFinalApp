@@ -47,7 +47,7 @@ class BookInfoFragment :
             .apply(requestOptions)
             .into(bookImage)
 
-        bookInfoToolbar.toolbarBookTitle.text = book.bookTitle
+//        bookInfoToolbar.toolbarBookTitle.text = book.bookTitle
         bookTitle.text = book.bookTitle
         bookAuthor.text = book.bookAuthor
         bookSubtitle.text = book.bookDescription

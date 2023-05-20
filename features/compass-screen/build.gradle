@@ -9,11 +9,11 @@ plugins {
 
 android {
     namespace 'com.example.compass'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         minSdk 27
-        targetSdk 32
+        targetSdk 33
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -44,7 +44,7 @@ dependencies {
     implementation Libs.Android.RecyclerView
     implementation Libs.Android.ConstraintLayout
 
-    implementation Libs.Stuff.ElementAdapter
+//    implementation Libs.Stuff.ElementAdapter
 
     implementation Libs.Google.Material
 

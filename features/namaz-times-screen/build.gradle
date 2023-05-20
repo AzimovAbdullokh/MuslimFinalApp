@@ -43,7 +43,7 @@ dependencies {
     implementation Libs.Android.RecyclerView
     implementation Libs.Android.ConstraintLayout
 
-    implementation Libs.Stuff.ElementAdapter
+//    implementation Libs.Stuff.ElementAdapter
     implementation Libs.Other.CircleImageView
     implementation Libs.Google.Material
 

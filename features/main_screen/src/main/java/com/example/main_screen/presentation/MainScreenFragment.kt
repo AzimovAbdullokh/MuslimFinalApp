@@ -25,14 +25,14 @@ class MainScreenFragment :
 
     private val genericAdapter = FingerprintAdapter(listOf(
 
-        MainCardFingerprint(),
+//        MainCardFingerprint(),
 //            HeaderFingerprint(),
-//            MainScreenReadersBlockFingerprint
-//                (listOf(ReadersFingerprint()),
-//                RecyclerView.RecycledViewPool()
-//            ),
+            MainScreenReadersBlockFingerprint
+                (listOf(ReadersFingerprint()),
+                RecyclerView.RecycledViewPool()
+            ),
 
-        MainScreenCollectionsBlockFingerprint(listOf(CollectionsFingerprint())),
+//        MainScreenCollectionsBlockFingerprint(listOf(CollectionsFingerprint())),
 //
 //            HeaderFingerprint(),
 //            MainScreenBooksBlockFingerPrint(
@@ -51,16 +51,22 @@ class MainScreenFragment :
 //                listOf(AudioNasheedHorizontalFingerprint()),
 //                RecyclerView.RecycledViewPool()
 //            ),
-        HeaderFingerprint(),
-        MainScreenKhadissesBlockFingerPrint(
-            listOf(KhadissesFingerprint()),
-            RecyclerView.RecycledViewPool()
-        ),
+//        HeaderFingerprint(),
+//        MainScreenKhadissesBlockFingerPrint(
+//            listOf(KhadissesFingerprint()),
+//            RecyclerView.RecycledViewPool()
+//        ),
     ))
 
     var concatAdapter: ConcatAdapter =
-        ConcatAdapter(ConcatAdapter.Config.Builder().setIsolateViewTypes(false).build(),
-            genericAdapter)
+        ConcatAdapter(
+            ConcatAdapter
+                .Config
+                .Builder()
+                .setIsolateViewTypes(false)
+                .build(),
+            genericAdapter
+        )
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -84,16 +90,16 @@ class MainScreenFragment :
 
 
     private fun saveRecyclerViewCurrentState() {
-        val currentState = binding().homeRv.layoutManager?.onSaveInstanceState()
+        val currentState = binding().includeMainCardBlock.homeRv.layoutManager?.onSaveInstanceState()
         viewModel.saveRecyclerViewCurrentState(currentState)
     }
 
     private fun restoreRecyclerViewCurrentState() {
         val currentPosition = viewModel.fetchRecyclerViewCurrentState()
-        binding().homeRv.layoutManager?.onRestoreInstanceState(currentPosition)
+        binding().includeMainCardBlock.homeRv.layoutManager?.onRestoreInstanceState(currentPosition)
     }
 
     private fun setupRv() {
-        binding().homeRv.adapter = concatAdapter
+        binding().includeMainCardBlock.homeRv.adapter = concatAdapter
     }
 }

@@ -24,7 +24,7 @@ class MainScreenViewModel @Inject constructor(
     private val resourcesProvider: ResourceProvider,
     private val dispatchersProvider: DispatchersProvider,
 ) : BaseViewModel(), CommunityItemClickListener, MainCardItemClickListener,
-    MainScreenOpenMoreClickListeners, KhadisItemOnClickListener {
+    MainScreenOpenMoreClickListeners, KhadisItemOnClickListener, ReaderItemOnClickListener {
 
     private val _playAudioNasheedFlow = createMutableSharedFlowAsSingleLiveEvent<String>()
     val playAudioNasheedFlow get() = _playAudioNasheedFlow.asSharedFlow()
@@ -49,7 +49,8 @@ class MainScreenViewModel @Inject constructor(
             items = items,
             communityItemClickListener = this,
             cardItemClickListener = this,
-            khadisItemOnClickListener = this
+            khadisItemOnClickListener = this,
+            readerItemOnClickListener = this
         )
 
     fun saveRecyclerViewCurrentState(state: Parcelable?) = recyclerViewStateFlow.tryEmit(state)
@@ -76,6 +77,10 @@ class MainScreenViewModel @Inject constructor(
         navigate(router.navigateToNamazTimesScreen())
     }
 
+    override fun navigateToTasbihFragment() {
+        navigate(router.navigateToTasbihScreen())
+    }
+
     override fun collectionItemOnClick(community: Community) {
         when (community) {
             Community.BOOKS -> navigateToBooksFragment()
@@ -83,7 +88,8 @@ class MainScreenViewModel @Inject constructor(
             Community.QURAN -> navigateToSurahFragment()
             Community.TESTS -> navigateToIslamicTestsFragment()
             Community.KHADISSES -> navigateToKhadissesFragment()
-            else -> {}
+            Community.TASBIH -> navigateToTasbihFragment()
+            else -> {   }
         }
     }
 
@@ -92,6 +98,10 @@ class MainScreenViewModel @Inject constructor(
     }
 
     override fun khadisItemOnClick(khadisId: String) {
+
+    }
+
+    override fun readerItemOnClick(readerId: String) {
 
     }
 }

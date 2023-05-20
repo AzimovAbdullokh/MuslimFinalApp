@@ -12,6 +12,8 @@ import com.example.data.cache.source.readers.QuranReadersCacheDataSource
 import com.example.data.cache.source.readers.QuranReadersCacheDataSourceImpl
 import com.example.data.cache.source.surah.SurahCacheDataSource
 import com.example.data.cache.source.surah.SurahCacheDataSourceImpl
+import com.example.data.cache.source.test.QuestionCacheDataSource
+import com.example.data.cache.source.test.QuestionCacheDataSourceImpl
 import com.example.data.cloud.source.books.BooksCloudDataSource
 import com.example.data.cloud.source.books.BooksCloudDataSourceImpl
 import com.example.data.cloud.source.category.CategoryCloudDataSource
@@ -36,6 +38,11 @@ import dagger.hilt.components.SingletonComponent
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class DataSourceBindModule {
+
+    @Binds
+    abstract fun bindQuestionCacheDataSource(
+        impl:QuestionCacheDataSourceImpl
+    ): QuestionCacheDataSource
 
     @Binds
     abstract fun bindAudioNasheedCloudDataSource(

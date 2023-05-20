@@ -9,7 +9,8 @@ import javax.inject.Inject
 class FragmentMainScreenRouterImpl @Inject constructor() : FragmentMainScreenRouter {
 
     override fun navigateToBookInfoFragment(bookId: String): NavCommand =
-        MainScreenFragmentDirections.actionHomeScreenMainToBookDetailsFragment(id = bookId)
+        MainScreenFragmentDirections
+            .actionHomeScreenMainToBookDetailsFragment(id = bookId)
             .toNavCommand()
 
     override fun navigateToSurahInfoFragment(surahId: String): NavCommand =
@@ -20,8 +21,9 @@ class FragmentMainScreenRouterImpl @Inject constructor() : FragmentMainScreenRou
     }
 
     override fun navigateToMainKhadissesFragment(): NavCommand {
-        TODO("Not yet implemented")
+        TODO()
     }
+
 
     override fun navigateToMainTestsFragment(): NavCommand =
         MainScreenFragmentDirections
@@ -36,6 +38,11 @@ class FragmentMainScreenRouterImpl @Inject constructor() : FragmentMainScreenRou
     override fun navigateToNamazTimesScreen(): NavCommand =
         MainScreenFragmentDirections
             .actionHomeScreenMainToNamazTimesFragment()
+            .toNavCommand()
+
+    override fun navigateToTasbihScreen(): NavCommand =
+        MainScreenFragmentDirections
+            .actionHomeScreenMainToTasbihFragment()
             .toNavCommand()
 
 

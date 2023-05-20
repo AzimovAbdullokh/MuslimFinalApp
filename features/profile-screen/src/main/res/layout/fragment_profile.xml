@@ -25,7 +25,7 @@
                 android:layout_gravity="center"
                 app:civ_border_color="@color/apple_normal"
                 app:civ_border_width="2dp"
-                tools:src="@drawable/profile" />
+                 />
 
             <LinearLayout
                 android:layout_width="wrap_content"

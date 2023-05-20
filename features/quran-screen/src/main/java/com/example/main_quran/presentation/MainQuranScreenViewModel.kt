@@ -21,25 +21,31 @@ class MainQuranScreenViewModel @Inject constructor(
     private val resourcesProvider: ResourceProvider,
 ) : BaseViewModel(), QuranItemOnClickListener {
 
+    private val searchStringFlow = MutableStateFlow(String())
+
     val allFilteredItemsFlow =
         fetchAllQuransUseCase()
-            .map { items -> mapToAdapterModel(items) }
+            .combine(searchStringFlow.debounce(SEARCH_DEBOUNCE))
+             { items, search -> mapToAdapterModel(items, searchQuery = search) }
             .onStart {}
             .flowOn(dispatchersProvider.default())
             .catch { exception: Throwable -> handleError(exception) }
             .stateIn(viewModelScope, SharingStarted.Lazily, null)
 
-    private fun mapToAdapterModel(items: MainQuranItems) =
+    private fun mapToAdapterModel(items: MainQuranItems, searchQuery:String) =
         mainQuranFilteredItemsMapper.map(
             items = items,
-            quranItemOnClickListener = this
+            quranItemOnClickListener = this,
+            searchQuery = searchQuery
         )
+
+    fun updateSearchQuery(searchString: String) = searchStringFlow.tryEmit(searchString)
 
     private fun handleError(exception: Throwable) {
         emitToErrorMessageFlow(resourcesProvider.fetchIdErrorMessage(exception))
     }
 
     override fun surahItemOnClick(surahId: String) {
-        TODO("Not yet implemented")
+
     }
 }

@@ -48,7 +48,7 @@ class HeaderViewHolder(
             seeMore.isVisible = item.showMoreIsVisible
             title.text = item.titleId.format(title.context)
             if (item.showMoreIsVisible) root.setOnDownEffectClickListener { item.onClickListener() }
-            circle.setPointBackground(true)
+//            circle.setPointBackground(true)
         }
     }
 }

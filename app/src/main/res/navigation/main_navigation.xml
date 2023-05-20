@@ -38,8 +38,8 @@
             app:destination="@id/mainQuranScreenFragment"
             app:enterAnim="@anim/animate_swipe_left_enter"
             app:exitAnim="@anim/animate_swipe_left_exit"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            app:popEnterAnim="@anim/animate_swipe_right_enter"
+            app:popExitAnim="@anim/animate_swipe_right_exit" />
         <action
             android:id="@+id/action_home_screen_main_to_namazTimesFragment"
             app:destination="@id/namazTimesFragment" />
@@ -48,8 +48,15 @@
             app:destination="@id/testFragment"
             app:enterAnim="@anim/animate_swipe_left_enter"
             app:exitAnim="@anim/animate_swipe_left_exit"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            app:popEnterAnim="@anim/animate_swipe_right_enter"
+            app:popExitAnim="@anim/animate_swipe_right_exit" />
+        <action
+            android:id="@+id/action_home_screen_main_to_tasbihFragment"
+            app:destination="@id/tasbihFragment"
+            app:enterAnim="@anim/animate_swipe_left_enter"
+            app:exitAnim="@anim/animate_swipe_left_exit"
+            app:popEnterAnim="@anim/animate_swipe_right_enter"
+            app:popExitAnim="@anim/animate_swipe_right_exit" />
     </fragment>
 
 
@@ -112,7 +119,27 @@
         android:id="@+id/testFragment"
         android:name="test_screen.test_category_screen.presentation.TestFragment"
         android:label="fragment_test"
-        tools:layout="@layout/fragment_test" />
+        tools:layout="@layout/fragment_test" >
+        <action
+            android:id="@+id/action_testFragment_to_questionsFragment"
+            app:destination="@id/questionsFragment"
+            app:enterAnim="@anim/animate_fade_enter"
+            app:exitAnim="@anim/animate_fade_exit"
+            app:popEnterAnim="@anim/animate_fade_enter"
+            app:popExitAnim="@anim/animate_fade_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionsFragment"
+        android:name="com.example.questions_screen.presentation.QuestionsFragment"
+        android:label="QuestionsFragment" >
+        <argument
+            android:name="type"
+            app:argType="test_screen.test_category_screen.presentation.models.CategoryTypes" />
+    </fragment>
+    <fragment
+        android:id="@+id/tasbihFragment"
+        android:name="com.example.tasbih_screen.TasbihFragment"
+        android:label="TasbihFragment" />
 
 
     <!--    <fragment-->

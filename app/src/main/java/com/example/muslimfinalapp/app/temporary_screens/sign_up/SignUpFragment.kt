@@ -68,13 +68,15 @@ class SignUpFragment :
     }
 
     private fun startSignUp() = with(binding()) {
-        val newUser = UserSignUp(firstName = firstNameField.text.toString().trim(),
+        val newUser = UserSignUp(
+            firstName = firstNameField.text.toString().trim(),
             lastName = lastNameField.text.toString().trim(),
             userLogin = loginField.text.toString().trim(),
             userEmail = emailField.text.toString().trim(),
             userPassword = passwordField.text.toString().trim(),
             age = ageField.text.toString().trim(),
-            userType = "user")
+            userType = "user",
+        )
         viewModel.startSignUp(newUser)
     }
 
@@ -87,18 +89,23 @@ class SignUpFragment :
             isErrorMessageVisibleFlow.observe(::setErrorMessageVisibility)
             isProgressDialogVisibleFlow.observe(::handleProgressDialogStatus)
             handleSignUpFlow.observe {
-                findNavController().navigate(R.id.main_bottom,
+                findNavController().navigate(
+                    R.id.main_bottom,
                     bundleOf(),
-                    createNavOptionsWithAnimations())
+                    createNavOptionsWithAnimations()
+                )
             }
         }
     }
 
     private fun createNavOptionsWithAnimations() =
-        NavOptions.Builder().setEnterAnim(com.example.ui_core.R.anim.slide_up)
+        NavOptions
+            .Builder()
+            .setEnterAnim(com.example.ui_core.R.anim.slide_up)
             .setExitAnim(com.example.ui_core.R.anim.slide_down)
             .setPopEnterAnim(com.example.ui_core.R.anim.slide_up)
             .setPopExitAnim(com.example.ui_core.R.anim.slide_down).build()
+
 
     private fun navControllerPopBackStackInclusive() =
         findNavController().popBackStack(R.id.login_navigation, false)

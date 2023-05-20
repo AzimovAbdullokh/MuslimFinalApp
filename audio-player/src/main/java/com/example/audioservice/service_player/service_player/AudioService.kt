@@ -125,24 +125,19 @@ class AudioService : LifecycleService() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) createNotificationChannel()
 
-        playerNotificationManager = PlayerNotificationManager.Builder(
-            applicationContext,
+        playerNotificationManager = PlayerNotificationManager.Builder(applicationContext,
             PLAYBACK_NOTIFICATION_ID,
-            PLAYBACK_CHANNEL_ID
-        ).setMediaDescriptionAdapter(createMediaDescriptionAdapter())
-            .setNotificationListener(createNotificationListener())
-            .build()
+            PLAYBACK_CHANNEL_ID).setMediaDescriptionAdapter(createMediaDescriptionAdapter())
+            .setNotificationListener(createNotificationListener()).build()
             .apply(::setupPlayerNotificationManager)
         // Show lock screen controls and let apps like Google assistant manager playback.
-        mediaSession = MediaSessionCompat(
-            applicationContext,
-            MEDIA_SESSION_TAG
-        ).apply { isActive = true }
+        mediaSession =
+            MediaSessionCompat(applicationContext, MEDIA_SESSION_TAG).apply { isActive = true }
 
         val mediaSession = mediaSession ?: return
         playerNotificationManager?.setMediaSessionToken(mediaSession.sessionToken)
-        mediaSessionConnector = MediaSessionConnector(mediaSession)
-            .apply(::setupMediaSessionConnector)
+        mediaSessionConnector =
+            MediaSessionConnector(mediaSession).apply(::setupMediaSessionConnector)
     }
 
     private fun setupMediaSessionConnector(
@@ -154,7 +149,7 @@ class AudioService : LifecycleService() {
     }
 
     private fun setupPlayerNotificationManager(
-        manager: PlayerNotificationManager
+        manager: PlayerNotificationManager,
     ) = with(manager) {
         setUseFastForwardAction(true)
         setUseFastForwardActionInCompactView(true)
@@ -169,7 +164,7 @@ class AudioService : LifecycleService() {
 
             override fun onNotificationCancelled(
                 notificationId: Int,
-                dismissedByUser: Boolean
+                dismissedByUser: Boolean,
             ) {
                 _playerStatusFlow.tryEmit(PlayerStatus.Cancelled(audioBookId))
                 stopSelf()
@@ -178,7 +173,7 @@ class AudioService : LifecycleService() {
             override fun onNotificationPosted(
                 notificationId: Int,
                 notification: Notification,
-                ongoing: Boolean
+                ongoing: Boolean,
             ) {
                 if (ongoing) {
                     // Make sure the service will not get destroyed while playing media.
@@ -194,29 +189,26 @@ class AudioService : LifecycleService() {
     ) = object : PlayerNotificationManager.MediaDescriptionAdapter {
 
         override fun getCurrentContentTitle(
-            player: Player
+            player: Player,
         ): String = audioBookTitle ?: getString(R.string.loading_book)
 
         override fun createCurrentContentIntent(
-            player: Player
+            player: Player,
         ): PendingIntent = createOpenAppIntent()
 
         override fun getCurrentContentText(player: Player): String? = null
 
         override fun getCurrentLargeIcon(
             player: Player,
-            callback: PlayerNotificationManager.BitmapCallback
-        ): Bitmap? = getBitmapFromVectorDrawable(
-            applicationContext,
-            R.drawable.image_placeholder
-        )
+            callback: PlayerNotificationManager.BitmapCallback,
+        ): Bitmap? = getBitmapFromVectorDrawable(applicationContext, R.drawable.image_placeholder)
     }
 
     private fun createTimelineQueueNavigator(
-        mediaSession: MediaSessionCompat
+        mediaSession: MediaSessionCompat,
     ) = object : TimelineQueueNavigator(mediaSession) {
         override fun getMediaDescription(
-            player: Player, windowIndex: Int
+            player: Player, windowIndex: Int,
         ): MediaDescriptionCompat {
             createBitmapFromPosterUrl()
             val extras = Bundle().apply {
@@ -225,17 +217,13 @@ class AudioService : LifecycleService() {
             }
 
             val title = audioBookTitle ?: getString(R.string.loading_book)
-            return MediaDescriptionCompat.Builder()
-                .setIconBitmap(posterBitmap)
-                .setTitle(title)
+            return MediaDescriptionCompat.Builder().setIconBitmap(posterBitmap).setTitle(title)
                 .setExtras(extras).build()
         }
     }
 
     private fun createBitmapFromPosterUrl() {
-        Glide.with(applicationContext)
-            .asBitmap()
-            .load(audioBookPosterUrl)
+        Glide.with(applicationContext).asBitmap().load(audioBookPosterUrl)
             .into(createCustomTarget())
     }
 
@@ -248,17 +236,16 @@ class AudioService : LifecycleService() {
         }
 
         override fun onLoadCleared(placeholder: Drawable?) {
-            posterBitmap = getBitmapFromVectorDrawable(applicationContext, com.example.ui_core.R.drawable.play_icon)
+            posterBitmap = getBitmapFromVectorDrawable(applicationContext,
+                com.example.ui_core.R.drawable.play_icon)
         }
     }
 
     private fun emptyNotification(
         notificationManager: NotificationManager,
     ): Notification {
-        val builder: NotificationCompat.Builder = NotificationCompat.Builder(
-            applicationContext,
-            PLAYBACK_CHANNEL_ID
-        )
+        val builder: NotificationCompat.Builder =
+            NotificationCompat.Builder(applicationContext, PLAYBACK_CHANNEL_ID)
         builder.setSmallIcon(com.example.ui_core.R.drawable.play_icon)
         val notification = builder.build()
         notificationManager.notify(PLAYBACK_NOTIFICATION_ID, notification)
@@ -286,11 +273,9 @@ class AudioService : LifecycleService() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun createNotificationChannel() {
-        val channel = NotificationChannel(
-            PLAYBACK_CHANNEL_ID,
+        val channel = NotificationChannel(PLAYBACK_CHANNEL_ID,
             CHANNEL_NAME,
-            NotificationManager.IMPORTANCE_HIGH
-        )
+            NotificationManager.IMPORTANCE_HIGH)
         val notificationManager =
             applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager?
         notificationManager?.createNotificationChannel(channel)
@@ -325,8 +310,7 @@ class AudioService : LifecycleService() {
     }
 
     private fun play(uri: Uri, startPosition: Long, playbackSpeed: Float? = null) {
-        val mediaSource = ProgressiveMediaSource
-            .Factory(DefaultHttpDataSource.Factory())
+        val mediaSource = ProgressiveMediaSource.Factory(DefaultHttpDataSource.Factory())
             .createMediaSource(MediaItem.fromUri(uri))
 
         val haveStartPosition = startPosition != C.POSITION_UNSET.toLong()
@@ -355,9 +339,9 @@ class AudioService : LifecycleService() {
     private fun monitorPlaybackProgress() {
         if (playbackTimer == null) {
             playbackTimer = Timer()
-            playbackTimer?.scheduleAtFixedRate(
-                createTimerTask(), PLAYBACK_TIMER_DELAY, PLAYBACK_TIMER_DELAY
-            )
+            playbackTimer?.scheduleAtFixedRate(createTimerTask(),
+                PLAYBACK_TIMER_DELAY,
+                PLAYBACK_TIMER_DELAY)
         }
     }
 
@@ -385,13 +369,13 @@ class AudioService : LifecycleService() {
     @MainThread
     private fun getBitmapFromVectorDrawable(
         context: Context,
-        @DrawableRes drawableId: Int
+        @DrawableRes drawableId: Int,
     ): Bitmap? {
         return ContextCompat.getDrawable(context, drawableId)?.let {
             val drawable = DrawableCompat.wrap(it).mutate()
-            val bitmap = Bitmap.createBitmap(
-                drawable.intrinsicWidth, drawable.intrinsicHeight, Bitmap.Config.ARGB_8888
-            )
+            val bitmap = Bitmap.createBitmap(drawable.intrinsicWidth,
+                drawable.intrinsicHeight,
+                Bitmap.Config.ARGB_8888)
             val canvas = Canvas(bitmap)
             drawable.setBounds(0, 0, canvas.width, canvas.height)
             drawable.draw(canvas)

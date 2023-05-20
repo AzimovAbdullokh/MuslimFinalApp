@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="btnIconSize">35dp</dimen>
+    <dimen name="cardAllCornersRadius">14dp</dimen>
+    <dimen name="testButtonSize">100dp</dimen>
+    <dimen name="cardElevation">4dp</dimen>
+</resources>

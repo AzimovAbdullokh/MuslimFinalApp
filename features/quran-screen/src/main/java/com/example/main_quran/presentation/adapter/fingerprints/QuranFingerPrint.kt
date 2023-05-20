@@ -10,6 +10,7 @@ import com.example.main_quran.R
 import com.example.main_quran.databinding.ItemSurahBinding
 import com.example.main_quran.presentation.models.QuranAdapterModel
 import com.example.utils_core.extensions.setOnDownEffectClickListener
+import com.example.utils_core.extensions.startSlideInLeftAnim
 
 class QuranFingerPrint :
     ItemFingerprint<ItemSurahBinding, QuranAdapterModel> {
@@ -54,6 +55,7 @@ class SurahViewHolder(
     }
 
     private fun setupViews() = with(binding) {
+        surah.startSlideInLeftAnim()
         tvSurahNum.text = item.surahCountInQuran
         tvSurahName.text = item.surahName
         tvSurahArabicName.text = item.surahArabName

@@ -17,4 +17,6 @@ interface FragmentMainScreenRouter {
     fun navigateToMainQuranFragment(): NavCommand
 
     fun navigateToNamazTimesScreen(): NavCommand
+
+    fun navigateToTasbihScreen():NavCommand
 }

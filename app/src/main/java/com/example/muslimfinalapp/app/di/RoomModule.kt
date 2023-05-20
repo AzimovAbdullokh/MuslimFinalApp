@@ -47,4 +47,8 @@ object RoomModule {
     @Provides
     @Singleton
     fun provideSurahDao(database: AppDatabase) : SurahDao = database.getSurahDao()
+
+    @Provides
+    @Singleton
+    fun provideQuestionDao(database: AppDatabase) : QuestionsDao = database.getQuestionsDao()
 }

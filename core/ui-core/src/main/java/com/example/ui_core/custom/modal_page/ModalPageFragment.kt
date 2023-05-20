@@ -1,4 +1,4 @@
-package com.example.ui_core.custom.modal_page
+    package com.example.ui_core.custom.modal_page
 
 import android.app.Activity
 import android.app.Dialog

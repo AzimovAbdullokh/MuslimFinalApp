@@ -6,6 +6,7 @@ import com.example.data.data.repository.khadisses.KhadisRepositoryImpl
 import com.example.data.data.repository.nasheeds.AudioNasheedRepositoryImpl
 import com.example.data.data.repository.readers.QuranReadersRepositoryImpl
 import com.example.data.data.repository.surah.SurahRepositoryImpl
+import com.example.data.data.repository.test.QuestionRepositoryImpl
 import com.example.data.data.repository.user.LoginRepositoryImpl
 import com.example.data.data.repository.user.UserCacheRepositoryImpl
 import com.example.domain.domain.domain.repositories.*
@@ -17,6 +18,9 @@ import dagger.hilt.components.SingletonComponent
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryBindsModule {
+
+    @Binds
+    abstract fun bindQuestionRepository(impl: QuestionRepositoryImpl): QuestionRepository
 
     @Binds
     abstract fun bindLoginRepository(impl: LoginRepositoryImpl): LoginRepository

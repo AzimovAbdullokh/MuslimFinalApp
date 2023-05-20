@@ -11,6 +11,7 @@ import com.example.data.cloud.models.nasheeds.NasheedsCloud
 import com.example.data.cloud.models.readers.ReadersCloud
 import com.example.data.cloud.models.surah.SurahCloud
 import com.example.data.cloud.models.surah.SurahResponseCloud
+import com.example.data.cloud.models.tests.TestQuestionCloud
 import com.example.data.cloud.models.users.UserCloud
 import com.example.data.cloud.models.users.UserSignUpAnswerCloud
 import com.example.data.cloud.models.users.UserSignUpCloud
@@ -21,6 +22,7 @@ import com.example.data.data.models.khadisses.KhadisData
 import com.example.data.data.models.nasheeds.NasheedsData
 import com.example.data.data.models.readers.ReadersData
 import com.example.data.data.models.surah.SurahData
+import com.example.data.data.models.tests.TestQuestionData
 import com.example.data.data.models.users.UserSaveModel
 import com.example.domain.domain.domain.Mapper
 import com.example.domain.domain.domain.models.books.BookDomain
@@ -29,14 +31,15 @@ import com.example.domain.domain.domain.models.khadisses.KhadisDomain
 import com.example.domain.domain.domain.models.nasheeds.NasheedsDomain
 import com.example.domain.domain.domain.models.readers.ReaderDomain
 import com.example.domain.domain.domain.models.surah.SurahDomain
+import com.example.domain.domain.domain.models.tests.TestQuestionDomain
 import com.example.domain.domain.domain.models.users.UserDomain
 import com.example.domain.domain.domain.models.users.UserSignUpAnswerDomain
 import com.example.domain.domain.domain.models.users.UserSignUpDomain
+import com.example.muslimfinalapp.app.temporary_screens.sign_up.mappers.MapUserDomainToUser
 import com.example.muslimfinalapp.app.temporary_screens.sign_up.mappers.MapUserSignUpToDomain
 import com.example.muslimfinalapp.app.temporary_screens.sign_up.mappers.MapUserToDomain
 import com.example.muslimfinalapp.app.temporary_screens.sign_up.models.UserFeatures
 import com.example.muslimfinalapp.app.temporary_screens.sign_up.models.UserSignUp
-import com.example.muslimfinalapp.app.temporary_screens.sign_up.mappers.MapUserDomainToUser
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -47,28 +50,48 @@ import dagger.hilt.components.SingletonComponent
 abstract class MappersBindModule {
 
     @Binds
+    abstract fun bindQuestionDataToDomainMapper(
+        impl: QuestionDataToDomainMapper,
+    ): Mapper<TestQuestionData, TestQuestionDomain>
+
+    @Binds
+    abstract fun bindQuestionDataToCacheMapper(
+        impl: QuestionDataToCacheMapper,
+    ): Mapper<TestQuestionData, QuestionsCache>
+
+    @Binds
+    abstract fun bindQuestionCacheToDataMapper(
+        impl: QuestionCacheToDataMapper,
+    ): Mapper<QuestionsCache, TestQuestionData>
+
+    @Binds
+    abstract fun bindQuestionCloudToDataMapper(
+        impl: QuestionCloudToDataMapper,
+    ): Mapper<TestQuestionCloud, TestQuestionData>
+
+    @Binds
     abstract fun bindMapUserSignUpToDomain(
-        impl: MapUserSignUpToDomain
+        impl: MapUserSignUpToDomain,
     ): Mapper<UserSignUp, UserSignUpDomain>
 
     @Binds
     abstract fun bindMapUserToDomain(
-        impl: MapUserToDomain
+        impl: MapUserToDomain,
     ): Mapper<UserFeatures, UserDomain>
 
     @Binds
     abstract fun bindMapUserDomainToSaveModel(
-        impl: MapUserDomainToSaveModel
+        impl: MapUserDomainToSaveModel,
     ): Mapper<UserDomain, UserSaveModel>
 
     @Binds
     abstract fun bindMapUserSaveToDomain(
-        impl: MapUserSaveToDomain
+        impl: MapUserSaveToDomain,
     ): Mapper<UserSaveModel, UserDomain>
 
     @Binds
     abstract fun bindMapUserDomainToUserFeatures(
-        impl: MapUserDomainToUser
+        impl: MapUserDomainToUser,
     ): Mapper<UserDomain, UserFeatures>
 
     @Binds

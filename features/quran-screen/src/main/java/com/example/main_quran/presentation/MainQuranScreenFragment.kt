@@ -2,6 +2,7 @@ package com.example.main_quran.presentation
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.common_api.base.BaseFragment
@@ -13,13 +14,14 @@ import com.example.main_quran.presentation.adapter.fingerprints.QuranFingerPrint
 import com.example.main_quran.presentation.adapter.items.MainScreenQuranBlockItem
 import com.example.ui_core.extensions.launchWhenViewStarted
 import com.example.utils_core.extensions.setOnDownEffectClickListener
+import com.example.utils_core.extensions.setupTextSize
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.filterNotNull
 
 @AndroidEntryPoint
 class MainQuranScreenFragment :
     BaseFragment<FragmentMainQuranScreenBinding, MainQuranScreenViewModel>(
-        FragmentMainQuranScreenBinding::inflate) {
+        FragmentMainQuranScreenBinding::inflate), android.widget.SearchView.OnQueryTextListener {
 
     override val viewModel: MainQuranScreenViewModel by viewModels()
 
@@ -41,7 +43,11 @@ class MainQuranScreenFragment :
     }
 
     private fun setupClickers() = with(binding()) {
-        backBtn.setOnDownEffectClickListener { viewModel.navigateBack() }
+        upButton.setOnDownEffectClickListener { viewModel.navigateBack() }
+        searchView.setupTextSize()
+        searchView.setOnQueryTextListener(this@MainQuranScreenFragment)
+        val hint = getString(com.example.ui_core.R.string.title_of_the_book_name_of_the_author_or_user)
+        searchView.queryHint = hint
     }
 
 
@@ -57,6 +63,15 @@ class MainQuranScreenFragment :
 
     private fun observeRv() = with(binding()) {
         surahRV.adapter = genericAdapter
+    }
 
+    override fun onQueryTextSubmit(searchString: String?): Boolean {
+        if (searchString != null) viewModel.updateSearchQuery(searchString = searchString)
+        return false
+    }
+
+    override fun onQueryTextChange(searchString: String?): Boolean {
+        if (searchString != null) viewModel.updateSearchQuery(searchString = searchString)
+        return false
     }
 }

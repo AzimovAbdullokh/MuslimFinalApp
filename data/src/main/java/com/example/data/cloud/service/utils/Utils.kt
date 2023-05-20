@@ -8,7 +8,4 @@ object Utils {
     const val CONTENT_TYPE = "application/json"
     const val MUSLIM_SALAT_BASE_URL = "http://muslimsalat.com/"
     const val TIME_NAMAZ_API_KEY = "a7e35cdf55a6e62d096a4ed0be759f9d"
-
-
-
 }

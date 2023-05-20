@@ -11,9 +11,9 @@ import org.json.JSONObject
 import java.lang.reflect.Type
 import java.util.*
 
-@Database(entities = [AudioNasheedsCashe::class, KhadissesCache::class, BookCache::class, CategoryCache::class, ReadersCache::class, SurahCache::class],
+@Database(entities = [AudioNasheedsCashe::class, KhadissesCache::class, BookCache::class, CategoryCache::class, ReadersCache::class, SurahCache::class, QuestionsCache::class],
 
-    version = 6, exportSchema = true)
+    version = 5, exportSchema = true)
 
 @TypeConverters(AppDatabase.DatabaseConverter::class)
 abstract class AppDatabase : RoomDatabase() {
@@ -29,6 +29,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun getReadersDao(): ReaderDao
 
     abstract fun getSurahDao(): SurahDao
+
+    abstract fun getQuestionsDao(): QuestionsDao
 
     class DatabaseConverter {
 

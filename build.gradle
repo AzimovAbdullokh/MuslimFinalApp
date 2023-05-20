@@ -1,5 +1,4 @@
 buildscript {
-
     ext {
         // Base
         core_ktx_verion = "1.9.0"
@@ -9,6 +8,8 @@ buildscript {
         material_version = "1.8.0"
         constraint_layout_version = "2.1.4"
         legacy_support_version = "1.0.0"
+        activityVersion = "1.6.0-rc02"
+
 
         //Room
         room_version = "2.5.0"
@@ -24,6 +25,10 @@ buildscript {
 
         // Coroutines
         coroutines_version = "1.6.4"
+
+        //Compose
+        compVersion = "1.7.10"
+
 
         //Networking
         retrofit_version = "2.9.0"
@@ -114,7 +119,7 @@ buildscript {
         navigation_version = "2.5.3"
         compose_bom_version = "2023.03.00"
         compose_ui_version = "1.4.0"
-
+        compose_version = "0.1.0-dev01"
 
         //GitHub
         pdf_viewer_version = "3.2.0-beta.1"
@@ -157,6 +162,23 @@ buildscript {
                         NavigationUI         : "androidx.navigation:navigation-ui-ktx:$navigation_version",
                         Preferences          : "androidx.preference:preference:$preference_version",
                 ],
+
+                Compose  : [
+                        Ui                   : "androidx.compose.ui:ui:$compVersion",
+                        UiUtil               : "androidx.compose.ui:ui-util:$compVersion",
+                        UiTooling            : "androidx.compose.ui:ui-tooling:$compVersion",
+                        Foundation           : "androidx.compose.foundation:foundation:$compVersion",
+                        Material             : "androidx.compose.material:material:$compVersion",
+                        Material3            : "androidx.compose.material3:material3:1.0.0-beta02",
+                        MaterialIcons        : "androidx.compose.material:material-icons-core:$compVersion",
+                        MaterialIconsExtended: "androidx.compose.material:material-icons-extended:$compVersion",
+                        ConstraintLayout     : "androidx.constraintlayout:constraintlayout-compose:1.1.0-alpha03",
+                        LiveData             : "androidx.compose.runtime:runtime-livedata:$compVersion",
+                        Activity             : "androidx.activity:activity-compose:$activityVersion",
+                        Paging               : "androidx.paging:paging-compose:1.0.0-alpha16",
+                        ComposeViewModels : "androidx.lifecycle:lifecycle-viewmodel-compose:$compVersion"
+
+                ],
                 Google   : [
                         Material             : "com.google.android.material:material:$material_version",
                         Hilt                 : "com.google.dagger:hilt-android:$hilt_version",
@@ -196,8 +218,6 @@ buildscript {
                         MaterialEditText: "com.rengwuxian.materialedittext:library:$material_edit_text_version",
                 ],
         ]
-
-
     }
 
     repositories {
@@ -205,6 +225,7 @@ buildscript {
         mavenCentral()
         maven { url 'https://jitpack.io' }
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:7.2.2'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0'

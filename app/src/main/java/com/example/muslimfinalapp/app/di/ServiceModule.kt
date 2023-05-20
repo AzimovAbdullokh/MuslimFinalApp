@@ -40,8 +40,8 @@ object ServiceModule {
 
     @Provides
     @Singleton
-    fun provideCategoryService(retrofit: Retrofit): CategoryService =
-        retrofit.create(CategoryService::class.java)
+    fun provideCategoryService(retrofit: Retrofit): TestCategoryService =
+        retrofit.create(TestCategoryService::class.java)
 
     @Provides
     @Singleton

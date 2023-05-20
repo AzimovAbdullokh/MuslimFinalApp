@@ -15,6 +15,7 @@ interface MainQuranFilteredItemsMapper {
     fun map(
         items: MainQuranItems,
         quranItemOnClickListener: QuranItemOnClickListener,
+        searchQuery: String,
     ): Triple<List<Item>, List<Item>, List<Item>>
 }
 
@@ -29,19 +30,22 @@ class MainQuranFilteredItemsMapperImpl @Inject constructor(
     override fun map(
         items: MainQuranItems,
         quranItemOnClickListener: QuranItemOnClickListener,
+        searchQuery: String,
     ): Triple<List<Item>, List<Item>, List<Item>> {
 
 
-        val filteredQuranList = items.qurans.map(quranFeatureDomainModelToUiMapper::map).map {
-            QuranAdapterModel(
-                id = it.id,
-                surahId = it.surahId,
-                surahName = it.surahName,
-                surahArabName = it.surahArabName,
-                surahCountInQuran = it.surahCountInQuran,
-                listener = quranItemOnClickListener
-            )
-        }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
+        val filteredQuranList = items.qurans.map(quranFeatureDomainModelToUiMapper::map)
+            .filter { applyFilterForAllSurah(it, searchQuery = searchQuery) }
+            .map {
+                QuranAdapterModel(
+                    id = it.id,
+                    surahId = it.surahId,
+                    surahName = it.surahName,
+                    surahArabName = it.surahArabName,
+                    surahCountInQuran = it.surahCountInQuran,
+                    listener = quranItemOnClickListener
+                )
+            }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
 
         val allItems = mutableListOf<Item>()
 
@@ -50,6 +54,10 @@ class MainQuranFilteredItemsMapperImpl @Inject constructor(
 
         return Triple(allItems, emptyList(), emptyList())
     }
+
+    private fun applyFilterForAllSurah(quran: QuranFeatureUiModel, searchQuery: String) =
+        if (searchQuery.isEmpty()) quran.surahName != String()
+        else quran.surahName.contains(searchQuery, ignoreCase = true)
 
 
 }

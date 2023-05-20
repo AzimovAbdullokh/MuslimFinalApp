@@ -15,7 +15,6 @@ data class UserSignUp(
     var userEmail: String = String(),
     var age: String = String(),
     var userType: String = String(),
-
     var sessionToken: String = String(),
 ) : Parcelable {
 

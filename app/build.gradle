@@ -18,7 +18,6 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -51,7 +50,10 @@ dependencies {
     implementation project(':features:quran-screen')
     implementation project(":features:saved-screen")
     implementation project(":features:namaz-times-screen")
-    implementation project(':features:test-screen')
+    implementation project(':features:test-category-screen')
+    implementation project(':features:questions-screen')
+    implementation project(':features:tasbih-screen')
+    implementation project(':features:compose-sample-screen')
 
 
     implementation project(":navigation")
@@ -65,8 +67,6 @@ dependencies {
 
     //Room
     implementation "androidx.room:room-ktx:$room_version"
-
-    implementation 'androidx.lifecycle:lifecycle-service:2.5.1'
 
     implementation 'com.statistics.library:library:1.0.0'
 
@@ -172,18 +172,6 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
     implementation "androidx.legacy:legacy-support-v4:$legacy_support_version"
 
-    //Test
-    testImplementation "junit:junit:$junit_version"
-    androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
-    testImplementation "org.mockito:mockito-core:3.11.1"
-    androidTestImplementation 'org.mockito:mockito-android:3.11.1'
-    testImplementation "io.mockk:mockk:$mockk_version"
-    androidTestImplementation "androidx.arch.core:core-testing:2.2.0"
-    androidTestImplementation "androidx.test.ext:junit:1.1.5"
-    androidTestImplementation "androidx.test:rules:1.5.0"
-    androidTestImplementation "androidx.test:runner:1.5.2"
-    androidTestImplementation "androidx.work:work-testing:$workVersion"
-    implementation("androidx.recyclerview:recyclerview:1.2.1")
+
 
 }

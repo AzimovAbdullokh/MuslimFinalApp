@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/audio-player" />
+            <option value="$PROJECT_DIR$/build-src" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core/common" />
             <option value="$PROJECT_DIR$/core/common/common-api" />
@@ -26,18 +27,21 @@
             <option value="$PROJECT_DIR$/features/book-info-screen" />
             <option value="$PROJECT_DIR$/features/books-screen" />
             <option value="$PROJECT_DIR$/features/compass-screen" />
+            <option value="$PROJECT_DIR$/features/compose-sample-screen" />
             <option value="$PROJECT_DIR$/features/khadisses-screen" />
             <option value="$PROJECT_DIR$/features/main_screen" />
             <option value="$PROJECT_DIR$/features/namaz-times-screen" />
             <option value="$PROJECT_DIR$/features/playlist-screen" />
             <option value="$PROJECT_DIR$/features/profile-screen" />
+            <option value="$PROJECT_DIR$/features/questions-screen" />
             <option value="$PROJECT_DIR$/features/quran-screen" />
             <option value="$PROJECT_DIR$/features/saved-screen" />
             <option value="$PROJECT_DIR$/features/sign-in-screen" />
             <option value="$PROJECT_DIR$/features/sign-up-screen" />
             <option value="$PROJECT_DIR$/features/splash-screen" />
             <option value="$PROJECT_DIR$/features/surah-info-screen" />
-            <option value="$PROJECT_DIR$/features/test-screen" />
+            <option value="$PROJECT_DIR$/features/tasbih-screen" />
+            <option value="$PROJECT_DIR$/features/test-category-screen" />
             <option value="$PROJECT_DIR$/navigation" />
           </set>
         </option>
