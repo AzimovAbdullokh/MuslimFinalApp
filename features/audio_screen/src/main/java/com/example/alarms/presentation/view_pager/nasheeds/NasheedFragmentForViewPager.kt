@@ -8,10 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.alarms.databinding.FragmentNasheedFragmentForViewPagerBinding
 import com.example.alarms.presentation.audio_screen.adapter.block_fingerprints.MasalahViewPagerBlockFingerprint
 import com.example.alarms.presentation.audio_screen.adapter.fingerprints.AudioNasheedVerticalFingerprint
-import com.example.alarms.presentation.audio_screen.adapter.fingerprints.HeaderFingerprint
 import com.example.alarms.presentation.audio_screen.option_dialog.NasheedOptionDialogClickListeners
 import com.example.alarms.presentation.audio_screen.option_dialog.NasheedOptionDialogFragment
-import com.example.audioservice.service_player.service_player.PlayerCallback
 import com.example.common_api.base.BaseFragment
 import com.example.common_api.base.adapter.FingerprintAdapter
 import com.example.common_api.base.adapter.Item
@@ -27,11 +25,11 @@ class NasheedFragmentForViewPager :
 
     override val viewModel: NasheedFragmentForViewPagerViewModel by viewModels()
 
-    private var playerCallback: PlayerCallback? = null
+//    private var playerCallback: PlayerCallback? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        playerCallback = context as? PlayerCallback
+//        playerCallback = context as? PlayerCallback
     }
 
     private val genericAdapter = FingerprintAdapter(
@@ -58,7 +56,7 @@ class NasheedFragmentForViewPager :
         launchWhenViewStarted {
             allFilteredItemsFlow.filterNotNull().observe(::populateModels)
             showConfirmDialogFlow.observe(::showFragmentBookOptionDialog)
-            playAudioBookFlow.observe { playerCallback?.play(it) }
+//            playAudioBookFlow.observe { playerCallback?.play(it) }
         }
     }
 
@@ -71,6 +69,6 @@ class NasheedFragmentForViewPager :
     }
     override fun onDetach() {
         super.onDetach()
-        playerCallback = null
+//        playerCallback = null
     }
 }

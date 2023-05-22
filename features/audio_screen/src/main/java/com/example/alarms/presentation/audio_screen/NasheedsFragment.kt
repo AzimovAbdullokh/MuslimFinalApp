@@ -18,7 +18,6 @@ import com.example.alarms.presentation.audio_screen.option_dialog.NasheedOptionD
 import com.example.alarms.presentation.view_pager.masalah.MasalahFragmentForViewPager
 import com.example.alarms.presentation.view_pager.nasheeds.NasheedFragmentForViewPager
 import com.example.alarms.presentation.view_pager.quran.QuranFragmentForViewPager
-import com.example.audioservice.service_player.service_player.PlayerCallback
 import com.example.common_api.base.BaseFragment
 import com.example.common_api.base.adapter.FingerprintAdapter
 import com.example.common_api.base.adapter.Item
@@ -35,7 +34,7 @@ class NasheedsFragment :
 
     override val viewModel: NasheedsFragmentViewModel by viewModels()
 
-    private var playerCallback: PlayerCallback? = null
+//    private var playerCallback: PlayerCallback? = null
 
     private val genericAdapter =
         FingerprintAdapter(
@@ -50,7 +49,7 @@ class NasheedsFragment :
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        playerCallback = context as? PlayerCallback
+//        playerCallback = context as? PlayerCallback
     }
 
     private fun showFragmentBookOptionDialog(nashedId: String) =
@@ -79,7 +78,7 @@ class NasheedsFragment :
     private fun observeData() = with(viewModel) {
         launchWhenViewStarted {
             allFilteredItemsFlow.filterNotNull().observe(::populateModels)
-            playAudioBookFlow.observe { playerCallback?.play(it) }
+//            playAudioBookFlow.observe { playerCallback?.play(it) }
         }
     }
 
@@ -121,7 +120,7 @@ class NasheedsFragment :
 
     override fun onDetach() {
         super.onDetach()
-        playerCallback = null
+//        playerCallback = null
     }
 
     private companion object {
