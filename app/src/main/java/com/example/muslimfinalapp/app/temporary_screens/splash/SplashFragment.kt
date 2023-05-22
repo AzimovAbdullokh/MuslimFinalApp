@@ -42,22 +42,33 @@ class SplashFragment :
         }
     }
 
-    private fun navigateToLoginScreens() = findNavController().navigate(R.id.login_navigation,
-        bundleOf(),
-        createNavOptionsWithAnimations())
+    private fun navigateToLoginScreens() =
+        findNavController()
+            .navigate(R.id.login_navigation,
+                bundleOf(),
+                createNavOptionsWithAnimations())
+
 
     private fun navigateToMainScreens() =
-        findNavController().navigate(R.id.main_bottom, bundleOf(), createNavOptionsWithAnimations())
+        findNavController()
+            .navigate(R.id.main_bottom,
+                bundleOf(),
+                createNavOptionsWithAnimations())
+
 
     private fun createNavOptionsWithAnimations() =
-        NavOptions.Builder().setEnterAnim(com.example.ui_core.R.anim.slide_up)
+        NavOptions
+            .Builder()
+            .setEnterAnim(com.example.ui_core.R.anim.slide_up)
             .setExitAnim(com.example.ui_core.R.anim.slide_down)
             .setPopEnterAnim(com.example.ui_core.R.anim.slide_up)
             .setPopExitAnim(com.example.ui_core.R.anim.slide_down).build()
 
+
     private fun setProgressBarVisible(isVisible: Boolean) {
         binding().progressBar.isVisible = isVisible
     }
+
 
     private fun navControllerPopBackStackInclusive() =
         findNavController().popBackStack(R.id.splash_navigation, false)

@@ -2,6 +2,7 @@ package com.example.muslimfinalapp.app.temporary_screens.splash
 
 import androidx.lifecycle.viewModelScope
 import com.example.common_api.base.BaseViewModel
+import com.example.domain.domain.domain.DispatchersProvider
 import com.example.domain.domain.domain.Mapper
 import com.example.domain.domain.domain.models.users.UserDomain
 import com.example.domain.domain.domain.repositories.UserCacheRepository
@@ -18,16 +19,17 @@ import javax.inject.Inject
 class SplashViewModel @Inject constructor(
     private val mapper: Mapper<UserDomain, UserFeatures>,
     userCacheRepository: UserCacheRepository,
+    private val dispatchersProvider: DispatchersProvider,
 ) : BaseViewModel() {
 
     private val _isProgressBarVisibleFlow = createMutableSharedFlowAsSingleLiveEvent<Boolean>()
     val isProgressBarVisibleFlow get() = _isProgressBarVisibleFlow.asSharedFlow()
 
     private val currentUserFromCacheFlow = userCacheRepository.fetchCurrentUserFromCache()
-        .flowOn(Dispatchers.IO)
+        .flowOn(dispatchersProvider.io())
         .map(mapper::map)
         .filterNotNull()
-        .flowOn(Dispatchers.Default)
+        .flowOn(dispatchersProvider.default())
         .onEach(::handleCurrentUserFromCache)
         .stateIn(viewModelScope, SharingStarted.Lazily, null)
 
