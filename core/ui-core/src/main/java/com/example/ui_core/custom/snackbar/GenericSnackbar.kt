@@ -12,12 +12,6 @@ import com.example.ui_core.extensions.layoutInflater
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 
-/**
- * Класс создает кастомный новый [Snackbar] под названием [GenericSnackbar].
- * Конструктор этого класса является закрытым, так что только код в этом файле может создать его экземпляр.
- * Это означает, что никакие другие файлы не могут получить доступ или изменить состояние этого объекта,
- * что делает его безопасным для использования в качестве синглтона.
- */
 open class GenericSnackbar private constructor() {
 
     open class Builder(val rootView: View) {

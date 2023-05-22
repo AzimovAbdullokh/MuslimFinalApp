@@ -13,27 +13,9 @@ inline fun Fragment.launchOnLifecycle(
     crossinline block: suspend CoroutineScopeWrapper.() -> Unit
 ) = lifecycleScope.launch { CoroutineScopeWrapper(this).block() }
 
-inline fun Fragment.launchWhenCreated(
-    crossinline block: suspend CoroutineScopeWrapper.() -> Unit
-) = lifecycleScope.launchWhenCreated {
-    CoroutineScopeWrapper(this).block()
-}
-
 inline fun Fragment.launchWhenStarted(
     crossinline block: suspend CoroutineScopeWrapper.() -> Unit
 ) = lifecycleScope.launchWhenStarted {
-    CoroutineScopeWrapper(this).block()
-}
-
-inline fun Fragment.launchWhenResumed(
-    crossinline block: suspend CoroutineScopeWrapper.() -> Unit
-) = lifecycleScope.launchWhenResumed {
-    CoroutineScopeWrapper(this).block()
-}
-
-inline fun Fragment.launchOnViewLifecycle(
-    crossinline block: suspend CoroutineScopeWrapper.() -> Unit
-) = viewLifecycleOwner.lifecycleScope.launch {
     CoroutineScopeWrapper(this).block()
 }
 
@@ -46,12 +28,6 @@ inline fun Fragment.launchWhenViewCreated(
 inline fun Fragment.launchWhenViewStarted(
     crossinline block: suspend CoroutineScopeWrapper.() -> Unit
 ) = viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-    CoroutineScopeWrapper(this).block()
-}
-
-inline fun Fragment.launchWhenViewResumed(
-    crossinline block: suspend CoroutineScopeWrapper.() -> Unit
-) = viewLifecycleOwner.lifecycleScope.launchWhenResumed {
     CoroutineScopeWrapper(this).block()
 }
 

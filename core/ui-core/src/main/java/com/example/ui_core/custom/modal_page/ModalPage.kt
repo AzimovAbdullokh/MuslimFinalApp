@@ -23,26 +23,6 @@ open class ModalPage private constructor() {
             return this
         }
 
-        fun showCloseIcon(showCloseIcon: Boolean): Builder {
-            this.showCloseIcon = showCloseIcon
-            return this
-        }
-
-        fun isCancelable(isCancelable: Boolean): Builder {
-            this.isCancelable = isCancelable
-            return this
-        }
-
-        fun minHeight(minHeight: Float): Builder {
-            this.minHeight = minHeight
-            return this
-        }
-
-        fun maxHeight(maxHeight: Float): Builder {
-            this.maxHeight = maxHeight
-            return this
-        }
-
         fun fragment(fragment: Fragment): Builder {
             this.fragment = fragment
             return this

@@ -1,4 +1,4 @@
-package com.joseph.ui_core.custom.modal_page
+package com.example.ui_core.custom.modal_page
 
 import androidx.lifecycle.ViewModel
 

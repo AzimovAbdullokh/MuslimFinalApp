@@ -1,4 +1,4 @@
-    package com.example.ui_core.custom.modal_page
+package com.example.ui_core.custom.modal_page
 
 import android.app.Activity
 import android.app.Dialog
@@ -21,11 +21,9 @@ import com.example.ui_core.databinding.FragmentModalPageBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.joseph.ui_core.custom.modal_page.ModalPageViewModel
 
 
-// Актуализировать коэффициент после внедрения drag-логики
-private const val MODAL_PAGE_SHRINK_RATIO = -0.2f
+    private const val MODAL_PAGE_SHRINK_RATIO = -0.2f
 
 open class ModalPageFragment internal constructor(
     private val titleText: String = "",
