@@ -12,7 +12,9 @@ import com.example.common_api.DispatchersProvider
 import com.example.common_api.ResourceProvider
 import com.example.common_api.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -46,6 +48,9 @@ class NasheedsFragmentViewModel @Inject constructor(
 
     private fun handleError(exception: Throwable) {
         emitToErrorMessageFlow(resourceProvider.fetchIdErrorMessage(exception))
+        viewModelScope.async {
+
+        }
     }
 
     fun navigateToSearchAudioFragment() {

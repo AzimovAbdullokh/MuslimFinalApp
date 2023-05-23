@@ -12,7 +12,6 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/audio-player" />
-            <option value="$PROJECT_DIR$/build-src" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core/common" />
             <option value="$PROJECT_DIR$/core/common/common-api" />
@@ -42,7 +41,6 @@
             <option value="$PROJECT_DIR$/features/surah-info-screen" />
             <option value="$PROJECT_DIR$/features/tasbih-screen" />
             <option value="$PROJECT_DIR$/features/test-category-screen" />
-            <option value="$PROJECT_DIR$/navigation" />
           </set>
         </option>
       </GradleProjectSettings>

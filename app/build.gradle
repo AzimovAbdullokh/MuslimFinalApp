@@ -56,7 +56,6 @@ dependencies {
     implementation project(':features:compose-sample-screen')
 
 
-    implementation project(":navigation")
     implementation project(":core:common:common-api")
     implementation project(":data")
     implementation project(":core:ui-core")

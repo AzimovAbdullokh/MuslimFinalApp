@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
       <module name="MuslimFinalApp.features.main-test" target="11" />
+      <module name="MuslimFinalApp.navigation" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,7 +1,5 @@
 package com.example.build_src.build.dependencies
 
-import com.guru.composecookbook.build.dependencies.Dependencies
-
 internal val composeOfficialDependencies = listOf(
     Dependencies.composeUi,
     Dependencies.composeUiTooling,

@@ -1,4 +1,4 @@
-package com.guru.composecookbook.build.configurations
+package com.example.build_src.build.configurations
 
 import com.example.build_src.build.dependencies.Versions
 
