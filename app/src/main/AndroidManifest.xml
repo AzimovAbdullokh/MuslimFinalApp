@@ -43,9 +43,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <service
-            android:name="com.example.audioservice.service_player.service_player.AudioService"
-            android:exported="true" />
+
     </application>
 
 </manifest>

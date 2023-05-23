@@ -1,9 +1,5 @@
 package com.example.domain.domain.domain
 
-enum class State {
-    SUCCESS, ERROR, LOADING, EMPTY
-}
-
 sealed class RequestState<T> {
 
     class Success<T>(val data: T) : RequestState<T>()
