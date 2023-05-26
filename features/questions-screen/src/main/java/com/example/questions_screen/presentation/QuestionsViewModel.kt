@@ -1,8 +1,7 @@
 package com.example.questions_screen.presentation
 
-import com.example.common_api.DispatchersProvider
+import com.example.common_api.DispatchersProviderInCommonApi
 import com.example.common_api.Mapper
-import com.example.common_api.ResourceProvider
 import com.example.common_api.base.BaseViewModel
 import com.example.questions_screen.domain.model.TestQuestionFeatureDomain
 import com.example.questions_screen.domain.repository.QuestionFeatureRepository
@@ -16,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class QuestionsViewModel @Inject constructor(
     private val testQuestionFeatureRepository: QuestionFeatureRepository,
-    private val dispatchersProvider: DispatchersProvider,
+    private val dispatchersProvider: DispatchersProviderInCommonApi,
     private val questionFeatureDomainToUiMapper: Mapper<TestQuestionFeatureDomain, TestQuestionFeatureUi>,
 ) : BaseViewModel() {
 

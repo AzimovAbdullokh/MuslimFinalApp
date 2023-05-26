@@ -1,6 +1,6 @@
 package com.example.main_quran.domain.usecases
 
-import com.example.common_api.DispatchersProvider
+import com.example.common_api.DispatchersProviderInCommonApi
 import com.example.main_quran.domain.models.MainQuranItems
 import com.example.main_quran.domain.repository.QuranFeatureRepository
 import kotlinx.coroutines.flow.Flow
@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class FetchAllQuransUseCaseImpl @Inject constructor(
-    private val dispatchersProvider: DispatchersProvider,
+    private val dispatchersProvider: DispatchersProviderInCommonApi,
     quranFeatureRepository: QuranFeatureRepository,
 ) : FetchAllQuransUseCase {
 

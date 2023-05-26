@@ -4,14 +4,14 @@ import com.example.alarms.domain.models.MainNasheedItems
 import com.example.alarms.domain.repository.AudioNasheedFeatureRepository
 import com.example.alarms.domain.repository.BookFeatureRepository
 import com.example.alarms.domain.repository.QuranReadersFeatureRepository
-import com.example.common_api.DispatchersProvider
+import com.example.common_api.DispatchersProviderInCommonApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class FetchAllNasheedsUseCaseImpl @Inject constructor(
-    private val dispatchersProvider: DispatchersProvider,
+    private val dispatchersProvider: DispatchersProviderInCommonApi,
     nasheedFeatureRepository: AudioNasheedFeatureRepository,
     bookRepository: BookFeatureRepository,
     readersRepository: QuranReadersFeatureRepository,

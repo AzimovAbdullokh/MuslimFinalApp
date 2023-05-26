@@ -1,6 +1,6 @@
 package com.example.muslimfinalapp.app.glue.quran_screen.di
 
-import com.example.common_api.DispatchersProvider
+import com.example.common_api.DispatchersProviderInCommonApi
 import com.example.main_quran.domain.repository.QuranFeatureRepository
 import com.example.main_quran.domain.usecases.FetchAllQuransUseCase
 import com.example.main_quran.domain.usecases.FetchAllQuransUseCaseImpl
@@ -17,7 +17,7 @@ object UseCaseModule {
     @Provides
     @Singleton
     fun provideFetchMainQuranItemsUseCase(
-        dispatchersProvider: DispatchersProvider,
+        dispatchersProvider: DispatchersProviderInCommonApi,
         quranFeatureRepository: QuranFeatureRepository,
     ): FetchAllQuransUseCase = FetchAllQuransUseCaseImpl(
         dispatchersProvider = dispatchersProvider,

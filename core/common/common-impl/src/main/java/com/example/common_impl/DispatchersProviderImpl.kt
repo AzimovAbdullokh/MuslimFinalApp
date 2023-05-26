@@ -1,11 +1,11 @@
 package com.example.common_impl
 
-import com.example.common_api.DispatchersProvider
+import com.example.common_api.DispatchersProviderInCommonApi
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
-class DispatchersProviderImpl @Inject constructor() : DispatchersProvider {
+class DispatchersProviderImpl @Inject constructor() : DispatchersProviderInCommonApi {
 
     override fun main(): CoroutineDispatcher = Dispatchers.Main
 

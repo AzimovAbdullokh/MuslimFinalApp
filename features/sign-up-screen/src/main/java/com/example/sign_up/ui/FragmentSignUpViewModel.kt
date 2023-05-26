@@ -1,6 +1,6 @@
 package com.example.sign_up.ui
 
-import com.example.common_api.DispatchersProvider
+import com.example.common_api.DispatchersProviderInCommonApi
 import com.example.common_api.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -8,7 +8,7 @@ import javax.inject.Inject
 @HiltViewModel
 class FragmentSignUpViewModel @Inject constructor(
 //    private val loginRepository: LoginRepository,
-    private val dispatchersProvider: DispatchersProvider,
+    private val dispatchersProvider: DispatchersProviderInCommonApi,
 //    private val userSignUpUiToDomainMapper: Mapper<UserSignUp, UserSignUpDomain>,
 ) : BaseViewModel() {
 

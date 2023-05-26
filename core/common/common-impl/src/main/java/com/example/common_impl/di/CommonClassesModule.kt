@@ -1,7 +1,7 @@
 package com.example.common_impl.di
 
 import com.example.common_api.CheckInternetConnection
-import com.example.common_api.DispatchersProvider
+import com.example.common_api.DispatchersProviderInCommonApi
 import com.example.common_impl.CheckInternetConnectionImpl
 import com.example.common_impl.DispatchersProviderImpl
 import dagger.Binds
@@ -21,5 +21,5 @@ abstract class CommonClassesModule {
     @Binds
     abstract fun bindDispatchersProvider(
         impl: DispatchersProviderImpl
-    ): DispatchersProvider
+    ): DispatchersProviderInCommonApi
 }

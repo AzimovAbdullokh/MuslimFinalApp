@@ -1,7 +1,7 @@
 package test_screen.test_category_screen.presentation
 
 import androidx.lifecycle.viewModelScope
-import com.example.common_api.DispatchersProvider
+import com.example.common_api.DispatchersProviderInCommonApi
 import com.example.common_api.ResourceProvider
 import com.example.common_api.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +18,7 @@ import javax.inject.Inject
 class TestViewModel @Inject constructor(
     fetchAllCategoriesUseCase: FetchAllCategoriesUseCase,
     private val mainCategoryItemsFilteredMapper: TestItemsFilteredMapper,
-    private val dispatchersProvider: DispatchersProvider,
+    private val dispatchersProvider: DispatchersProviderInCommonApi,
     private val resourceProvider: ResourceProvider,
     private val router: TestCategoryScreenRouter,
 ) : BaseViewModel(), CategoryItemClickListener {

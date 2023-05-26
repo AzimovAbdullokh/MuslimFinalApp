@@ -2,6 +2,7 @@
 <resources>
     <color name="appColor">#300759</color>
     <color name="blue">#3D5CFF</color>
+    <color name="red_mts">@color/bright_red</color>
 
 
 

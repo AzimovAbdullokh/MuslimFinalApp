@@ -1,13 +1,12 @@
 package com.example.muslimfinalapp.app.temporary_screens.sign_in.ui
 
 import androidx.lifecycle.viewModelScope
-import com.example.common_api.DispatchersProvider
+import com.example.common_api.DispatchersProviderInCommonApi
 import com.example.common_api.base.BaseViewModel
 import com.example.domain.domain.domain.Mapper
 import com.example.domain.domain.domain.models.users.UserDomain
 import com.example.domain.domain.domain.repositories.LoginRepository
 import com.example.muslimfinalapp.app.temporary_screens.sign_up.models.UserFeatures
-import com.example.muslimfinalapp.app.temporary_screens.sign_in.ui.launchSafe
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.asSharedFlow
 import javax.inject.Inject
@@ -42,7 +41,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val repository: LoginRepository,
-    private val dispatchersProvider: DispatchersProvider,
+    private val dispatchersProvider: DispatchersProviderInCommonApi,
     private val mapper: Mapper<UserDomain, UserFeatures>,
 ) : BaseViewModel() {
 

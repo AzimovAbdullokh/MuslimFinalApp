@@ -1,6 +1,6 @@
 package com.example.muslimfinalapp.app.glue.screen_main.di
 
-import com.example.common_api.DispatchersProvider
+import com.example.common_api.DispatchersProviderInCommonApi
 import com.example.main_screen.domain.repository.*
 import com.example.main_screen.domain.usecases.FetchAllMainScreenItemsFeatureUseCase
 import com.example.main_screen.domain.usecases.FetchAllMainScreenItemsFeatureUseCaseImpl
@@ -15,7 +15,7 @@ object UseCaseModule {
 
     @Provides
     fun provideFetchAllMainItemsFeatureUseCase(
-        dispatchersProvider: DispatchersProvider,
+        dispatchersProvider: DispatchersProviderInCommonApi,
 //        audioBooksRepository: AudioNasheedFeatureRepository,
         khadisRepository: KhadisFeatureRepository,
         surahRepository: SurahFeatureRepository,

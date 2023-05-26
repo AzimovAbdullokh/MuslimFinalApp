@@ -1,9 +1,8 @@
 package com.example.common_api
 
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 
-interface DispatchersProvider {
+interface DispatchersProviderInCommonApi {
 
     fun main(): CoroutineDispatcher
 

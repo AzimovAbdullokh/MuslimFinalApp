@@ -2,7 +2,7 @@ package com.example.main_screen.presentation
 
 import android.os.Parcelable
 import androidx.lifecycle.viewModelScope
-import com.example.common_api.DispatchersProvider
+import com.example.common_api.DispatchersProviderInCommonApi
 import com.example.common_api.ResourceProvider
 import com.example.common_api.base.BaseViewModel
 import com.example.main_screen.domain.models.MainScreenFeatureModuleItems
@@ -22,7 +22,7 @@ class MainScreenViewModel @Inject constructor(
     private val router: FragmentMainScreenRouter,
     private val itemsToSearchFilteredModelMapper: MainItemsToSearchFilteredFeatureModelMapper,
     private val resourcesProvider: ResourceProvider,
-    private val dispatchersProvider: DispatchersProvider,
+    private val dispatchersProvider: DispatchersProviderInCommonApi,
 ) : BaseViewModel(), CommunityItemClickListener, MainCardItemClickListener,
     MainScreenOpenMoreClickListeners, KhadisItemOnClickListener, ReaderItemOnClickListener {
 

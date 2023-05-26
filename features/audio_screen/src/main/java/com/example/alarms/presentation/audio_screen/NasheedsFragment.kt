@@ -39,10 +39,12 @@ class NasheedsFragment :
     private val genericAdapter =
         FingerprintAdapter(
             listOf(
+
                 HeaderFingerprint(),
                 MainScreenAudioNasheedBlockFingerprint(
                     listOf(AudioNasheedHorizontalFingerprint()),
                     RecyclerView.RecycledViewPool())
+
             )
         )
 

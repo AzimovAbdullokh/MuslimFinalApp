@@ -7,8 +7,7 @@ import com.example.alarms.presentation.audio_screen.listeners.BookItemOnClickLis
 import com.example.alarms.presentation.audio_screen.listeners.NasheedItemOnClickListener
 import com.example.alarms.presentation.audio_screen.listeners.ReaderItemOnClickListener
 import com.example.alarms.presentation.audio_screen.mappers.MainNasheedFilteredItemsMapper
-import com.example.alarms.presentation.search_audio_screen.router.SearchFragmentRouter
-import com.example.common_api.DispatchersProvider
+import com.example.common_api.DispatchersProviderInCommonApi
 import com.example.common_api.ResourceProvider
 import com.example.common_api.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchAudioViewModel @Inject constructor(
     fetchAllNasheedsUseCase: FetchAllNasheedsUseCase,
-    private val dispatchers: DispatchersProvider,
+    private val dispatchers: DispatchersProviderInCommonApi,
     private val resourceProvider: ResourceProvider,
     private val itemsMapper: MainNasheedFilteredItemsMapper,
 //    private val router: SearchFragmentRouter,

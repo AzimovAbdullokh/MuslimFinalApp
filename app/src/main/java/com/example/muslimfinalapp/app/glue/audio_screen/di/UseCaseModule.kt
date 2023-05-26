@@ -5,8 +5,7 @@ import com.example.alarms.domain.repository.BookFeatureRepository
 import com.example.alarms.domain.repository.QuranReadersFeatureRepository
 import com.example.alarms.domain.usecases.FetchAllNasheedsUseCase
 import com.example.alarms.domain.usecases.FetchAllNasheedsUseCaseImpl
-import com.example.common_api.DispatchersProvider
-import com.example.domain.domain.domain.repositories.BookRepository
+import com.example.common_api.DispatchersProviderInCommonApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,7 +17,7 @@ object UseCaseModule {
 
     @Provides
     fun provideFetchAllMainItemsFeatureUseCase(
-        dispatchersProvider: DispatchersProvider,
+        dispatchersProvider: DispatchersProviderInCommonApi,
         audioBooksRepository: AudioNasheedFeatureRepository,
         booksRepository: BookFeatureRepository,
         readersFeatureRepository: QuranReadersFeatureRepository

@@ -1,7 +1,7 @@
 package com.example.muslimfinalapp.app.temporary_screens.sign_up
 
 import androidx.lifecycle.viewModelScope
-import com.example.common_api.DispatchersProvider
+import com.example.common_api.DispatchersProviderInCommonApi
 import com.example.common_api.ResourceProvider
 import com.example.common_api.base.BaseViewModel
 import com.example.domain.domain.domain.Mapper
@@ -26,7 +26,7 @@ class SignUpViewModel @Inject constructor(
     private val userRepository: UserRepository,
     private val userCacheRepository: UserCacheRepository,
     private val resourceProvider: ResourceProvider,
-    private val dispatchersProvider: DispatchersProvider,
+    private val dispatchersProvider: DispatchersProviderInCommonApi,
     private val mapper: Mapper<UserFeatures, UserDomain>,
     private val mapperUserSignUp: Mapper<UserSignUp, UserSignUpDomain>,
 ) : BaseViewModel() {

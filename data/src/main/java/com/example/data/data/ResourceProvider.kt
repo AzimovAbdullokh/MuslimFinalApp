@@ -51,6 +51,5 @@ interface ResourceProvider {
                 is HttpException -> IdResourceString(R.string.service_unavailable)
                 else -> IdResourceString(R.string.generic_error)
             }
-
     }
 }
