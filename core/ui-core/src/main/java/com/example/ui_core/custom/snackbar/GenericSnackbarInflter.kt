@@ -42,7 +42,7 @@ interface GenericSnackbarInflter {
                 }
 
                 val width = metrics.widthPixels
-                var bottomMargin = 10.toDp
+                var bottomMargin = 50.toDp
 
                 for (i in 0 until (rootView as ViewGroup).childCount) {
                     val view = rootView.getChildAt(i)

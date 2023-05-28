@@ -18,18 +18,4 @@ class AdapterNasheedsFeatureRepository @Inject constructor(
         audioNasheedRepository.fetchAllAudioNasheeds(id = id).map { nasheeds ->
             nasheeds.map(nasheedsDomainToFeatureModelMapper::map)
         }
-
-    override fun fetchAllAudioNasheedsFromCache(): Flow<List<NasheedsFeatureModel>> =
-        audioNasheedRepository.fetchAllAudioNasheedsFromCache().map { nasheeds ->
-            nasheeds.map(nasheedsDomainToFeatureModelMapper::map)
-        }
-
-    override suspend fun fetchAudioNasheedsFromCache(audioNasheedsId: String): NasheedsFeatureModel {
-        val nasheeds = audioNasheedRepository.fetchAudioNasheedsFromCache(audioNasheedsId = audioNasheedsId)
-        return nasheedsDomainToFeatureModelMapper.map(nasheeds)
-    }
-
-    override suspend fun clearTable() {
-        audioNasheedRepository.clearTable()
-    }
 }

@@ -8,15 +8,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.math.abs
 
+
 /** Items preview width in percent where 1.0 equals 100% width */
 private const val ItemPeekingPercent = 0.915f
 
 /** This value determines where items reach the final (minimum) scale */
-private const val ScaleDistanceFactor = 2f
+private const val ScaleDistanceFactor = 1.5f
 
 /** The final (minimum) scale for non-prominent items is 1-[Coefficient] */
 
-private const val Coefficient: Float = 0.50f
+private const val Coefficient: Float = 0.10f
 
 class PeekingLinearLayoutManager @JvmOverloads constructor(
     context: Context?,

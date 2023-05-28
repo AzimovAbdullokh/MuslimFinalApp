@@ -58,7 +58,7 @@ class BooksViewHolder(
     private fun setupViews() = with(binding) {
         cardContainer.startSlideInLeftAnim()
         poster.context.showImage(item.testCategories.poster.url, poster)
-        title.text = item.testCategories.titles
+//        title.text = item.testCategories.titles
         description.text = item.testCategories.descriptions
     }
 

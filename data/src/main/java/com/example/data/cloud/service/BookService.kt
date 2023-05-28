@@ -8,7 +8,5 @@ import retrofit2.http.Query
 interface BookService {
 
     @GET("classes/IslamicBooks")
-    suspend fun fetchAllBooks(
-        @Query("where") id: String,
-    ):Response<BookResponseCloud>
+    suspend fun fetchAllBooks():Response<BookResponseCloud>
 }

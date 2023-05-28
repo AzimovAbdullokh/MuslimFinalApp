@@ -19,7 +19,10 @@ class BookDomainToBookFeatureModulMapper @Inject constructor() :
             poster = BookPosterFeatureModelDomain(name = poster.name,
                 type = poster.type,
                 url = poster.url),
-            createdAt = createdAt
+            createdAt = createdAt,
+            pages = pages,
+            publicYear = publicYear,
+            bookFormat = bookFormat
         )
     }
 }

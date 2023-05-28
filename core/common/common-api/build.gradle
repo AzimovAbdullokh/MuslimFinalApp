@@ -52,6 +52,7 @@ dependencies {
     kapt Libs.Google.HiltCompiler
 
     implementation project(":core:ui-core")
+    implementation project(":core:utils-core")
 
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"

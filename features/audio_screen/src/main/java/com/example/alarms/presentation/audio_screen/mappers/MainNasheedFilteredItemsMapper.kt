@@ -116,14 +116,7 @@ class MainNasheedFilteredItemsMapperImpl @Inject constructor(
         if (audioNasheedItemForPager.items.isNotEmpty()) nasheedsForPager.addAll(listOf(
             audioNasheedItemForPager))
 
-
-        val bigItemNasheeds = mutableListOf<Item>()
-
-        val bigNasheedItem = MainScreenAudioNasheedsBlockItem(filteredAudioNasheedList)
-        if (bigNasheedItem.items.isNotEmpty()) bigItemNasheeds.add(emptyHeader())
-        bigItemNasheeds.addAll(listOf(bigNasheedItem))
-
-        return Triple(allItems, nasheedsForPager, bigItemNasheeds)
+        return Triple(allItems, nasheedsForPager, emptyList())
 
     }
 

@@ -16,7 +16,10 @@ class MapFromBookDataToDomain @Inject constructor():Mapper<BookData, BookDomain>
            bookDescription = bookDescription,
            book = BookPdfDomain(name = book.name, type = book.type, url = book.url),
            poster = BookPosterDomain(name = poster.name, type = poster.type, url = poster.url),
-           createdAt = createdAt
+           createdAt = createdAt,
+           pages = pages,
+           publicYear = publicYear,
+           bookFormat = bookFormat
        )
     }
 }

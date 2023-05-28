@@ -35,24 +35,22 @@ abstract class AppDatabase : RoomDatabase() {
     class DatabaseConverter {
 
         @TypeConverter
-        fun fromList(countryLang: List<String?>?): String? {
-            if (countryLang == null) {
-                return null
-            }
-            val gson = Gson()
-            val type: Type = object : TypeToken<List<String?>?>() {}.type
-            return gson.toJson(countryLang, type)
-
+        fun fromPosterNamaz(namazPosterCache: NamazPosterCache): String {
+            return JSONObject().apply {
+                put("namazPosterCache.name", namazPosterCache.name)
+                put("namazPosterCache.url", namazPosterCache.url)
+                put("namazPosterCache.type", namazPosterCache.type)
+            }.toString()
         }
 
         @TypeConverter
-        fun toList(countryLangString: String?): List<String>? {
-            if (countryLangString == null) {
-                return null
-            }
-            val gson = Gson()
-            val type: Type = object : TypeToken<List<String?>?>() {}.type
-            return gson.fromJson<List<String>>(countryLangString, type)
+        fun toPosterNamaz(source: String): NamazPosterCache {
+            val json = JSONObject(source)
+            return NamazPosterCache(
+                name = json.getString("namazPosterCache.name"),
+                url = json.getString("namazPosterCache.url"),
+                type = json.getString("namazPosterCache.type"),
+            )
         }
 
         @TypeConverter

@@ -4,8 +4,7 @@ import com.google.gson.annotations.SerializedName
 import java.util.*
 
 data class BookResponseCloud(
-    @SerializedName("results")
-    val books: List<BookCloud>,
+    @SerializedName("results") val books: List<BookCloud>,
 )
 
 data class BookCloud(
@@ -16,6 +15,10 @@ data class BookCloud(
     @SerializedName("bookDescription") val bookDescription: String,
     @SerializedName("book") var book: BookPdfCloud,
     @SerializedName("bookPoster") var poster: BookPosterCloud,
+    @SerializedName("publicYear") val publicYear: String,
+    @SerializedName("pages") val pages: String,
+    @SerializedName("format") val bookFormat: String,
+
 
     ) {
     companion object {
@@ -26,7 +29,10 @@ data class BookCloud(
             bookDescription = String(),
             book = BookPdfCloud(String(), String(), String()),
             poster = BookPosterCloud(String(), String(), String()),
-            createdAt = Date()
+            createdAt = Date(),
+            pages = String(),
+            publicYear = String(),
+            bookFormat = String()
         )
     }
 }

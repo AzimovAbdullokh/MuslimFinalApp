@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:backgroundTint="@color/control_tertiary_active"
+    android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout3"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout3">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@android:color/background_light"
+            app:cardCornerRadius="18dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="30dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/poppins_black"
+                    android:gravity="center"
+                    android:maxEms="20"
+                    android:maxLines="8"
+                    android:requiresFadingEdge="horizontal"
+                    android:text="Фаджр"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/publ_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:text="Год издания:"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/publicYear_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="4dp"
+                        android:fadingEdgeLength="30dp"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:requiresFadingEdge="horizontal"
+                        android:singleLine="true"
+                        android:textColor="@color/black_80_alpha"
+                        android:textSize="14sp"
+                        tools:text="@tools:sample/full_names" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/phormate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:text="Формат:"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+
+                    <TextView
+                        android:id="@+id/format_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="4dp"
+                        android:fadingEdgeLength="30dp"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:requiresFadingEdge="horizontal"
+                        android:singleLine="true"
+                        android:textColor="@color/black_80_alpha"
+                        android:textSize="14sp"
+                        tools:text="@tools:sample/full_names" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/pages"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:text="Кол-во страниц:"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/pages_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="4dp"
+                        android:fadingEdgeLength="30dp"
+                        android:fontFamily="@font/poppins_semi_bold"
+                        android:requiresFadingEdge="horizontal"
+                        android:singleLine="true"
+                        android:textColor="@color/black_80_alpha"
+                        android:textSize="14sp"
+                        tools:text="@tools:sample/full_names" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="8dp"
+                    android:ellipsize="end"
+                    android:maxEms="20"
+                    android:maxLines="4"
+                    android:requiresFadingEdge="horizontal"
+                    android:text="Alton Martin"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--        <androidx.cardview.widget.CardView-->
+        <!--            android:id="@+id/khadis"-->
+        <!--            android:layout_width="300dp"-->
+        <!--            android:layout_height="150dp"-->
+        <!--            android:layout_marginHorizontal="4dp"-->
+        <!--            android:layout_marginVertical="4dp"-->
+        <!--            android:elevation="10dp"-->
+        <!--            app:cardCornerRadius="8dp"-->
+        <!--            app:cardElevation="10dp">-->
+        <!--            -->
+        <!--            -->
+        <!--            -->
+
+
+        <!--        </androidx.cardview.widget.CardView>-->
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="6dp"
+        android:backgroundTint="@color/control_tertiary_active"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/control_tertiary_active"
+            app:cardCornerRadius="12dp">
+
+
+            <ImageView
+                android:id="@+id/bookPoster"
+                android:layout_width="110dp"
+                android:layout_height="170dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/book_example" />
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/title"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:fadingEdgeLength="30dp"-->
+        <!--            android:requiresFadingEdge="horizontal"-->
+        <!--            android:singleLine="true"-->
+        <!--            tools:text="@tools:sample/lorem/random" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/author"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:fadingEdgeLength="30dp"-->
+        <!--            android:requiresFadingEdge="horizontal"-->
+        <!--            android:singleLine="true"-->
+        <!--            android:textColor="@color/gray"-->
+        <!--            tools:text="@tools:sample/lorem/random" />-->
+    </LinearLayout>
+
+</FrameLayout>

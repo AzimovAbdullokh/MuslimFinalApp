@@ -5,7 +5,9 @@ import com.example.common_api.IdResourceString
 import com.example.common_api.Mapper
 import com.example.common_api.base.adapter.Item
 import com.example.main_screen.domain.models.MainScreenFeatureModuleItems
+import com.example.main_screen.domain.models.books.BookMainScreenFeatureModel
 import com.example.main_screen.domain.models.khadisses.KhadisFeatureModel
+import com.example.main_screen.domain.models.quiz.CategoryMainScreenFeatureDomain
 import com.example.main_screen.domain.models.readers.ReadersFeatureMainModel
 import com.example.main_screen.domain.models.surah.SurahFeatureModuleDomainModel
 import com.example.main_screen.presentation.adapter.items.*
@@ -19,60 +21,66 @@ interface MainItemsToSearchFilteredFeatureModelMapper {
 
     fun map(
         items: MainScreenFeatureModuleItems,
-//        bookItemOnClickListener: BookItemOnClickListener,
-//        audioNasheedItemOnClickListener: NasheedItemOnClickListener,
         khadisItemOnClickListener: KhadisItemOnClickListener,
         readerItemOnClickListener: ReaderItemOnClickListener,
-//        surahItemOnClickListener: SurahItemOnClickListener,
+        mainScreenOpenMoreClickListeners: MainScreenOpenMoreClickListeners,
+        bookMainScreenItemOnClickListener: BookMainScreenItemOnClickListener,
         communityItemClickListener: CommunityItemClickListener,
         cardItemClickListener: MainCardItemClickListener,
+        quizCategoryItemClickListener: QuizCategoryItemClickListener,
     ): Triple<List<Item>, List<Item>, List<Item>>
 }
 
 
 class MainItemsToSearchFilteredFeatureModelMapperImpl @Inject constructor(
     private val khadisFeatureModelToUiMapper: Mapper<KhadisFeatureModel, KhadissesFeatureUi>,
-    private val surahFeatureModelToUiMapper: Mapper<SurahFeatureModuleDomainModel, SurahFeatureUiModel>,
     private val readerFeatureModelToUiMapper: Mapper<ReadersFeatureMainModel, ReadersFeatureMainUiModel>,
-
-    ) : MainItemsToSearchFilteredFeatureModelMapper {
+    private val bookFeatureModelToUiMapper: Mapper<BookMainScreenFeatureModel, BooksMainScreenFeatureModelUi>,
+    private val quizCategoryFeatureDomainToUiMapper: Mapper<CategoryMainScreenFeatureDomain, CategoryMainScreenFeatureUi>,
+) : MainItemsToSearchFilteredFeatureModelMapper {
     private companion object {
         const val MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN = 10
     }
 
+
     @SuppressLint("SuspiciousIndentation")
     override fun map(
         items: MainScreenFeatureModuleItems,
-//        bookItemOnClickListener: BookItemOnClickListener,
-//        audioNasheedItemOnClickListener: NasheedItemOnClickListener,
         khadisItemOnClickListener: KhadisItemOnClickListener,
         readerItemOnClickListener: ReaderItemOnClickListener,
-//        surahItemOnClickListener: SurahItemOnClickListener,
+        mainScreenOpenMoreClickListeners: MainScreenOpenMoreClickListeners,
+        bookMainScreenItemOnClickListener: BookMainScreenItemOnClickListener,
         communityItemClickListener: CommunityItemClickListener,
         cardItemClickListener: MainCardItemClickListener,
+        quizCategoryItemClickListener: QuizCategoryItemClickListener,
     ): Triple<List<Item>, List<Item>, List<Item>> {
 
-//        val filteredBooksList = items.books.map(bookFeatureModelToUiMapper::map).map {
-//            BookAdapterModel(bookTitle = it.bookTitle,
-//                bookAuthor = it.bookAuthor,
-//                id = it.id,
-//                createdAt = it.createdAt,
-//                bookDescription = it.bookDescription,
-//                posterUrl = it.poster.url,
-//                listener = bookItemOnClickListener)
-//        }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
+        val filteredQuizCategoriesList =
+            items.categories.map(quizCategoryFeatureDomainToUiMapper::map).map {
+                CategoryFeatureAdapterModel(testCategories = CategoryMainScreenFeatureUi(
+                    id = it.id,
+                    titles = it.titles,
+                    descriptions = it.descriptions,
+                    poster = it.poster,
+                    type = it.type),
+                    listener = quizCategoryItemClickListener
+                )
+            }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
 
-
-//        val filteredAudioNasheedList =
-//            items.audioNasheeds.map(nasheedFeatureModelToUiMapper::map).map {
-//                AudioNasheedAdapterModel(audioNasheeds = AudioNasheedsUi(id = it.id,
-//                    title = it.title,
-//                    createdAt = it.createdAt,
-//                    nasheedFile = it.nasheedFile,
-//                    nasheedPoster = it.nasheedPoster,
-//                    currentStartPosition = it.currentStartPosition,
-//                    audioId = it.audioId), listener = audioNasheedItemOnClickListener)
-//            }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
+        val filteredBooksList = items.books.map(bookFeatureModelToUiMapper::map).map {
+            BookMainScreenAdapterModel(
+                bookTitle = it.bookTitle,
+                bookAuthor = it.bookAuthor,
+                id = it.id,
+                createdAt = it.createdAt,
+                bookDescription = it.bookDescription,
+                posterUrl = it.poster.url,
+                listener = bookMainScreenItemOnClickListener,
+                pages = it.pages,
+                publicYear = it.publicYear,
+                format = it.bookFormat
+            )
+        }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
 
 
         val filteredKhadissesList = items.khadisses.map(khadisFeatureModelToUiMapper::map).map {
@@ -82,91 +90,73 @@ class MainItemsToSearchFilteredFeatureModelMapperImpl @Inject constructor(
                 khadisId = it.khadisId,
                 khadisDescription = it.khadisDescription,
                 khadisSubject = it.khadisSubject,
-                listener = khadisItemOnClickListener)
+                listener = khadisItemOnClickListener,
+                namazImageUrl = it.namzImage.url)
         }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
 
 
-        val filteredReadersList = items.readers.map(readerFeatureModelToUiMapper::map)
-            .map {
-                ReadersMainAdapterModel(
-                    id = it.id,
-                    readerId = it.readerId,
-                    readerName = it.readerName,
-                    posterUrl = it.readerPoster.url,
-                    listener = readerItemOnClickListener
-                )
-            }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
-//
-//        val filteredSurahList = items.surah.map(surahFeatureModelToUiMapper::map).map {
-//            SurahAdapterModel(
-//                id = it.id,
-//                surahId = it.surahId,
-//                surahName = it.surahName,
-//                surahArabName = it.surahArabName,
-//                surahCountInQuran = it.surahCountInQuran,
-//                listener = surahItemOnClickListener
-//            )
-//        }.take(MAX_SURAH_SHOW_COUNT_IN_MAIN_SCREEN)
+        val filteredReadersList = items.readers.map(readerFeatureModelToUiMapper::map).map {
+            ReadersMainAdapterModel(id = it.id,
+                readerId = it.readerId,
+                readerName = it.readerName,
+                posterUrl = it.readerPoster.url,
+                listener = readerItemOnClickListener)
+        }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
 
-//        val allCommunity = Community.fetchAllCommunities().map {
-//            CommunityItem(community = it, listener = communityItemClickListener)
-//        }
 
         val allItems = mutableListOf<Item>()
 
-//        val mainCardItem = MainCardItem(cardItemClickListener)
-//        allItems.addAll(listOf(mainCardItem))
-
         val readerItem = MainFeatureScreenReadersBlockItem(filteredReadersList)
         if (readerItem.items.isNotEmpty()) allItems.addAll(listOf(readerItem))
-//
-//        val audioNasheedItem = MainScreenAudioNasheedsBlockItem(filteredAudioNasheedList)
-//        if (audioNasheedItem.items.isNotEmpty()) allItems.add(
-//            createHeaderModelForAllAudioNasheeds { })
-//        allItems.addAll(listOf(audioNasheedItem))
 
-//        val communityItem = MainScreenCommunityBlockItem(allCommunity)
-//        allItems.addAll(listOf(communityItem))
-//
-//        val surahItem = MainScreenSurahBlockItem(filteredSurahList)
-//        if (surahItem.items.isNotEmpty()) allItems.add(createHeaderModelForAllSurah {})
-//        allItems.addAll(listOf(surahItem))
-//
-//        val bookItem = MainScreenBooksBlockItem(filteredBooksList)
-//        if (bookItem.items.isNotEmpty()) allItems.add(createHeaderModelForAllBooks { })
-//        allItems.addAll(listOf(bookItem))
-//
-////
-//        val khadisItem = MainScreenKhadissesBlockItem(filteredKhadissesList)
-//        if (khadisItem.items.isNotEmpty()) allItems.add(
-//            createHeaderModelForAllKhadisses { })
-//        allItems.addAll(listOf(khadisItem))
+        val khadisItem = MainScreenKhadissesBlockItem(filteredKhadissesList)
+        if (khadisItem.items.isNotEmpty()) allItems.add(createHeaderModelForAllKhadisses { })
+        allItems.addAll(listOf(khadisItem))
 
-        return Triple(allItems, emptyList(), emptyList())
+        val bookItem = MainScreenBooksBlockItem(filteredBooksList)
+        if (bookItem.items.isNotEmpty()) allItems.add(createHeaderModelForAllBooks { mainScreenOpenMoreClickListeners.navigateToBooksFragment() })
+        allItems.addAll(listOf(bookItem))
+
+        val quizCategoryItem = TestCategoryBlockItem(filteredQuizCategoriesList)
+        if (quizCategoryItem.items.isNotEmpty()) allItems.add(createHeaderModelForAllQuizCategories {})
+        allItems.addAll(listOf(quizCategoryItem))
+
+
+        val allScreenItems = mutableListOf<Item>()
+
+        val allBookScreenItem = MainScreenBooksBlockItem(filteredBooksList)
+        if (allBookScreenItem.items.isNotEmpty())
+            allScreenItems.addAll(listOf(allBookScreenItem))
+
+        return Triple(allItems, allScreenItems, emptyList())
     }
 
-    private fun createHeaderModelForAllAudioNasheeds(navigateToAllAudioBooksFragment: () -> Unit) =
-        HeaderItem(titleId = IdResourceString(R.string.nasheeds),
-            onClickListener = { navigateToAllAudioBooksFragment() })
+
+    private fun createHeaderModelForAllQuizCategories(navigateToAllQuizCategoriesFragment: () -> Unit) =
+        HeaderItem(
+            titleId = IdResourceString(R.string.quiz_categories),
+            onClickListener = { navigateToAllQuizCategoriesFragment() })
 
     private fun createHeaderModelForAllBooks(navigateToAllBooksFragment: () -> Unit) = HeaderItem(
         titleId = IdResourceString(com.example.ui_core.R.string.islamicBooks),
-        onClickListener = { navigateToAllBooksFragment() })
+        onClickListener = { navigateToAllBooksFragment() },
+        showMoreIsVisible = true,
+    )
 
     private fun createHeaderModelForAllKhadisses(navigateToAllBooksFragment: () -> Unit) =
-        HeaderItem(titleId = IdResourceString(com.example.ui_core.R.string.khadisses),
-            onClickListener = { navigateToAllBooksFragment() })
-
-    private fun createHeaderModelForAllReaders(navigateToAllBooksFragment: () -> Unit) =
         HeaderItem(
-            titleId = IdResourceString(R.string.readers),
-            onClickListener = { navigateToAllBooksFragment() })
-
-    private fun createHeaderModelForAllSurah(navigateToAllBooksFragment: () -> Unit) =
-        HeaderItem(
-            titleId = IdResourceString(R.string.surah),
+            titleId = IdResourceString(R.string.namazes),
             onClickListener = { navigateToAllBooksFragment() },
         )
+
+    private fun createHeaderModelForAllReaders(navigateToAllBooksFragment: () -> Unit) = HeaderItem(
+        titleId = IdResourceString(R.string.readers),
+        onClickListener = { navigateToAllBooksFragment() })
+
+    private fun createHeaderModelForAllSurah(navigateToAllBooksFragment: () -> Unit) = HeaderItem(
+        titleId = IdResourceString(R.string.surah),
+        onClickListener = { navigateToAllBooksFragment() },
+    )
 
 
 }

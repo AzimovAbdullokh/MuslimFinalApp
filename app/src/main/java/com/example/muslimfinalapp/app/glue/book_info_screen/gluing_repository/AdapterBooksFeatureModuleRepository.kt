@@ -15,8 +15,8 @@ class AdapterBooksFeatureModuleRepository @Inject constructor(
 ) : BookFeatureModuleRepository {
 
 
-    override fun fetchAllBooks(id: String): Flow<List<BookFeatureModelDomain>> =
-        bookRepository.fetchAllBooks(id = id)
+    override fun fetchAllBooks(): Flow<List<BookFeatureModelDomain>> =
+        bookRepository.fetchAllBooks()
             .map { book -> book.map(bookDomainToBookModuleDomainMapper::map) }
 
 

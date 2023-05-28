@@ -19,18 +19,4 @@ class AdapterQuranReadersAudioFeatureRepository @Inject constructor(
         quranReadersRepository.fetchAllReaders(id = id).map {
             reader -> reader.map(readerDomainToFeatureModelMapper::map)
         }
-
-    override fun fetchAllReadersFromCache(): Flow<List<ReadersFeatureModel>>  =
-        quranReadersRepository.fetchAllReadersFromCache().map {
-            readers -> readers.map(readerDomainToFeatureModelMapper::map)
-        }
-
-    override suspend fun fetchReadersFromCache(readerId: String): ReadersFeatureModel {
-        val reader = quranReadersRepository.fetchReadersFromCache(readerId = readerId)
-        return readerDomainToFeatureModelMapper.map(reader)
-    }
-
-    override suspend fun clearTable() {
-        quranReadersRepository.clearTable()
-    }
 }

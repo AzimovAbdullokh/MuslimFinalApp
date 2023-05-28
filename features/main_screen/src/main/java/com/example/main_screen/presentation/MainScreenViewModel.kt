@@ -10,6 +10,7 @@ import com.example.main_screen.domain.usecases.FetchAllMainScreenItemsFeatureUse
 import com.example.main_screen.presentation.adapter.items.MainCardItemClickListener
 import com.example.main_screen.presentation.listeners.*
 import com.example.main_screen.presentation.mappers.MainItemsToSearchFilteredFeatureModelMapper
+import com.example.main_screen.presentation.models.CategoryTypes
 import com.example.main_screen.presentation.models.Community
 import com.example.main_screen.presentation.router.FragmentMainScreenRouter
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,10 +25,14 @@ class MainScreenViewModel @Inject constructor(
     private val resourcesProvider: ResourceProvider,
     private val dispatchersProvider: DispatchersProviderInCommonApi,
 ) : BaseViewModel(), CommunityItemClickListener, MainCardItemClickListener,
-    MainScreenOpenMoreClickListeners, KhadisItemOnClickListener, ReaderItemOnClickListener {
+    MainScreenOpenMoreClickListeners, KhadisItemOnClickListener, ReaderItemOnClickListener,
+    BookMainScreenItemOnClickListener, QuizCategoryItemClickListener {
 
     private val _playAudioNasheedFlow = createMutableSharedFlowAsSingleLiveEvent<String>()
     val playAudioNasheedFlow get() = _playAudioNasheedFlow.asSharedFlow()
+
+    private val _showConfirmDialogFlow = createMutableSharedFlowAsSingleLiveEvent<String>()
+    val showConfirmDialogFlow get() = _showConfirmDialogFlow.asSharedFlow()
 
     private val recyclerViewStateFlow = MutableStateFlow<Parcelable?>(null)
 
@@ -50,7 +55,10 @@ class MainScreenViewModel @Inject constructor(
             communityItemClickListener = this,
             cardItemClickListener = this,
             khadisItemOnClickListener = this,
-            readerItemOnClickListener = this
+            readerItemOnClickListener = this,
+            bookMainScreenItemOnClickListener = this,
+            mainScreenOpenMoreClickListeners = this,
+            quizCategoryItemClickListener = this
         )
 
     fun saveRecyclerViewCurrentState(state: Parcelable?) = recyclerViewStateFlow.tryEmit(state)
@@ -70,7 +78,7 @@ class MainScreenViewModel @Inject constructor(
     }
 
     override fun navigateToBooksFragment() {
-        navigate(router.navigateToMainBooksFragment())
+        navigate(router.navigateToAllBooksScreen())
     }
 
     override fun navigateToNamazTimesFragment() {
@@ -89,7 +97,7 @@ class MainScreenViewModel @Inject constructor(
             Community.TESTS -> navigateToIslamicTestsFragment()
             Community.KHADISSES -> navigateToKhadissesFragment()
             Community.TASBIH -> navigateToTasbihFragment()
-            else -> {   }
+            else -> {}
         }
     }
 
@@ -102,6 +110,14 @@ class MainScreenViewModel @Inject constructor(
     }
 
     override fun readerItemOnClick(readerId: String) {
+
+    }
+
+    override fun bookItemOnClick(bookId: String) {
+        _showConfirmDialogFlow.tryEmit(bookId)
+    }
+
+    override fun categoryItemOnCLick(type: CategoryTypes) {
 
     }
 }

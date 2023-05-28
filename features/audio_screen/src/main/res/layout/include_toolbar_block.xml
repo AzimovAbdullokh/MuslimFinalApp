@@ -19,39 +19,24 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="22dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="12dp"
                 android:fontFamily="@font/poppins_semi_bold"
-                android:text="@string/nasheeds"
+                android:text="@string/best_nasheds_ru"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-
-            <ImageView
-                android:id="@+id/add_shelf_btn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="22dp"
-                android:src="@drawable/add_playlist_2_svgrepo_com"
-                app:layout_constraintBottom_toBottomOf="@+id/search_btn"
-                app:layout_constraintEnd_toStartOf="@+id/search_btn"
-                app:layout_constraintTop_toTopOf="@+id/search_btn" />
 
             <ImageView
                 android:id="@+id/search_btn"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginEnd="18dp"
-                android:layout_marginBottom="12dp"
                 android:src="@drawable/search_address_book_svgrepo_com"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/textView" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

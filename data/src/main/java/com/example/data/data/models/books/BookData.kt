@@ -10,7 +10,9 @@ class BookData(
     val bookDescription: String,
     var book: BookPdfData,
     var poster: BookPosterData,
-
+    val publicYear: String,
+    val pages: String,
+    val bookFormat: String,
     ) {
     companion object {
         val unknown = BookData(id = String(),
@@ -19,7 +21,11 @@ class BookData(
             bookDescription = String(),
             book = BookPdfData(String(), String(), String()),
             poster = BookPosterData(String(), String(), String()),
-            createdAt = Date())
+            createdAt = Date(),
+            pages = String(),
+            publicYear = String(),
+            bookFormat = String(),
+        )
     }
 }
 

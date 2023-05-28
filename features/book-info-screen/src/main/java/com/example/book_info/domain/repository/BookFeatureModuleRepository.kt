@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 interface BookFeatureModuleRepository{
 
 
-    fun fetchAllBooks(id: String): Flow<List<BookFeatureModelDomain>>
+    fun fetchAllBooks(): Flow<List<BookFeatureModelDomain>>
 
     fun fetchAllBooksFromCache(): Flow<List<BookFeatureModelDomain>>
 

@@ -23,12 +23,17 @@ class BookCloudDataMapperImpl : BookCloudDataMapper {
     }
 
     private fun createBookData(bookCloud: BookCloud) = bookCloud.run {
-        BookData(bookTitle = bookTitle,
+        BookData(
+            bookTitle = bookTitle,
             bookAuthor = bookAuthor,
             id = id,
             bookDescription = bookDescription,
             book = BookPdfData(name = book.name, type = book.type, url = book.url),
             poster = BookPosterData(name = poster.name, type = poster.type, url = poster.url),
-            createdAt = createdAt)
+            createdAt = createdAt,
+            publicYear = publicYear,
+            pages = pages,
+            bookFormat = bookFormat
+        )
     }
 }

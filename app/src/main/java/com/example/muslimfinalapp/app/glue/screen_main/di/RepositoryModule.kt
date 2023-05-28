@@ -1,8 +1,6 @@
 package com.example.muslimfinalapp.app.glue.screen_main.di
 
-import com.example.alarms.domain.repository.QuranReadersFeatureRepository
 import com.example.main_screen.domain.repository.*
-import com.example.muslimfinalapp.app.glue.audio_screen.gluing_repository.AdapterQuranReadersAudioFeatureRepository
 import com.example.muslimfinalapp.app.glue.screen_main.gluing_repositories.*
 import dagger.Binds
 import dagger.Module
@@ -13,15 +11,24 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {
 
+    @Binds
+    abstract fun bindCategoryMainScreenFeatureRepository(
+        impl: AdapterQuizCategoryFeatureRepository,
+    ): CategoryMainScreenFeatureRepository
+
+    @Binds
+    abstract fun bindBookMainScreenFeatureRepository(
+        impl: AdapterMainScreenBooksFeatureRepository,
+    ): BookMainScreenFeatureRepository
 
     @Binds
     abstract fun bindAdapterKhadisFeatureRepository(
-        impl: AdapterKhadisFeatureRepository
-    ):KhadisFeatureRepository
+        impl: AdapterKhadisFeatureRepository,
+    ): KhadisFeatureRepository
 
     @Binds
     abstract fun bindSurahFeatureRepository(
-        impl: AdapterSurahFeatureRepository
+        impl: AdapterSurahFeatureRepository,
     ): SurahFeatureRepository
 
     @Binds

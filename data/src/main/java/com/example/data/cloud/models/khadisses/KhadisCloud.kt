@@ -10,4 +10,11 @@ data class KhadisCloud(
     @SerializedName("khadisId") val khadisId: String,
     @SerializedName("description") val khadisDescription: String,
     @SerializedName("theme") val khadisSubject: String,
+    @SerializedName("NamazImage") val namazImage: NamazPosterCloud,
+)
+
+data class NamazPosterCloud(
+    @SerializedName("name") var name: String,
+    @SerializedName("__type") var type: String,
+    @SerializedName("url") var url: String,
 )

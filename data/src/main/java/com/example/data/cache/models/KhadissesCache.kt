@@ -15,4 +15,11 @@ class KhadissesCache(
     @ColumnInfo(name = "khadisDescription") val khadisDescription: String,
     @ColumnInfo(name = "theme") val khadisSubject: String,
     @ColumnInfo(name = "khadisId") val khadisId: String,
+    @ColumnInfo(name = "NamazImage") val namazImage: NamazPosterCache,
+)
+
+data class NamazPosterCache(
+    var name: String,
+    var type: String,
+    var url: String,
 )

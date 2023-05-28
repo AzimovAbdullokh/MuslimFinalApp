@@ -33,7 +33,7 @@ class FetchAllNasheedsUseCaseImpl @Inject constructor(
         nasheedFeatureRepository.fetchAllAudioNasheeds("38").flowOn(dispatchersProvider.io())
 
     private val booksFlow =
-        bookRepository.fetchAllBooks("1").flowOn(dispatchersProvider.io())
+        bookRepository.fetchAllBooks().flowOn(dispatchersProvider.io())
 
     private val readersFlow =
         readersRepository.fetchAllReaders("1").flowOn(dispatchersProvider.io())

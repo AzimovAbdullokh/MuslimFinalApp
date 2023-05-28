@@ -11,5 +11,6 @@ data class KhadisAdapterModel(
     val khadisId: String,
     val khadisDescription: String,
     val khadisSubject: String,
+    val namazImageUrl:String,
     val listener: KhadisItemOnClickListener,
 ) : Item

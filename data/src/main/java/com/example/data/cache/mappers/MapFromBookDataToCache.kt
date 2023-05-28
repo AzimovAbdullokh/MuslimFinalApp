@@ -16,7 +16,10 @@ class MapFromBookDataToCache @Inject constructor():Mapper<BookData, BookCache> {
             bookAuthor = bookAuthor,
             bookDescription = bookDescription,
             book = BookPdfCache(name = book.name, type = book.type, url = book.url),
-            bookPoster = BookPosterCache(name = poster.name, url = poster.url, type = poster.type)
+            bookPoster = BookPosterCache(name = poster.name, url = poster.url, type = poster.type),
+            bookFormat = bookFormat,
+            pages = pages,
+            publicYear = publicYear
         )
     }
 }

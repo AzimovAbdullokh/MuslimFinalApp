@@ -16,7 +16,10 @@ class MapFromBookCacheToData @Inject constructor() : Mapper<BookCache, BookData>
             createdAt = createdAt,
             bookDescription = bookDescription,
             book = BookPdfData(name = book.name, type = book.type, url = book.url),
-            poster = BookPosterData(name = bookPoster.name, url= bookPoster.url, type=bookPoster.type)
+            poster = BookPosterData(name = bookPoster.name, url= bookPoster.url, type=bookPoster.type),
+            pages = pages,
+            publicYear = publicYear,
+            bookFormat = bookFormat
         )
     }
 }

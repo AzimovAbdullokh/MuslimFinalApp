@@ -15,6 +15,9 @@ data class BookCache(
     @ColumnInfo(name = "bookDescription") var bookDescription: String,
     @ColumnInfo(name = "book") var book: BookPdfCache,
     @ColumnInfo(name = "bookPoster") var bookPoster: BookPosterCache,
+    @ColumnInfo(name = "bookFormat") val bookFormat: String,
+    @ColumnInfo(name = "pages") val pages: String,
+    @ColumnInfo(name = "publicYear") val publicYear: String,
 )
 
 data class BookPdfCache(

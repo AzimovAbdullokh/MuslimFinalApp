@@ -11,6 +11,8 @@ import com.example.common_api.base.adapter.Item
 import com.example.common_api.base.adapter.ItemFingerprint
 import com.example.utils_core.extensions.setOnDownEffectClickListener
 import com.example.utils_core.extensions.showImage
+import com.example.utils_core.extensions.startSlideInBottomtAnim
+import com.example.utils_core.extensions.startSlideInLeftAnim
 
 class AudioNasheedVerticalFingerprint :
     ItemFingerprint<ItemPagerNasheedsBinding, AudioNasheedAdapterModel> {
@@ -55,12 +57,8 @@ class AudioBookVerticalViewHolder(
     }
 
     private fun setupViews() = with(binding) {
+        root.startSlideInBottomtAnim()
         poster.context.showImage(item.audioNasheeds.nasheedPoster.url, poster)
-//        backgroundColor.context.showBlurImage(
-//            blurSize = BACKGROUND_IMAGE_BLUR_SIZE,
-//            imageUrl = item.audioNasheeds.nasheedPoster.url,
-//            imageView = backgroundColor
-//        )
         title.text = item.audioNasheeds.title
     }
 

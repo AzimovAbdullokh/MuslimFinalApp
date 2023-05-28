@@ -5,7 +5,8 @@
     android:id="@+id/horizontalRecyclerView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
     android:orientation="horizontal"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    app:spanCount="1"
+    tools:itemCount="99"
+    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
     tools:listitem="@layout/item_audio_nasheed" />

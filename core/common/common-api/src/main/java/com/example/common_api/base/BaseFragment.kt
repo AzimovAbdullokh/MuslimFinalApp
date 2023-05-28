@@ -1,19 +1,18 @@
 package com.example.common_api.base
 
-import android.app.ProgressDialog.show
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import androidx.viewbinding.ViewBinding
 import androidx.navigation.fragment.findNavController
-import com.example.common_api.R
+import androidx.viewbinding.ViewBinding
 import com.example.common_api.navigateTo
 import com.example.common_api.navigation.NavigationCommand
 import com.example.ui_core.custom.snackbar.GenericSnackbar
 import com.example.ui_core.extensions.launchWhenViewStarted
+import com.example.utils_core.motion.MotionState
 
 abstract class BaseFragment<V : ViewBinding, VM : BaseViewModel>(
     private val binder: (LayoutInflater, ViewGroup?, Boolean) -> V,
@@ -62,6 +61,16 @@ abstract class BaseFragment<V : ViewBinding, VM : BaseViewModel>(
         }
     }
 
+    fun setScreenState(state: MotionState) {
+        when (state) {
+            MotionState.COLLAPSED -> {
+                viewModel.updateMotionPosition(COLLAPSED)
+            }
+            MotionState.EXPANDED -> viewModel.updateMotionPosition(EXPANDED)
+            else -> Unit
+        }
+    }
+
 
 //    fun showBottomNavigationView() = bottomNavigationView?.apply { show() }
 //
@@ -103,4 +112,9 @@ abstract class BaseFragment<V : ViewBinding, VM : BaseViewModel>(
             .build()
             .show()
 
+
+    companion object {
+        const val COLLAPSED = 1f
+        const val EXPANDED = 0f
+    }
 }

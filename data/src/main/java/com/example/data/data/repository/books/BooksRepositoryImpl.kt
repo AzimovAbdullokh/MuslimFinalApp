@@ -18,23 +18,21 @@ class BooksRepositoryImpl @Inject constructor(
     private val dispatchersProvider: DispatchersProvider,
     private val bookDataToDomainMapper: Mapper<BookData, BookDomain>,
     private val bookCashMapper: Mapper<BookCache, BookData>,
-    ) : BookRepository {
+) : BookRepository {
 
-    override fun fetchAllBooks(id: String): Flow<List<BookDomain>> =
+    override fun fetchAllBooks(): Flow<List<BookDomain>> =
         flow { emit(cacheDataSource.fetchAllBooksFromCacheSingle()) }
-            .flatMapLatest { handleFetchBookInCache(it, id) }
+            .flatMapLatest { handleFetchBookInCache(it) }
             .map { book -> book.map(bookDataToDomainMapper::map) }
             .flowOn(dispatchersProvider.default())
 
     private fun handleFetchBookInCache(
         cashedBooks: List<BookData>,
-        id: String,
-    ) = if (cashedBooks.isEmpty()) cloudDataSource.fetchAllBooksFromCloud(id = id)
-        .onEach { bookData ->
-            bookData.forEach {
-                cacheDataSource.saveNewBookToCache(it)
-            }
+    ) = if (cashedBooks.isEmpty()) cloudDataSource.fetchAllBooksFromCloud()
+        .onEach { bookData -> bookData.forEach {
+            cacheDataSource.saveNewBookToCache(it)
         }
+    }
     else cacheDataSource.fetchAllBooksFromCacheObservable()
 
     override fun fetchAllBooksFromCache(): Flow<List<BookDomain>> =
@@ -42,11 +40,11 @@ class BooksRepositoryImpl @Inject constructor(
             .map { books -> books.map(bookDataToDomainMapper::map) }
             .flowOn(dispatchersProvider.default())
 
-    override fun fetchBookObservable(bookId: String): Flow<BookDomain>  =
-        cacheDataSource.fetchBookObservable(bookId = bookId).map {bookFromCache ->
-            if (bookFromCache == null) cloudDataSource.fetchBookById(bookId = bookId).takeSuccess()
-            else bookCashMapper.map(bookFromCache) }
-            .map { it?:BookData.unknown }
+    override fun fetchBookObservable(bookId: String): Flow<BookDomain> =
+        cacheDataSource.fetchBookObservable(bookId = bookId)
+            .map { bookFromCache -> if (bookFromCache == null) cloudDataSource.fetchBookById(bookId = bookId)
+                .takeSuccess() else bookCashMapper.map(bookFromCache) }
+            .map { it ?: BookData.unknown }
             .map(bookDataToDomainMapper::map)
             .flowOn(dispatchersProvider.default())
 

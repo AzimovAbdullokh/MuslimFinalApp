@@ -39,7 +39,7 @@ class FetchAllMainScreenItemsUseCaseImpl(
 
 
     private val booksFlow =
-        bookRepository.fetchAllBooks("1")
+        bookRepository.fetchAllBooks()
             .flowOn(dispatchersProvider.io())
 
     private val nasheedsFlow =

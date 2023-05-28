@@ -11,7 +11,6 @@ import com.example.common_api.base.adapter.Item
 import com.example.common_api.base.adapter.ItemFingerprint
 import com.example.test_category.R
 import com.example.test_category.databinding.MainTestCategoryBlockBinding
-import com.example.utils_core.extensions.startSlideInLeftAnim
 import test_screen.test_category_screen.presentation.adapter.items.TestCategoryBlockItem
 
 class TestCategoryBlockFingerprint(

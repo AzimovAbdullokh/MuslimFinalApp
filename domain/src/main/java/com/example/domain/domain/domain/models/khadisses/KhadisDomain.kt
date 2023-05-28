@@ -9,4 +9,10 @@ data class KhadisDomain(
     val khadisId: String,
     val khadisDescription: String,
     val khadisSubject: String,
+    val namazImage:NamazPosterDomain
+)
+class NamazPosterDomain(
+    var name: String,
+    var type: String,
+    var url: String,
 )

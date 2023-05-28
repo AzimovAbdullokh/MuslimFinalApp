@@ -57,6 +57,16 @@
             app:exitAnim="@anim/animate_swipe_left_exit"
             app:popEnterAnim="@anim/animate_swipe_right_enter"
             app:popExitAnim="@anim/animate_swipe_right_exit" />
+        <action
+            android:id="@+id/action_home_screen_main_to_bookDetailsFragment2"
+            app:destination="@id/bookDetailsFragment" />
+        <action
+            android:id="@+id/action_home_screen_main_to_allBooksFragment"
+            app:destination="@id/allBooksFragment"
+            app:enterAnim="@anim/animate_in_out_enter"
+            app:exitAnim="@anim/animate_in_out_exit"
+            app:popEnterAnim="@anim/animate_in_out_enter"
+            app:popExitAnim="@anim/animate_in_out_exit" />
     </fragment>
 
 
@@ -140,6 +150,19 @@
         android:id="@+id/tasbihFragment"
         android:name="com.example.tasbih_screen.TasbihFragment"
         android:label="TasbihFragment" />
+    <fragment
+        android:id="@+id/bookDetailsFragment"
+        android:name="com.example.muslimfinalapp.app.temporary_screens.book_details.BookDetailsFragment"
+        android:label="fragment_book_details"
+        tools:layout="@layout/fragment_book_details" >
+        <argument
+            android:name="bookId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/allBooksFragment"
+        android:name="com.example.main_screen.all_books_screen.AllBooksFragment"
+        android:label="AllBooksFragment" />
 
 
     <!--    <fragment-->

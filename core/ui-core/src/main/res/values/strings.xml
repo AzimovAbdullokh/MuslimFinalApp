@@ -2,9 +2,10 @@
 <resources>
     <string name="app_name">Muslim App</string>
     <string name="khadisses">Хадисы</string>
+    <string name="namazes">Намазы</string>
     <string name="tasbih">Тасбих</string>
     <string name="prayer_time">Время намаза</string>
-    <string name="islamicBooks">Религиозные книги</string>
+    <string name="islamicBooks">Исламские книги</string>
     <string name="your_location">Your Location</string>
     <string name="readers">Все чтецы</string>
     <string name="surah">Коран</string>
@@ -16,15 +17,18 @@
     <string name="names">99 имена</string>
     <string name="alarm">Alarms</string>
     <string name="premium">Premium</string>
+    <string name="category">Категории</string>
     <string name="qurans">Коран</string>
     <string name="masalah">Масалях</string>
     <string name="nasheeds">Все аудио нашиды</string>
+    <string name="best_nasheds_ru">Лучшие нашиды для вас!</string>
+    <string name="quiz_categories">Исламские тесты</string>
     <string name="empty"></string>
     <string name="title_of_the_book_name_of_the_author_or_user">Введите название для поиска</string>
     <string name="create_a_playlist_to_nasheeds">Создать плейлист</string>
     <string name="audios">Аудио</string>
     <string name="The_title_of_the_category">Введите название категории</string>
-    <string name="saved">Сохраненные</string>
+    <string name="saved">Избранные</string>
     <string name="saved_audios">Сохраненные аудио</string>
     <string name="sign_up">Sign up</string>
     <string name="sign_in">Sign in</string>
@@ -37,7 +41,7 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="fix">Исправить</string>
-    <string name="playlist">Плейлист</string>
+    <string name="playlist">Мой плейлист</string>
     <string name="online_tests">Викторина</string>
     <string name="tests">Выбор теста по категориям</string>
     <string name="summary">Summary</string>
@@ -48,6 +52,7 @@
     <string name="what_are_we_looking_for_category">Делайте поиск категориев</string>
     <string name="what_are_we_looking_for_quran">Делайте поиск суры</string>
     <string name="your_email">Your email</string>
+    <string name="all_books">Все исламские книги</string>
     <string name="your_password">Your password</string>
     <string name="teacher_sighUp">User Registration</string>
 

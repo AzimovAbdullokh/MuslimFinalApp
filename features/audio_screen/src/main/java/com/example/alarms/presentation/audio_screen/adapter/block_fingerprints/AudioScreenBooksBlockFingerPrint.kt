@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.alarms.R
-import com.example.alarms.databinding.MainScreenBooksBlockItemBinding
+import com.example.alarms.databinding.AudioScreenBooksBlockItemBinding
 import com.example.alarms.presentation.audio_screen.adapter.items.MainScreenBooksBlockItem
 import com.example.common_api.base.adapter.BaseViewHolder
 import com.example.common_api.base.adapter.FingerprintAdapter
@@ -16,17 +16,17 @@ import com.example.common_api.base.adapter.ItemFingerprint
 class MainScreenBooksBlockFingerPrint(
     private val fingerprintsList: List<ItemFingerprint<*, *>>,
     private val viewPool: RecyclerView.RecycledViewPool,
-) : ItemFingerprint<MainScreenBooksBlockItemBinding, MainScreenBooksBlockItem> {
+) : ItemFingerprint<AudioScreenBooksBlockItemBinding, MainScreenBooksBlockItem> {
 
     override fun isRelativeItem(item: Item) = item is MainScreenBooksBlockItem
 
-    override fun getLayoutId() = R.layout.main_screen_books_block_item
+    override fun getLayoutId() = R.layout.audio_screen_books_block_item
 
     override fun getViewHolder(
         layoutInflater: LayoutInflater,
         parent: ViewGroup,
-    ): BaseViewHolder<MainScreenBooksBlockItemBinding, MainScreenBooksBlockItem> {
-        val binding = MainScreenBooksBlockItemBinding.inflate(layoutInflater)
+    ): BaseViewHolder<AudioScreenBooksBlockItemBinding, MainScreenBooksBlockItem> {
+        val binding = AudioScreenBooksBlockItemBinding.inflate(layoutInflater)
         return MainScreenBooksBlockViewHolder(binding, fingerprintsList, viewPool)
     }
 
@@ -49,10 +49,10 @@ class MainScreenBooksBlockFingerPrint(
 }
 
 class MainScreenBooksBlockViewHolder(
-    binding: MainScreenBooksBlockItemBinding,
+    binding: AudioScreenBooksBlockItemBinding,
     fingerprints: List<ItemFingerprint<*, *>>,
     viewPool: RecyclerView.RecycledViewPool,
-) : BaseViewHolder<MainScreenBooksBlockItemBinding, MainScreenBooksBlockItem>(binding) {
+) : BaseViewHolder<AudioScreenBooksBlockItemBinding, MainScreenBooksBlockItem>(binding) {
 
     private val fingerprintAdapter = FingerprintAdapter(fingerprints)
 

@@ -3,7 +3,7 @@ package com.example.muslimfinalapp.app.glue.audio_screen.di
 import com.example.alarms.domain.repository.AudioNasheedFeatureRepository
 import com.example.alarms.domain.repository.BookFeatureRepository
 import com.example.alarms.domain.repository.QuranReadersFeatureRepository
-import com.example.muslimfinalapp.app.glue.audio_screen.gluing_repository.AdapterBooksAudioFeatureRepository
+import com.example.muslimfinalapp.app.glue.audio_screen.gluing_repository.AdapterBooksFeatureRepository
 import com.example.muslimfinalapp.app.glue.audio_screen.gluing_repository.AdapterNasheedsFeatureRepository
 import com.example.muslimfinalapp.app.glue.audio_screen.gluing_repository.AdapterQuranReadersAudioFeatureRepository
 import dagger.Binds
@@ -23,7 +23,7 @@ abstract class RepositoryModule {
 
     @Binds
     abstract fun bindAdapterBooksAudioFeatureRepository(
-        impl: AdapterBooksAudioFeatureRepository,
+        impl: AdapterBooksFeatureRepository,
     ): BookFeatureRepository
 
     @Binds

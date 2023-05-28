@@ -11,6 +11,7 @@ import com.example.main_screen.databinding.ItemKhadisBinding
 import com.example.main_screen.presentation.models.adapter_models.KhadisAdapterModel
 import com.example.ui_core.extensions.setPointBackground
 import com.example.utils_core.extensions.setOnDownEffectClickListener
+import com.example.utils_core.extensions.showImage
 
 class KhadissesFingerprint : ItemFingerprint<ItemKhadisBinding, KhadisAdapterModel> {
 
@@ -53,13 +54,13 @@ class KhadissesViewHolder(
     }
 
     private fun setupViews() = with(binding) {
-        title.text = item.title
+        titlee.text = item.title
+        titleOnes.text = item.khadisSubject
         description.text = item.khadisDescription
-        time.text = item.createdAt.toString()
-        circle.setPointBackground(false)
+        namazImage.context.showImage(item.namazImageUrl, namazImage)
     }
 
     private fun setOnClickListeners() = with(binding) {
-        khadis.setOnDownEffectClickListener {}
+        notify.setOnDownEffectClickListener {}
     }
 }

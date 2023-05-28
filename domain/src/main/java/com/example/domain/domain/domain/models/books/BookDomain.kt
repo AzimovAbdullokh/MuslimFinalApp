@@ -10,7 +10,9 @@ class BookDomain(
     val bookDescription: String,
     var book: BookPdfDomain,
     var poster: BookPosterDomain,
-
+    val publicYear: String,
+    val pages: String,
+    val bookFormat: String,
     ) {
     companion object {
         val unknown = BookDomain(
@@ -20,7 +22,10 @@ class BookDomain(
             bookDescription = String(),
             book = BookPdfDomain(String(), String(), String()),
             poster = BookPosterDomain(String(), String(), String()),
-            createdAt = Date()
+            createdAt = Date(),
+            pages = String(),
+            publicYear = String(),
+            bookFormat = String(),
         )
     }
 }

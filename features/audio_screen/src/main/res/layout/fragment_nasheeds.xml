@@ -8,6 +8,7 @@
     android:orientation="vertical"
     app:layoutDescription="@xml/fragment_nasheeds_scene">
 
+
     <LinearLayout
         android:id="@+id/liner"
         android:layout_width="match_parent"
@@ -20,10 +21,12 @@
             android:id="@+id/toolbar_block"
             layout="@layout/include_toolbar_block" />
 
-        <!--        <include-->
-        <!--            android:id="@+id/category_block"-->
-        <!--            layout="@layout/include_categories_block" />-->
+        <include
+            android:id="@+id/categories_block"
+            layout="@layout/include_categories_block" />
+
     </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/items_container"
@@ -36,56 +39,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:orientation="vertical">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/nasheds_rv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/nasheds_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:tabBackground="@color/control_tertiary_active"
-                app:tabIconTint="@color/apple_darkest"
-                app:tabIndicatorColor="@color/apple_darkest">
-
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-
-            </com.google.android.material.tabs.TabLayout>
-
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/view_pager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/transparent"
-                android:backgroundTint="@color/transparent" />
-
-        </LinearLayout>
     </LinearLayout>
+
 </androidx.constraintlayout.motion.widget.MotionLayout>

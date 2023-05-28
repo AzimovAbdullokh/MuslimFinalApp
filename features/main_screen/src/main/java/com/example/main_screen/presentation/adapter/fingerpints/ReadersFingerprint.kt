@@ -7,22 +7,22 @@ import com.example.common_api.base.adapter.BaseViewHolder
 import com.example.common_api.base.adapter.Item
 import com.example.common_api.base.adapter.ItemFingerprint
 import com.example.main_screen.R
-import com.example.main_screen.databinding.ItemReaderBinding
+import com.example.main_screen.databinding.ItemReaderMainScreenBinding
 import com.example.main_screen.presentation.models.adapter_models.ReadersMainAdapterModel
 import com.example.utils_core.extensions.setOnDownEffectClickListener
 import com.example.utils_core.extensions.showImage
 
-class ReadersFingerprint : ItemFingerprint<ItemReaderBinding, ReadersMainAdapterModel> {
+class ReadersFingerprint : ItemFingerprint<ItemReaderMainScreenBinding, ReadersMainAdapterModel> {
 
     override fun isRelativeItem(item: Item) = item is ReadersMainAdapterModel
 
-    override fun getLayoutId() = R.layout.item_reader
+    override fun getLayoutId() = R.layout.item_reader_main_screen
 
     override fun getViewHolder(
         layoutInflater: LayoutInflater,
         parent: ViewGroup,
-    ): BaseViewHolder<ItemReaderBinding, ReadersMainAdapterModel> {
-        val binding = ItemReaderBinding.inflate(layoutInflater, parent, false)
+    ): BaseViewHolder<ItemReaderMainScreenBinding, ReadersMainAdapterModel> {
+        val binding = ItemReaderMainScreenBinding.inflate(layoutInflater, parent, false)
         return ReaderViewHolder(binding)
     }
 
@@ -43,8 +43,8 @@ class ReadersFingerprint : ItemFingerprint<ItemReaderBinding, ReadersMainAdapter
 }
 
 class ReaderViewHolder(
-    binding: ItemReaderBinding,
-) : BaseViewHolder<ItemReaderBinding, ReadersMainAdapterModel>(binding) {
+    binding: ItemReaderMainScreenBinding,
+) : BaseViewHolder<ItemReaderMainScreenBinding, ReadersMainAdapterModel>(binding) {
 
     override fun onBind(item: ReadersMainAdapterModel) {
         super.onBind(item)

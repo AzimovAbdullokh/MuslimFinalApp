@@ -36,10 +36,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="16dp"
         android:layout_weight="1"
-        android:textColor="@color/apple_darkest"
-        android:textSize="22sp"
+        android:layout_marginStart="8dp"
+        android:gravity="start"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:textStyle="bold"
         tools:text="Saved Books" />
 
@@ -50,8 +51,8 @@
         android:layout_gravity="center"
         android:layout_marginEnd="4dp"
         android:fontFamily="@font/poppins_semi_bold"
-        android:text="see more"
-        android:textColor="@color/apple_darkest"
-        android:textSize="16sp" />
+        android:text="посмотреть все"
+        android:textColor="@color/black_80_alpha"
+        android:textSize="14sp" />
 
 </LinearLayout>

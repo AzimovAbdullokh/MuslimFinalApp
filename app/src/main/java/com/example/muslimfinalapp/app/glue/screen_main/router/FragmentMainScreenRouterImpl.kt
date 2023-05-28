@@ -46,5 +46,10 @@ class FragmentMainScreenRouterImpl @Inject constructor() : FragmentMainScreenRou
             .toNavCommand()
 
 
+    override fun navigateToAllBooksScreen(): NavCommand =
+        MainScreenFragmentDirections
+            .actionHomeScreenMainToAllBooksFragment()
+            .toNavCommand()
+
 
 }

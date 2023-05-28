@@ -45,10 +45,19 @@ fun RecyclerView.setupLayoutManager(
 }
 
 fun View.startSlideInLeftAnim() {
-//    this.startAnimation(
+    this.startAnimation(
     AnimationUtils.loadAnimation(
         this.context,
         R.anim.slide_in_left_anim
-    )
+    ))
+
+}
+
+fun View.startSlideInBottomtAnim() {
+    this.startAnimation(
+        AnimationUtils.loadAnimation(
+            this.context,
+            androidx.transition.R.anim.abc_slide_in_bottom
+        ))
 
 }

@@ -3,17 +3,22 @@ package com.example.main_screen.presentation.mappers
 import com.example.common_api.Mapper
 import com.example.main_screen.domain.models.khadisses.KhadisFeatureModel
 import com.example.main_screen.presentation.models.KhadissesFeatureUi
+import com.example.main_screen.presentation.models.NamazPosterUi
 import javax.inject.Inject
 
-class KhadisFeatureModelToUiMapper @Inject constructor():Mapper<KhadisFeatureModel, KhadissesFeatureUi> {
+class KhadisFeatureModelToUiMapper @Inject constructor() :
+    Mapper<KhadisFeatureModel, KhadissesFeatureUi> {
     override fun map(from: KhadisFeatureModel) = from.run {
-        KhadissesFeatureUi(
-            id = id,
+        KhadissesFeatureUi(id = id,
             title = title,
             createdAt = createdAt,
             khadisId = khadisId,
             khadisDescription = khadisDescription,
-            khadisSubject = khadisSubject
-        )
+            khadisSubject = khadisSubject,
+            namzImage = NamazPosterUi(
+                name = namazImage.name,
+                type = namazImage.type,
+                url = namazImage.url,
+            ))
     }
 }

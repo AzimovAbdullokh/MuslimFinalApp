@@ -10,7 +10,8 @@ import javax.inject.Inject
 class BookFeatureModelDomainToUiMapper @Inject constructor() :
     Mapper<BookFeatureModelDomain, BookFeatureModelUi> {
     override fun map(from: BookFeatureModelDomain) = from.run {
-        BookFeatureModelUi(bookTitle = bookTitle,
+        BookFeatureModelUi(
+            bookTitle = bookTitle,
             bookAuthor = bookAuthor,
             id = id,
             bookDescription = bookDescription,
@@ -18,6 +19,10 @@ class BookFeatureModelDomainToUiMapper @Inject constructor() :
             poster = BookPosterFeatureModelUi(name = poster.name,
                 type = poster.type,
                 url = poster.url),
-            createdAt = createdAt)
+            createdAt = createdAt,
+            pages = pages,
+            publicYear = publicYear,
+            bookFormat = bookFormat,
+        )
     }
 }

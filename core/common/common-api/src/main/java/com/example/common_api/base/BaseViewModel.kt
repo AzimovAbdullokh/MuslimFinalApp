@@ -10,9 +10,7 @@ import com.example.common_api.event.Event
 import com.example.common_api.navigation.NavCommand
 import com.example.common_api.navigation.NavigationCommand
 import kotlinx.coroutines.channels.BufferOverflow
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.SharedFlow
-import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.*
 
 abstract class BaseViewModel : ViewModel() {
 
@@ -23,6 +21,11 @@ abstract class BaseViewModel : ViewModel() {
 
     private val _isErrorMessageIdFlow = createMutableSharedFlowAsSingleLiveEvent<IdResourceString>()
     val isErrorMessageIdFlow: SharedFlow<IdResourceString> get() = _isErrorMessageIdFlow.asSharedFlow()
+
+    private var _motionPosition = MutableStateFlow(0f)
+    val motionPosition get() = _motionPosition.asStateFlow()
+
+    fun updateMotionPosition(position: Float) = _motionPosition.tryEmit(position)
 
     private var dispatchers = com.example.common_api.dispatchers.Dispatchers.Base()
 

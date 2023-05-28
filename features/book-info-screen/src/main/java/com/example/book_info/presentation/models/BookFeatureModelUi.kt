@@ -10,7 +10,9 @@ class BookFeatureModelUi(
     val bookDescription: String,
     var book: BookPdfFeatureModelUi,
     var poster: BookPosterFeatureModelUi,
-
+    val publicYear: String,
+    val pages: String,
+    val bookFormat: String,
     ) {
     companion object {
         val unknown = BookFeatureModelUi(
@@ -20,7 +22,10 @@ class BookFeatureModelUi(
             bookDescription = String(),
             book = BookPdfFeatureModelUi(String(), String(), String()),
             poster = BookPosterFeatureModelUi(String(), String(), String()),
-            createdAt = Date()
+            createdAt = Date(),
+            pages = String(),
+            publicYear = String(),
+            bookFormat = String(),
         )
     }
 }

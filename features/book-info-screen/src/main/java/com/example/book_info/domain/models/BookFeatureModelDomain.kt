@@ -10,7 +10,9 @@ class BookFeatureModelDomain(
     val bookDescription: String,
     var book: BookPdfFeatureModelDomain,
     var poster: BookPosterFeatureModelDomain,
-
+    val publicYear: String,
+    val pages: String,
+    val bookFormat: String,
     ) {
     companion object {
         val unknown = BookFeatureModelDomain(
@@ -20,7 +22,10 @@ class BookFeatureModelDomain(
             bookDescription = String(),
             book = BookPdfFeatureModelDomain(String(), String(), String()),
             poster = BookPosterFeatureModelDomain(String(), String(), String()),
-            createdAt = Date()
+            createdAt = Date(),
+            pages = String(),
+            publicYear = String(),
+            bookFormat = String(),
         )
     }
 }

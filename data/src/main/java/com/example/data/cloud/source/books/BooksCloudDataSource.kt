@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface BooksCloudDataSource {
 
-    fun fetchAllBooksFromCloud(id: String): Flow<List<BookData>>
+    fun fetchAllBooksFromCloud(): Flow<List<BookData>>
 
     suspend fun fetchBookById(bookId: String): CloudDataRequestState<BookData>
 

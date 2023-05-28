@@ -7,10 +7,4 @@ interface AudioNasheedFeatureRepository {
 
     fun fetchAllAudioNasheeds(id: String): Flow<List<NasheedsFeatureModel>>
 
-    fun fetchAllAudioNasheedsFromCache(): Flow<List<NasheedsFeatureModel>>
-
-    suspend fun fetchAudioNasheedsFromCache(audioNasheedsId: String): NasheedsFeatureModel
-
-    suspend fun clearTable()
-
 }

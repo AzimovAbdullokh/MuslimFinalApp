@@ -6,40 +6,40 @@
     android:background="@color/control_tertiary_active">
 
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="0dp"
+<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment_activity_main"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
+        app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/nav_host_fragment_activity_main"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:defaultNavHost="true"
-            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:navGraph="@navigation/app_navigation" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/app_navigation" />
 
 
-        <FrameLayout
-            android:id="@+id/playerContainerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:behavior_hideable="false"
-            app:behavior_peekHeight="58sp"
-            app:layout_behavior="com.example.ui_core.custom.ScrollBottomSheetBehavior" />
+<!--        <FrameLayout-->
+<!--            android:id="@+id/playerContainerView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:behavior_hideable="false"-->
+<!--            app:behavior_peekHeight="58sp"-->
+<!--            app:layout_behavior="com.example.ui_core.custom.ScrollBottomSheetBehavior" />-->
 
-        <include
-            android:id="@+id/include_bottom_sheet_player"
-            layout="@layout/include_bottom_sheet_player" />
+<!--        <include-->
+<!--            android:id="@+id/include_bottom_sheet_player"-->
+<!--            layout="@layout/include_bottom_sheet_player" />-->
 
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

@@ -19,13 +19,17 @@ object UseCaseModule {
 //        audioBooksRepository: AudioNasheedFeatureRepository,
         khadisRepository: KhadisFeatureRepository,
         surahRepository: SurahFeatureRepository,
-        readersMainFeatureRepository: QuranReadersMainFeatureRepository
+        bookMainScreenFeatureRepository: BookMainScreenFeatureRepository,
+        readersMainFeatureRepository: QuranReadersMainFeatureRepository,
+        categoryFeatureRepository: CategoryMainScreenFeatureRepository,
     ): FetchAllMainScreenItemsFeatureUseCase = FetchAllMainScreenItemsFeatureUseCaseImpl(
         dispatchersProvider = dispatchersProvider,
 //        audioNasheedRepository = audioBooksRepository,
         khadisRepository = khadisRepository,
         surahFeatureRepository = surahRepository,
-        readersRepository = readersMainFeatureRepository
+        readersRepository = readersMainFeatureRepository,
+        bookMainScreenFeatureRepository = bookMainScreenFeatureRepository,
+        categoryFeatureRepository = categoryFeatureRepository
     )
 
 

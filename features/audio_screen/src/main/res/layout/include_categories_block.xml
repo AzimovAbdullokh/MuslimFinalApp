@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/itemCategory"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="120dp"
+    android:gravity="center">
 
     <androidx.cardview.widget.CardView
         android:layout_width="120dp"
         android:layout_height="100dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="6dp"
+        android:background="@color/white"
         app:cardCornerRadius="12dp">
 
         <ImageView
             android:id="@+id/coverImg"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/button_secondary_blue_background" />
+            android:layout_height="match_parent" />
 
         <ImageView
             android:layout_width="25dp"
@@ -38,11 +38,11 @@
                 android:id="@+id/text_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
+                android:layout_marginStart="4dp"
                 android:layout_marginBottom="4dp"
                 android:fontFamily="@font/poppins_extra_bold"
                 android:text="@string/saved"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -52,15 +52,15 @@
     <androidx.cardview.widget.CardView
         android:layout_width="120dp"
         android:layout_height="100dp"
+        android:layout_marginTop="6dp"
+        android:background="@color/white"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
         app:cardCornerRadius="12dp">
 
         <ImageView
             android:id="@+id/coverImg2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/button_secondary_blue_back" />
+            android:layout_height="match_parent" />
 
         <ImageView
             android:layout_width="25dp"
@@ -82,11 +82,11 @@
                 android:id="@+id/text_name2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
+                android:layout_marginStart="4dp"
                 android:layout_marginBottom="4dp"
                 android:fontFamily="@font/poppins_extra_bold"
                 android:text="@string/playlist"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -96,15 +96,15 @@
     <androidx.cardview.widget.CardView
         android:layout_width="120dp"
         android:layout_height="100dp"
+        android:layout_marginTop="6dp"
+        android:background="@color/white"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
         app:cardCornerRadius="12dp">
 
         <ImageView
             android:id="@+id/coverImg3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/button_secondary_yellow_back" />
+            android:layout_height="match_parent" />
 
         <ImageView
             android:layout_width="25dp"
@@ -129,8 +129,8 @@
                 android:layout_marginStart="14dp"
                 android:layout_marginBottom="4dp"
                 android:fontFamily="@font/poppins_extra_bold"
-                android:text="@string/premium"
-                android:textColor="@color/white"
+                android:text="@string/category"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
         </LinearLayout>
 

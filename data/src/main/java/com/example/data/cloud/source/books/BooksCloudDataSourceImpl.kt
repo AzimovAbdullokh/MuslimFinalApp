@@ -23,8 +23,8 @@ class BooksCloudDataSourceImpl @Inject constructor(
     private val bookResponseToBookCloudMapper: Mapper<BookResponseCloud, BookCloud>,
     ) : BooksCloudDataSource {
 
-    override fun fetchAllBooksFromCloud(id: String): Flow<List<BookData>> =
-        flow { emit(service.fetchAllBooks(id = "{\"bookId\":\"${id}\"}")) }
+    override fun fetchAllBooksFromCloud(): Flow<List<BookData>> =
+        flow { emit(service.fetchAllBooks())}
             .flowOn(dispatchersProvider.io())
             .map { it.body() ?: BookResponseCloud(emptyList()) }
             .map { it.books }
@@ -33,7 +33,7 @@ class BooksCloudDataSourceImpl @Inject constructor(
 
 
     override suspend fun fetchBookById(bookId: String): CloudDataRequestState<BookData> =
-        responseHandler.safeApiCall { service.fetchAllBooks(id = "{\"objectId\":\"${bookId}\"}") }
+        responseHandler.safeApiCall { service.fetchAllBooks() }
             .map(bookResponseToBookCloudMapper)
             .map(bookCloudToDataMapper.map())
 }

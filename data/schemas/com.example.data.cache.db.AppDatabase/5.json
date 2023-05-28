@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 5,
-    "identityHash": "04cbca4b7d8c3755ac136266e07092c0",
+    "identityHash": "0e1c918c1421260f160fbd6a0a7d58b8",
     "entities": [
       {
         "tableName": "audio_nasheeds_table",
@@ -56,7 +56,7 @@
       },
       {
         "tableName": "khadisses_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `created_at` INTEGER NOT NULL, `khadisDescription` TEXT NOT NULL, `theme` TEXT NOT NULL, `khadisId` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `created_at` INTEGER NOT NULL, `khadisDescription` TEXT NOT NULL, `theme` TEXT NOT NULL, `khadisId` TEXT NOT NULL, `NamazImage` TEXT NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -93,6 +93,12 @@
             "columnName": "khadisId",
             "affinity": "TEXT",
             "notNull": true
+          },
+          {
+            "fieldPath": "namazImage",
+            "columnName": "NamazImage",
+            "affinity": "TEXT",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -106,7 +112,7 @@
       },
       {
         "tableName": "book_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `created_at` INTEGER NOT NULL, `bookTitle` TEXT NOT NULL, `bookAuthor` TEXT NOT NULL, `bookDescription` TEXT NOT NULL, `book` TEXT NOT NULL, `bookPoster` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `created_at` INTEGER NOT NULL, `bookTitle` TEXT NOT NULL, `bookAuthor` TEXT NOT NULL, `bookDescription` TEXT NOT NULL, `book` TEXT NOT NULL, `bookPoster` TEXT NOT NULL, `bookFormat` TEXT NOT NULL, `pages` TEXT NOT NULL, `publicYear` TEXT NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -147,6 +153,24 @@
           {
             "fieldPath": "bookPoster",
             "columnName": "bookPoster",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bookFormat",
+            "columnName": "bookFormat",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pages",
+            "columnName": "pages",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "publicYear",
+            "columnName": "publicYear",
             "affinity": "TEXT",
             "notNull": true
           }
@@ -352,7 +376,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '04cbca4b7d8c3755ac136266e07092c0')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0e1c918c1421260f160fbd6a0a7d58b8')"
     ]
   }
 }

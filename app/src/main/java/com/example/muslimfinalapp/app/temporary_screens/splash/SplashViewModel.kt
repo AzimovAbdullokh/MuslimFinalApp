@@ -9,7 +9,6 @@ import com.example.domain.domain.domain.repositories.UserCacheRepository
 import com.example.muslimfinalapp.app.temporary_screens.sign_up.models.UserFeatures
 import com.example.muslimfinalapp.app.temporary_screens.sign_up.models.UserType
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.withTimeout
@@ -17,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
-    private val mapper: Mapper<UserDomain, UserFeatures>,
+    private val userDomainToFeaturesMapper: Mapper<UserDomain, UserFeatures>,
     userCacheRepository: UserCacheRepository,
     private val dispatchersProvider: DispatchersProvider,
 ) : BaseViewModel() {
@@ -27,7 +26,7 @@ class SplashViewModel @Inject constructor(
 
     private val currentUserFromCacheFlow = userCacheRepository.fetchCurrentUserFromCache()
         .flowOn(dispatchersProvider.io())
-        .map(mapper::map)
+        .map(userDomainToFeaturesMapper::map)
         .filterNotNull()
         .flowOn(dispatchersProvider.default())
         .onEach(::handleCurrentUserFromCache)

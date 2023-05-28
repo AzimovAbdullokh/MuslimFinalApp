@@ -16,10 +16,20 @@ class BookResponseToBookCloudMapper @Inject constructor() : Mapper<BookResponseC
             bookAuthor = book.bookAuthor,
             createdAt = book.createdAt,
             bookTitle = book.bookTitle,
-            book = BookPdfCloud(name = book.book.name, url = book.book.url, type = book.book.type),
-            poster = BookPosterCloud(name = book.poster.name,
+            book = BookPdfCloud(
+                name = book.book.name,
+                url = book.book.url,
+                type = book.book.type,
+            ),
+            poster = BookPosterCloud(
+                name = book.poster.name,
                 url = book.poster.url,
-                type = book.poster.type),
-            bookDescription = book.bookDescription)
+                type = book.poster.type,
+            ),
+            bookDescription = book.bookDescription,
+            publicYear = book.publicYear,
+            pages = book.pages,
+            bookFormat = book.bookFormat
+        )
     }
 }

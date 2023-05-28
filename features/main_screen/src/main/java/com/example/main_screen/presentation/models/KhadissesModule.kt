@@ -9,4 +9,11 @@ data class KhadissesFeatureUi(
     val khadisId: String,
     val khadisDescription: String,
     val khadisSubject: String,
+    val namzImage: NamazPosterUi,
+)
+
+class NamazPosterUi(
+    var name: String,
+    var type: String,
+    var url: String,
 )
