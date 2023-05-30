@@ -6,6 +6,8 @@ import com.example.data.cache.source.categories.CategoriesCacheDataSource
 import com.example.data.cache.source.categories.CategoriesCacheDataSourceImpl
 import com.example.data.cache.source.khadisses.KhadissesCacheDataSource
 import com.example.data.cache.source.khadisses.KhadissesCacheDataSourceImpl
+import com.example.data.cache.source.name.AllahNamesCacheDataSource
+import com.example.data.cache.source.name.AllahNamesCacheDataSourceImpl
 import com.example.data.cache.source.nasheeds.AudioNasheedsCacheDataSource
 import com.example.data.cache.source.nasheeds.AudioNasheedsCacheDataSourceImpl
 import com.example.data.cache.source.readers.QuranReadersCacheDataSource
@@ -20,6 +22,8 @@ import com.example.data.cloud.source.category.CategoryCloudDataSource
 import com.example.data.cloud.source.category.CategoryCloudDataSourceImpl
 import com.example.data.cloud.source.khadisses.KhadissesCloudDataSource
 import com.example.data.cloud.source.khadisses.KhadissesCloudDataSourceImpl
+import com.example.data.cloud.source.names.AllahNamesCloudDataSource
+import com.example.data.cloud.source.names.AllahNamesCloudDataSourceImpl
 import com.example.data.cloud.source.nasheeds.AudioNasheedCloudDataSource
 import com.example.data.cloud.source.nasheeds.AudioNasheedCloudDataSourceImpl
 import com.example.data.cloud.source.readers.QuranReadersCloudDataSource
@@ -28,7 +32,9 @@ import com.example.data.cloud.source.surah.SurahCloudDataSource
 import com.example.data.cloud.source.surah.SurahCloudDataSourceImpl
 import com.example.data.cloud.source.user.UsersCloudDataSource
 import com.example.data.cloud.source.user.UsersCloudDataSourceImpl
+import com.example.data.data.repository.names.AllahNamesRepositoryImpl
 import com.example.data.data.repository.user.UserRepositoryImpl
+import com.example.domain.domain.domain.repositories.AllahNamesRepository
 import com.example.domain.domain.domain.repositories.UserRepository
 import dagger.Binds
 import dagger.Module
@@ -40,8 +46,23 @@ import dagger.hilt.components.SingletonComponent
 abstract class DataSourceBindModule {
 
     @Binds
+    abstract fun bindAllahNamesRepository(
+        impl: AllahNamesRepositoryImpl,
+    ): AllahNamesRepository
+
+    @Binds
+    abstract fun bindAllahNamesCacheDataSource(
+        impl: AllahNamesCacheDataSourceImpl,
+    ): AllahNamesCacheDataSource
+
+    @Binds
+    abstract fun bindAllahNamesCloudDataSource(
+        impl: AllahNamesCloudDataSourceImpl,
+    ): AllahNamesCloudDataSource
+
+    @Binds
     abstract fun bindQuestionCacheDataSource(
-        impl:QuestionCacheDataSourceImpl
+        impl: QuestionCacheDataSourceImpl,
     ): QuestionCacheDataSource
 
     @Binds

@@ -7,6 +7,7 @@ import com.example.data.cloud.models.books.BookCloud
 import com.example.data.cloud.models.books.BookResponseCloud
 import com.example.data.cloud.models.category.CategoryCloud
 import com.example.data.cloud.models.khadisses.KhadisCloud
+import com.example.data.cloud.models.names.NamesCloud
 import com.example.data.cloud.models.nasheeds.NasheedsCloud
 import com.example.data.cloud.models.readers.ReadersCloud
 import com.example.data.cloud.models.surah.SurahCloud
@@ -19,6 +20,7 @@ import com.example.data.data.mappers.*
 import com.example.data.data.models.books.BookData
 import com.example.data.data.models.category.CategoryData
 import com.example.data.data.models.khadisses.KhadisData
+import com.example.data.data.models.names.NamesData
 import com.example.data.data.models.nasheeds.NasheedsData
 import com.example.data.data.models.readers.ReadersData
 import com.example.data.data.models.surah.SurahData
@@ -28,6 +30,7 @@ import com.example.domain.domain.domain.Mapper
 import com.example.domain.domain.domain.models.books.BookDomain
 import com.example.domain.domain.domain.models.categories.CategoryDomain
 import com.example.domain.domain.domain.models.khadisses.KhadisDomain
+import com.example.domain.domain.domain.models.names.NamesDomain
 import com.example.domain.domain.domain.models.nasheeds.NasheedsDomain
 import com.example.domain.domain.domain.models.readers.ReaderDomain
 import com.example.domain.domain.domain.models.surah.SurahDomain
@@ -48,6 +51,26 @@ import dagger.hilt.components.SingletonComponent
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class MappersBindModule {
+
+    @Binds
+    abstract fun bindNamesCloudToDataMapper(
+        impl: NamesCloudToDataMapper,
+    ): Mapper<NamesCloud, NamesData>
+
+    @Binds
+    abstract fun bindNamesDataToDomainMapper(
+        impl: NamesDataToDomainMapper,
+    ): Mapper<NamesData, NamesDomain>
+
+    @Binds
+    abstract fun bindNamesDataToCacheMapper(
+        impl: NamesDataToCacheMapper,
+    ): Mapper<NamesData, NamesCache>
+
+    @Binds
+    abstract fun bindNamesCacheToDataMapper(
+        impl: NamesCacheToDataMapper,
+    ): Mapper<NamesCache, NamesData>
 
     @Binds
     abstract fun bindQuestionDataToDomainMapper(

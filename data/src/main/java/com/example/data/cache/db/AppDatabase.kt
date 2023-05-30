@@ -5,15 +5,20 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import com.example.data.cache.models.*
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import org.json.JSONObject
-import java.lang.reflect.Type
 import java.util.*
 
-@Database(entities = [AudioNasheedsCashe::class, KhadissesCache::class, BookCache::class, CategoryCache::class, ReadersCache::class, SurahCache::class, QuestionsCache::class],
-
-    version = 5, exportSchema = true)
+@Database(
+    entities = [
+        AudioNasheedsCashe::class,
+        KhadissesCache::class,
+        BookCache::class,
+        CategoryCache::class,
+        ReadersCache::class,
+        SurahCache::class,
+        QuestionsCache::class,
+        NamesCache::class],
+    version = 4, exportSchema = true)
 
 @TypeConverters(AppDatabase.DatabaseConverter::class)
 abstract class AppDatabase : RoomDatabase() {
@@ -31,6 +36,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun getSurahDao(): SurahDao
 
     abstract fun getQuestionsDao(): QuestionsDao
+
+    abstract fun getNamesDao(): NamesDao
 
     class DatabaseConverter {
 
@@ -53,6 +60,7 @@ abstract class AppDatabase : RoomDatabase() {
             )
         }
 
+
         @TypeConverter
         fun fromPdf(bookPdfCache: BookPdfCache): String {
             return JSONObject().apply {
@@ -72,8 +80,9 @@ abstract class AppDatabase : RoomDatabase() {
             )
         }
 
+
         @TypeConverter
-        fun fromPoster(bookPosterCache: BookPosterCache): String {
+        fun fromBookPoster(bookPosterCache: BookPosterCache): String {
             return JSONObject().apply {
                 put("bookPosterCache.name", bookPosterCache.name)
                 put("bookPosterCache.url", bookPosterCache.url)
@@ -82,7 +91,7 @@ abstract class AppDatabase : RoomDatabase() {
         }
 
         @TypeConverter
-        fun toPoster(source: String): BookPosterCache {
+        fun toBookPoster(source: String): BookPosterCache {
             val json = JSONObject(source)
             return BookPosterCache(name = json.getString("bookPosterCache.name"),
                 url = json.getString("bookPosterCache.url"),
@@ -114,6 +123,7 @@ abstract class AppDatabase : RoomDatabase() {
                 url = json.getString(AUDIO_NASHEED_FILE_URL_KEY))
         }
 
+
         @TypeConverter
         fun fromAudioNasheedPoster(audioNasheedPosterCache: AudioNasheedPosterCache): String {
             return JSONObject().apply {
@@ -128,6 +138,7 @@ abstract class AppDatabase : RoomDatabase() {
             return AudioNasheedPosterCache(name = gson.getString(AUDIO_NASHEED_POSTER_NAME_KEY),
                 url = gson.getString(AUDIO_NASHEED_POSTER_URL_KEY))
         }
+
 
         @TypeConverter
         fun fromGenrePoster(genreCache: CategoryPosterCache): String {
@@ -163,17 +174,40 @@ abstract class AppDatabase : RoomDatabase() {
                 url = json.getString(READER_POSTER_URL_KEY),
             )
         }
+
+        @TypeConverter
+        fun fromNamePoster(namesCache: NamesPosterCache): String {
+            return JSONObject().apply {
+                put(NAME_POSTER_NAME_KEY, namesCache.name)
+                put(NAME_POSTER_URL_KEY, namesCache.url)
+            }.toString()
+        }
+
+        @TypeConverter
+        fun toNamePoster(source: String): NamesPosterCache {
+            val json = JSONObject(source)
+            return NamesPosterCache(
+                name = json.getString(NAME_POSTER_NAME_KEY),
+                url = json.getString(NAME_POSTER_URL_KEY),
+            )
+        }
     }
 
 
     private companion object {
         const val AUDIO_NASHEED_FILE_NAME_KEY = "AUDIO_NASHEED_FILE_NAME_KEY"
         const val AUDIO_NASHEED_POSTER_NAME_KEY = "AUDIO_NASHEED_POSTER_NAME_KEY"
+
         const val AUDIO_NASHEED_FILE_URL_KEY = "AUDIO_NASHEED_FILE_URL_KEY"
         const val AUDIO_NASHEED_POSTER_URL_KEY = "AUDIO_NASHEED_POSTER_URL_KEY"
+
         const val CATEGORY_POSTER_NAME_KEY = "CATEGORY_POSTER_NAME_KEY"
         const val CATEGORY_POSTER_URL_KEY = "CATEGORY_POSTER_URL_KEY"
+
         const val READER_POSTER_NAME_KEY = "READER_POSTER_NAME_KEY"
         const val READER_POSTER_URL_KEY = "READER_POSTER_URL_KEY"
+
+        const val NAME_POSTER_NAME_KEY = "NAME_POSTER_NAME_KEY"
+        const val NAME_POSTER_URL_KEY = "NAME_POSTER_URL_KEY"
     }
 }

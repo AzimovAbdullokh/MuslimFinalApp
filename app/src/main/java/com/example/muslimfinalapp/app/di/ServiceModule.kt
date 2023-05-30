@@ -6,6 +6,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
+import retrofit2.create
 import javax.inject.Singleton
 
 
@@ -52,5 +53,10 @@ object ServiceModule {
     @Singleton
     fun provideSurahService(retrofit: Retrofit): QuranService =
         retrofit.create(QuranService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideAllahNamesService(retrofit: Retrofit): NamesAllahService =
+        retrofit.create(NamesAllahService::class.java)
 
 }

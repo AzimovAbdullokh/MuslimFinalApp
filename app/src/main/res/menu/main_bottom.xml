@@ -21,5 +21,11 @@
         android:icon="@drawable/person_one"
         android:title="@string/profile" />
 
+    <item
+        android:id="@+id/screen_names_compose"
+        android:checked="true"
+        android:icon="@drawable/category"
+        android:title="Compose" />
+
 
 </menu>

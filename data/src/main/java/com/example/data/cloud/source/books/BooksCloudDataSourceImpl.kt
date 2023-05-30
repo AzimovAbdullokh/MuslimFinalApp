@@ -21,10 +21,10 @@ class BooksCloudDataSourceImpl @Inject constructor(
     private val bookCloudToDataMapper: BookCloudDataMapper,
     private val responseHandler: ResponseHandler,
     private val bookResponseToBookCloudMapper: Mapper<BookResponseCloud, BookCloud>,
-    ) : BooksCloudDataSource {
+) : BooksCloudDataSource {
 
     override fun fetchAllBooksFromCloud(): Flow<List<BookData>> =
-        flow { emit(service.fetchAllBooks())}
+        flow { emit(service.fetchAllBooks()) }
             .flowOn(dispatchersProvider.io())
             .map { it.body() ?: BookResponseCloud(emptyList()) }
             .map { it.books }

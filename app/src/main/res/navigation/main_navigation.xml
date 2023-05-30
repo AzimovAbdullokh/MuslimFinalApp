@@ -181,6 +181,10 @@
         android:id="@+id/allahNamesFragment"
         android:name="com.example.allah_names.presentation.AllahNamesFragment"
         android:label="AllahNamesFragment" />
+    <fragment
+        android:id="@+id/screen_names_compose"
+        android:name="com.example.names_screen.presentation.FragmentNameScreen"
+        android:label="FragmentProfileScreen" />
 
 
     <!--    <fragment-->

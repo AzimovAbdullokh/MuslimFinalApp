@@ -55,6 +55,8 @@ dependencies {
     implementation project(':features:tasbih-screen')
     implementation project(':features:allah_names')
 
+    implementation project(':compose-features:names-screen')
+
 
     implementation project(":core:common:common-api")
     implementation project(":core:common:common-impl")
