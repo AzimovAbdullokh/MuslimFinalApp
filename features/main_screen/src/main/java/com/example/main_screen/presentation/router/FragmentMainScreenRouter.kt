@@ -21,4 +21,8 @@ interface FragmentMainScreenRouter {
     fun navigateToTasbihScreen(): NavCommand
 
     fun navigateToAllBooksScreen(): NavCommand
+
+    fun navigateToSearchScreen(): NavCommand
+
+    fun navigateToAllahNamesScreen(): NavCommand
 }

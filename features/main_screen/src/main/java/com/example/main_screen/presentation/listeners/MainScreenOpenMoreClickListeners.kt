@@ -13,4 +13,8 @@ interface MainScreenOpenMoreClickListeners {
     fun navigateToNamazTimesFragment()
 
     fun navigateToTasbihFragment()
+
+    fun navigateToSearchFragment()
+
+    fun navigateToAllahNamesFragment()
 }

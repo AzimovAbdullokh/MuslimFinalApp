@@ -53,6 +53,7 @@ dependencies {
     implementation project(':features:test-category-screen')
     implementation project(':features:questions-screen')
     implementation project(':features:tasbih-screen')
+    implementation project(':features:allah_names')
 
 
     implementation project(":core:common:common-api")

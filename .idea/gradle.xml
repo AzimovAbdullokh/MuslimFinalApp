@@ -22,6 +22,7 @@
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/allah_names" />
             <option value="$PROJECT_DIR$/features/audio_screen" />
             <option value="$PROJECT_DIR$/features/book-info-screen" />
             <option value="$PROJECT_DIR$/features/books-screen" />

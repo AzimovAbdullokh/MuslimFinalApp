@@ -9,6 +9,8 @@ import javax.inject.Inject
 class AudioScreenRouterImpl @Inject constructor() : AudioScreenRouter {
 
     override fun navigateToSearchAudioFragment(): NavCommand =
-        NasheedsFragmentDirections.actionScreenNasheedsToSearchAudioFragment()
+        NasheedsFragmentDirections
+            .actionScreenNasheedsToSearchAudioFragment()
             .toNavCommand()
+
 }

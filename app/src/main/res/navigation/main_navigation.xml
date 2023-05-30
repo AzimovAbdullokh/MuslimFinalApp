@@ -67,6 +67,20 @@
             app:exitAnim="@anim/animate_in_out_exit"
             app:popEnterAnim="@anim/animate_in_out_enter"
             app:popExitAnim="@anim/animate_in_out_exit" />
+        <action
+            android:id="@+id/action_home_screen_main_to_searchAudioFragment"
+            app:destination="@id/searchAudioFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down"
+            app:popEnterAnim="@anim/slide_up"
+            app:popExitAnim="@anim/slide_down" />
+        <action
+            android:id="@+id/action_home_screen_main_to_allahNamesFragment"
+            app:destination="@id/allahNamesFragment"
+            app:enterAnim="@anim/animate_swipe_left_enter"
+            app:exitAnim="@anim/animate_swipe_left_exit"
+            app:popEnterAnim="@anim/animate_swipe_left_enter"
+            app:popExitAnim="@anim/animate_swipe_left_exit" />
     </fragment>
 
 
@@ -163,6 +177,10 @@
         android:id="@+id/allBooksFragment"
         android:name="com.example.main_screen.all_books_screen.AllBooksFragment"
         android:label="AllBooksFragment" />
+    <fragment
+        android:id="@+id/allahNamesFragment"
+        android:name="com.example.allah_names.presentation.AllahNamesFragment"
+        android:label="AllahNamesFragment" />
 
 
     <!--    <fragment-->

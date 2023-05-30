@@ -9,10 +9,11 @@
     <string name="your_location">Your Location</string>
     <string name="readers">Все чтецы</string>
     <string name="surah">Коран</string>
+    <string name="gunctions">Функциональности</string>
     <string name="qibla">Кибла</string>
 
     <string name="main">Главное</string>
-    <string name="mosques">Мечети</string>
+    <string name="mosques">Поиск мечетей</string>
     <string name="duas">Дуа</string>
     <string name="names">99 имена</string>
     <string name="alarm">Alarms</string>
@@ -82,7 +83,6 @@
     // ExoPlayer
     <string name="playback_speed">%sx</string>
     <string name="age_input_format_error">Incorrect age input format!</string>
-
 
 
 </resources>

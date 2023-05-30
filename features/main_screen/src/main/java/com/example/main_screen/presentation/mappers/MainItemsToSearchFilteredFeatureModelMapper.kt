@@ -13,6 +13,7 @@ import com.example.main_screen.domain.models.surah.SurahFeatureModuleDomainModel
 import com.example.main_screen.presentation.adapter.items.*
 import com.example.main_screen.presentation.listeners.*
 import com.example.main_screen.presentation.models.*
+import com.example.main_screen.presentation.models.Function
 import com.example.main_screen.presentation.models.adapter_models.*
 import com.example.ui_core.R
 import javax.inject.Inject
@@ -103,11 +104,18 @@ class MainItemsToSearchFilteredFeatureModelMapperImpl @Inject constructor(
                 listener = readerItemOnClickListener)
         }.take(MAX_ITEMS_SHOW_COUNT_IN_MAIN_SCREEN)
 
+        val filteredFuntionsList = Function.fetchAllFunctions().map {
+            CommunityItem(community = it, listener = communityItemClickListener)
+        }
 
         val allItems = mutableListOf<Item>()
 
         val readerItem = MainFeatureScreenReadersBlockItem(filteredReadersList)
         if (readerItem.items.isNotEmpty()) allItems.addAll(listOf(readerItem))
+
+        val functionItem = MainScreenCommunityBlockItem(filteredFuntionsList)
+        allItems.add(createHeaderModelForAllFunctions{})
+        allItems.addAll(listOf(functionItem))
 
         val khadisItem = MainScreenKhadissesBlockItem(filteredKhadissesList)
         if (khadisItem.items.isNotEmpty()) allItems.add(createHeaderModelForAllKhadisses { })
@@ -149,8 +157,8 @@ class MainItemsToSearchFilteredFeatureModelMapperImpl @Inject constructor(
             onClickListener = { navigateToAllBooksFragment() },
         )
 
-    private fun createHeaderModelForAllReaders(navigateToAllBooksFragment: () -> Unit) = HeaderItem(
-        titleId = IdResourceString(R.string.readers),
+    private fun createHeaderModelForAllFunctions(navigateToAllBooksFragment: () -> Unit) = HeaderItem(
+        titleId = IdResourceString(R.string.gunctions),
         onClickListener = { navigateToAllBooksFragment() })
 
     private fun createHeaderModelForAllSurah(navigateToAllBooksFragment: () -> Unit) = HeaderItem(

@@ -51,5 +51,14 @@ class FragmentMainScreenRouterImpl @Inject constructor() : FragmentMainScreenRou
             .actionHomeScreenMainToAllBooksFragment()
             .toNavCommand()
 
+    override fun navigateToSearchScreen(): NavCommand =
+        MainScreenFragmentDirections
+            .actionHomeScreenMainToSearchAudioFragment()
+            .toNavCommand()
+
+    override fun navigateToAllahNamesScreen(): NavCommand =
+        MainScreenFragmentDirections
+            .actionHomeScreenMainToAllahNamesFragment()
+            .toNavCommand()
 
 }

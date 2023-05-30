@@ -11,7 +11,7 @@ import com.example.main_screen.presentation.adapter.items.MainCardItemClickListe
 import com.example.main_screen.presentation.listeners.*
 import com.example.main_screen.presentation.mappers.MainItemsToSearchFilteredFeatureModelMapper
 import com.example.main_screen.presentation.models.CategoryTypes
-import com.example.main_screen.presentation.models.Community
+import com.example.main_screen.presentation.models.Function
 import com.example.main_screen.presentation.router.FragmentMainScreenRouter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -89,15 +89,19 @@ class MainScreenViewModel @Inject constructor(
         navigate(router.navigateToTasbihScreen())
     }
 
-    override fun collectionItemOnClick(community: Community) {
+    override fun navigateToSearchFragment() {
+        navigate(router.navigateToSearchScreen())
+    }
+
+    override fun navigateToAllahNamesFragment() {
+        navigate(router.navigateToAllahNamesScreen())
+    }
+
+    override fun collectionItemOnClick(community: Function) {
         when (community) {
-            Community.BOOKS -> navigateToBooksFragment()
-            Community.NAMAZ_TIMES -> navigateToNamazTimesFragment()
-            Community.QURAN -> navigateToSurahFragment()
-            Community.TESTS -> navigateToIslamicTestsFragment()
-            Community.KHADISSES -> navigateToKhadissesFragment()
-            Community.TASBIH -> navigateToTasbihFragment()
-            else -> {}
+            Function.MOSQUES -> Unit
+            Function.TASBIH -> navigateToTasbihFragment()
+            Function.NAMES -> navigateToAllahNamesFragment()
         }
     }
 
