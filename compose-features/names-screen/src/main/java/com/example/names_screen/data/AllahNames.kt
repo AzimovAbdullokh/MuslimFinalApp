@@ -2,12 +2,9 @@ package com.example.names_screen.data
 
 import java.io.Serializable
 
-data class Album(
+data class AllahNames(
     val id: Int,
-    val genre: String = "Pop",
     val artist: String,
-    val song: String,
-    val descriptions: String,
     val imageId: Int,
     val swiped: Boolean = false
 ) : Serializable

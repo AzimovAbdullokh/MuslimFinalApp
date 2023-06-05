@@ -17,13 +17,16 @@ fun MultiStateAnimationCircleFilledCanvas(
     radiusEnd: Float = 200f
 ) {
     val transition = rememberInfiniteTransition()
+
     val floatAnim by transition.animateFloat(
         initialValue = 10f,
         targetValue = radiusEnd,
         animationSpec = infiniteRepeatable(tween(1200), RepeatMode.Reverse)
     )
+
     Canvas(modifier = Modifier.padding(16.dp)) {
         val centerOffset = Offset(10f, 10f)
+
         drawCircle(
             color = color.copy(alpha = 0.8f),
             radius = floatAnim,

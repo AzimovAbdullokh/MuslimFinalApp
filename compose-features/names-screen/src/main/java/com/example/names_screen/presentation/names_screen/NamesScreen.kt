@@ -19,13 +19,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.fontResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.names_screen.R
-import com.example.names_screen.data.Album
+import com.example.names_screen.data.AllahNames
 import com.example.names_screen.presentation.extencion.orFalse
 import com.example.names_screen.presentation.extencion.verticalGradientBackground
 import com.example.names_screen.presentation.ui.animation.DraggableCard
@@ -38,8 +39,7 @@ import com.example.names_screen.presentation.ui.tertiary
 @Composable
 fun NamesScreen() {
 
-    val viewModel: ComposeHomeViewModel = viewModel()
-
+    val viewModel: NamesScreenViewModel = viewModel()
     val persons = viewModel.albumLiveData
 
     val configuration = LocalConfiguration.current
@@ -78,45 +78,31 @@ fun NamesScreen() {
                     CardContent(album = album)
                 }
             }
-
-            Row(horizontalArrangement = Arrangement.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = cardHeight)
-                    .alpha(animateFloatAsState(if (listEmpty.value) 0f else 1f).value)) {
-                IconButton(onClick = {
-                    /* TODO Hook to swipe event */
-                }, modifier = Modifier
-                    .padding(horizontal = 16.dp)
-                    .size(60.dp)
-                    .clip(CircleShape)) {}
-                IconButton(onClick = {},
-                    modifier = Modifier
-                        .padding(horizontal = 16.dp)
-                        .size(60.dp)
-                        .clip(CircleShape)) {}
-            }
         }
     }
 }
 
 
 @Composable
-fun CardContent(album: Album) {
+fun CardContent(album: AllahNames) {
     Column {
-        Image(painter = painterResource(album.imageId),
+        Image(
+            painter = painterResource(album.imageId),
             contentScale = ContentScale.Crop,
             contentDescription = null,
             modifier = Modifier.weight(1f))
-        Row(modifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp)) {
-            Text(text = album.artist,
+        Row(
+            modifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp)) {
+            Text(
+                text = album.artist,
                 style = typography.h6,
                 modifier = Modifier
                     .padding(end = 8.dp)
                     .weight(1f),
                 textAlign = TextAlign.Start)
         }
-        Text(text = "Allah names by Muslim App",
+        Text(
+            text = "Names by Muslim App",
             style = typography.subtitle2,
             modifier = Modifier.padding(bottom = 4.dp, start = 16.dp, end = 16.dp))
     }
@@ -124,7 +110,8 @@ fun CardContent(album: Album) {
 
 @Composable
 fun DatingLoader(modifier: Modifier) {
-    Box(contentAlignment = Alignment.Center, modifier = modifier
+    Box(
+        contentAlignment = Alignment.Center, modifier = modifier
         .fillMaxSize()
         .clip(CircleShape)) {
         MultiStateAnimationCircleFilledCanvas(purple, 400f)

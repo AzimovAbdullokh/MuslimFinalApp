@@ -185,6 +185,10 @@
         android:id="@+id/screen_names_compose"
         android:name="com.example.names_screen.presentation.FragmentNameScreen"
         android:label="FragmentProfileScreen" />
+    <fragment
+        android:id="@+id/screen_nasheed_compose"
+        android:name="com.example.player_screen.presentation.PlayerFragment"
+        android:label="PlayerFragment" />
 
 
     <!--    <fragment-->

@@ -43,10 +43,10 @@ abstract class BaseViewModel : ViewModel() {
     fun emitToErrorMessageFlow(messageId: IdResourceString) =
         _isErrorMessageIdFlow.tryEmit(messageId)
 
-
-
     fun <T> launchInBackground(backgroundCall: suspend () -> T) =
         dispatchers.launchInBackground(viewModelScope) { backgroundCall() }
+
+
 
     companion object {
         const val SEARCH_DEBOUNCE = 300L

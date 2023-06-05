@@ -3,22 +3,22 @@ package com.example.names_screen.presentation.names_screen
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.names_screen.data.Album
-import com.example.names_screen.data.AlbumsDataProvider
+import com.example.names_screen.data.AllahNames
+import com.example.names_screen.data.AllahNamesDataProvider
 
 //@HiltViewModel
-class ComposeHomeViewModel(
+class NamesScreenViewModel(
 ) : ViewModel() {
 
-    private val _albumLiveData = MutableLiveData<MutableList<Album>>()
-    val albumLiveData: LiveData<MutableList<Album>> = _albumLiveData
+    private val _albumLiveData = MutableLiveData<MutableList<AllahNames>>()
+    val albumLiveData: LiveData<MutableList<AllahNames>> = _albumLiveData
 
     init {
         getAlbums()
     }
 
     private fun getAlbums() {
-        _albumLiveData.value = AlbumsDataProvider.albums.take(8).toMutableList()
+        _albumLiveData.value = AllahNamesDataProvider.albums.take(8).toMutableList()
     }
 
 

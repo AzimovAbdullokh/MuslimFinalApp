@@ -50,7 +50,6 @@ fun DraggableCard(
                     swipeX = swipeX,
                     swipeY = swipeY,
                     maxX = swipeXRight,
-                    onSwiped = { _, _ -> }
                 )
                 .graphicsLayer(
                     translationX = swipeX.value,
@@ -72,7 +71,6 @@ fun Modifier.dragContent(
     swipeX: Animatable<Float, AnimationVector1D>,
     swipeY: Animatable<Float, AnimationVector1D>,
     maxX: Float,
-    onSwiped: (Any, Any) -> Unit
 ): Modifier = composed {
     val coroutineScope = rememberCoroutineScope()
     pointerInput(Unit) {
@@ -105,7 +103,7 @@ fun Modifier.dragContent(
                 }
             }
         ) { change, dragAmount ->
-            change.consumePositionChange()
+            change.isConsumed
             coroutineScope.apply {
                 launch { swipeX.animateTo(swipeX.targetValue + dragAmount.x) }
                 launch { swipeY.animateTo(swipeY.targetValue + dragAmount.y) }

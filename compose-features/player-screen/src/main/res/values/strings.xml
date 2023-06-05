@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="emptyDescription" translatable="false">.</string>
+    <string name="demons" translatable="false">Demons</string>
+    <string name="imagineDragons" translatable="false">Imagine Dragons</string>
+    <string name="Undefined">Undefined</string>
+    <string name="Song">Song</string>
+    <string name="notificationChannelName" translatable="false">Playback</string>
+
+    <string name="notificationChannelDescription" translatable="false">Simple MP Playback</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
